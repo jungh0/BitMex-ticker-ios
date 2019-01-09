@@ -1,0 +1,6 @@
+framework module Pods_marginTests {
+  umbrella header "Pods-marginTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
