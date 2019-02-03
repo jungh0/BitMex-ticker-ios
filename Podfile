@@ -5,6 +5,7 @@ target 'margin' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   pod 'SwiftWebSocket'
+  pod 'Google-Mobile-Ads-SDK'
   # Pods for margin
 
   target 'marginTests' do

@@ -1,12 +1,20 @@
 PODS:
+  - Google-Mobile-Ads-SDK (7.38.0)
   - SwiftWebSocket (2.7.0)
 
 DEPENDENCIES:
+  - Google-Mobile-Ads-SDK
   - SwiftWebSocket
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Google-Mobile-Ads-SDK
+    - SwiftWebSocket
+
 SPEC CHECKSUMS:
+  Google-Mobile-Ads-SDK: fec4a72b71a81302d3fd75454df3417c03c50ed5
   SwiftWebSocket: 612c9729fd503cb6b0b8b45390c788686dac306f
 
-PODFILE CHECKSUM: 5562022943d2e72fc8c3e232a43dbb43002ff86f
+PODFILE CHECKSUM: cf45c9357ffaf653a7768a05cf071f4404816d1c
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

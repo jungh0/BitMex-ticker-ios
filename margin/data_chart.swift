@@ -63,10 +63,6 @@ class data_chart: UIViewController  {
             let doller__ = roundToPlaces(value: Double(to_d.description) ?? 0.0,places: 4).description
             dollar.text = "≈ " + doller__ + " $"
         }
-        
-        
-        
-        
     }
     
     override func viewDidLoad() {
@@ -85,12 +81,8 @@ class data_chart: UIViewController  {
         let js = "<!-- TradingView Widget BEGIN --><script type=\"text/javascript\" src=\"https://s3.tradingview.com/tv.js\"></script><script type=\"text/javascript\">new TradingView.widget({\"autosize\": true,\"symbol\": \"BITMEX:" + chart_symbol + "\",\"interval\": \"60\",\"timezone\": \"Asia/Seoul\",\"theme\": \"Dark\",\"style\": \"1\",\"locale\": \"en\",\"toolbar_bg\": \"rgba(18,31,48,1)\",\"enable_publishing\": false,\"hide_top_toolbar\": false,\"save_image\": false,\"hide_legend\": true, \"studies\": [\"BB@tv-basicstudies\"],\"hideideas\": true});</script><!-- TradingView Widget END -->"
         //ViewControllerUtils().showActivityIndicator(uiView: self.view)
         self.web.loadHTMLString(js, baseURL: nil)
-        
     }
-    
-   
-    
-    
+
 }
 
 

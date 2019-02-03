@@ -1,6 +1,10 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## Google-Mobile-Ads-SDK
+
+Copyright 2019 Google
+
 ## SwiftWebSocket
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
