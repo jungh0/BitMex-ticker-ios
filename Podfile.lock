@@ -1,20 +1,24 @@
 PODS:
-  - Google-Mobile-Ads-SDK (7.38.0)
+  - Google-Mobile-Ads-SDK (7.39.0)
   - SwiftWebSocket (2.7.0)
+  - ZAlertView (1.0.4)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - SwiftWebSocket
+  - ZAlertView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Google-Mobile-Ads-SDK
     - SwiftWebSocket
+    - ZAlertView
 
 SPEC CHECKSUMS:
-  Google-Mobile-Ads-SDK: fec4a72b71a81302d3fd75454df3417c03c50ed5
+  Google-Mobile-Ads-SDK: d0f10a7c4d7015db23075ff316602350d12049db
   SwiftWebSocket: 612c9729fd503cb6b0b8b45390c788686dac306f
+  ZAlertView: 59fffdb4e37a01df461835566d5101052b8af953
 
-PODFILE CHECKSUM: cf45c9357ffaf653a7768a05cf071f4404816d1c
+PODFILE CHECKSUM: 853052221a2c5f69982cf6e6272a413a2047ddb9
 
 COCOAPODS: 1.5.3

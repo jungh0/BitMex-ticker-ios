@@ -10,6 +10,7 @@
 		1C835D770A2A12CEC1666991 /* Pods_margin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B9EFC1CBF7C4A36019DB9F /* Pods_margin.framework */; };
 		48DEE169BC0BEAB22B53A0AD /* Pods_marginUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B508383A689982004A335AEA /* Pods_marginUITests.framework */; };
 		495C57CCFDF574CFC7DC00D6 /* Pods_marginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33F0B8F8B251AA4E0DDAEBF /* Pods_marginTests.framework */; };
+		CE76469E2215772D0014EB77 /* setting_.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76469D2215772D0014EB77 /* setting_.swift */; };
 		CE96128622018BF000FC0D54 /* data_orderbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96128522018BEF00FC0D54 /* data_orderbook.swift */; };
 		CE96128822018C2D00FC0D54 /* data_tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96128722018C2D00FC0D54 /* data_tabbar.swift */; };
 		CE96128A22018D3100FC0D54 /* ws_func.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96128922018D3100FC0D54 /* ws_func.swift */; };
@@ -48,6 +49,7 @@
 		A33F0B8F8B251AA4E0DDAEBF /* Pods_marginTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_marginTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB94CF06AF11224942D5405 /* Pods-marginTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marginTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-marginTests/Pods-marginTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B508383A689982004A335AEA /* Pods_marginUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_marginUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE76469D2215772D0014EB77 /* setting_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting_.swift; sourceTree = "<group>"; };
 		CE96128522018BEF00FC0D54 /* data_orderbook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = data_orderbook.swift; sourceTree = "<group>"; };
 		CE96128722018C2D00FC0D54 /* data_tabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = data_tabbar.swift; sourceTree = "<group>"; };
 		CE96128922018D3100FC0D54 /* ws_func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ws_func.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 		CEA350DB21D7529600543AE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEA350E721D75B9400543AE2 /* ticker_table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticker_table.swift; sourceTree = "<group>"; };
 		CEA350E921D7A0A900543AE2 /* data_chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_chart.swift; sourceTree = "<group>"; };
+		CEFC9FA52215880400D68ACB /* ZAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B449B5B6E3080293F1E721 /* Pods-marginUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marginUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-marginUITests/Pods-marginUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F9E1A1F0412110C44B462EBB /* Pods-margin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-margin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-margin/Pods-margin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +103,7 @@
 		91176758493A190B46EB574D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEFC9FA52215880400D68ACB /* ZAlertView.framework */,
 				58B9EFC1CBF7C4A36019DB9F /* Pods_margin.framework */,
 				A33F0B8F8B251AA4E0DDAEBF /* Pods_marginTests.framework */,
 				B508383A689982004A335AEA /* Pods_marginUITests.framework */,
@@ -155,6 +159,7 @@
 				CEA350E921D7A0A900543AE2 /* data_chart.swift */,
 				CE96128522018BEF00FC0D54 /* data_orderbook.swift */,
 				CE96128922018D3100FC0D54 /* ws_func.swift */,
+				CE76469D2215772D0014EB77 /* setting_.swift */,
 			);
 			path = margin;
 			sourceTree = "<group>";
@@ -189,7 +194,6 @@
 				CEA350B121D7529400543AE2 /* Frameworks */,
 				CEA350B221D7529400543AE2 /* Resources */,
 				12817C14DAF040DD6FB08AFA /* [CP] Embed Pods Frameworks */,
-				C1727D45AD5B203A368EF27E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -208,8 +212,6 @@
 				CEA350C621D7529600543AE2 /* Sources */,
 				CEA350C721D7529600543AE2 /* Frameworks */,
 				CEA350C821D7529600543AE2 /* Resources */,
-				41C08C05B9D41554CB7B1866 /* [CP] Embed Pods Frameworks */,
-				2224FEE35253D5F9D41C4C81 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,8 +231,6 @@
 				CEA350D121D7529600543AE2 /* Sources */,
 				CEA350D221D7529600543AE2 /* Frameworks */,
 				CEA350D321D7529600543AE2 /* Resources */,
-				E95D9329B4F8819B5D10DA88 /* [CP] Embed Pods Frameworks */,
-				98F54DE4FA871A02C0354D14 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -321,10 +321,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-margin/Pods-margin-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwiftWebSocket/SwiftWebSocket.framework",
+				"${BUILT_PRODUCTS_DIR}/ZAlertView/ZAlertView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftWebSocket.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZAlertView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -349,36 +351,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2224FEE35253D5F9D41C4C81 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-marginTests/Pods-marginTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		41C08C05B9D41554CB7B1866 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-marginTests/Pods-marginTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		625D75353AD82709237297BC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -395,21 +367,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		98F54DE4FA871A02C0354D14 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-marginUITests/Pods-marginUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A279E687025F5A50D6DACAAB /* [CP] Check Pods Manifest.lock */ = {
@@ -430,36 +387,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C1727D45AD5B203A368EF27E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-margin/Pods-margin-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E95D9329B4F8819B5D10DA88 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-marginUITests/Pods-marginUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -467,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE76469E2215772D0014EB77 /* setting_.swift in Sources */,
 				CE96128822018C2D00FC0D54 /* data_tabbar.swift in Sources */,
 				CEA350B821D7529400543AE2 /* AppDelegate.swift in Sources */,
 				CEA350EA21D7A0A900543AE2 /* data_chart.swift in Sources */,

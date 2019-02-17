@@ -6,6 +6,7 @@ target 'margin' do
   use_frameworks!
   pod 'SwiftWebSocket'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'ZAlertView'
   # Pods for margin
 
   target 'marginTests' do

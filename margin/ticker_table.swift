@@ -41,11 +41,27 @@ class ticker_table: UITableViewController {
         super.viewWillAppear(animated) // No need for semicolon
     }
     
+    override func viewWillAppear(_ animated: Bool){
+        self.title = "Ticker"
+    }
+    
+    @objc func go_setting(_ button:UIBarButtonItem!){
+        let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "setting_") as! setting_
+        self.navigationController?.pushViewController(ViewController, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        
+        let button2 = UIButton.init(type: .custom)
+        button2.setImage(UIImage.init(named: "setting"), for: UIControl.State.normal)
+        button2.addTarget(self, action:#selector(go_setting), for:.touchUpInside)
+        button2.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30) //CGRectMake(0, 0, 30, 30)
+        let barButton2 = UIBarButtonItem.init(customView: button2)
+        self.navigationItem.rightBarButtonItem = barButton2
         
         list.append(["XBTUSD","---","n","Bitcoin | Perpetual (100x)","n"])
         list.append(["ADAH19","---","n","Cardano | Mar 29 (20x)","n"])
