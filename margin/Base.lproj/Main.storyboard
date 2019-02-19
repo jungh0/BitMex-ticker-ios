@@ -18,12 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.032948847859999998" green="0.089284725489999994" blue="0.1391644776" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="AtN-9s-0zw">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="AtN-9s-0zw">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feB-yx-XmY">
-                                    <rect key="frame" x="0.0" y="90" width="375" height="60"/>
+                                    <rect key="frame" x="0.0" y="26" width="375" height="60"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BITMEX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HeT-fl-Mpy">
                                             <rect key="frame" x="15" y="29" width="100" height="21"/>
@@ -76,7 +76,7 @@
                                 <constraint firstItem="f67-12-qy0" firstAttribute="top" secondItem="22z-Ho-xF2" secondAttribute="bottom" constant="8" id="yfM-dm-feW"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="Tg3-dR-yhJ">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="Tg3-dR-yhJ">
                             <rect key="frame" x="0.0" y="238" width="375" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.044512070719999998" green="0.089455239470000003" blue="0.13333895800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -292,19 +292,26 @@
                                     <color key="textColor" red="0.29262590408325195" green="0.47189521789550781" blue="0.80003553628921509" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pz-iH-GQl">
+                                    <rect key="frame" x="157.5" y="15.5" width="60" height="19.5"/>
+                                    <color key="backgroundColor" red="0.23303502800000001" green="0.47811645270000003" blue="0.82267230749999998" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="60" id="ruc-ES-Ni0"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                    <color key="textColor" red="0.2926259041" green="0.4718952179" blue="0.80003553630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.083776272829999998" green="0.12046314029999999" blue="0.1843214631" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" red="0.044512070715427399" green="0.089455239474773407" blue="0.13333895802497864" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstItem="aQo-45-qHL" firstAttribute="leading" secondItem="sUr-8j-u1A" secondAttribute="leading" constant="20" id="158-xw-PV2"/>
+                                <constraint firstItem="7pz-iH-GQl" firstAttribute="centerX" secondItem="sUr-8j-u1A" secondAttribute="centerX" id="38Z-sO-YPs"/>
                                 <constraint firstItem="IFC-ui-1bC" firstAttribute="top" secondItem="sUr-8j-u1A" secondAttribute="top" constant="15" id="Rgq-Rc-OTd"/>
                                 <constraint firstItem="aQo-45-qHL" firstAttribute="top" secondItem="sUr-8j-u1A" secondAttribute="top" constant="15" id="U2x-8L-cMs"/>
                                 <constraint firstAttribute="trailing" secondItem="IFC-ui-1bC" secondAttribute="trailing" constant="20" id="Vwv-Ok-FLF"/>
+                                <constraint firstItem="7pz-iH-GQl" firstAttribute="centerY" secondItem="sUr-8j-u1A" secondAttribute="centerY" id="fE7-jj-BW9"/>
                             </constraints>
-                        </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="mQT-6r-K9A">
-                            <rect key="frame" x="0.0" y="146" width="375" height="35"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.083776272829999998" green="0.12046314029999999" blue="0.1843214631" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="33" id="kDV-Xd-ZcF">
