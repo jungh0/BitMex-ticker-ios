@@ -7,6 +7,7 @@ target 'margin' do
   pod 'SwiftWebSocket'
   pod 'Google-Mobile-Ads-SDK'
   pod 'ZAlertView'
+  pod 'JGProgressHUD'
   # Pods for margin
 
   target 'marginTests' do

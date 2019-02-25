@@ -63,23 +63,28 @@ class ticker_table: UITableViewController {
         let barButton2 = UIBarButtonItem.init(customView: button2)
         self.navigationItem.rightBarButtonItem = barButton2
         
-        list.append(["XBTUSD","---","n","Bitcoin | Perpetual (100x)","n"])
-        list.append(["ADAH19","---","n","Cardano | Mar 29 (20x)","n"])
-        list.append(["BCHH19","---","n","BitcoinCash | Mar 29 (20x)","n"])
-        list.append(["EOSH19","---","n","EOS | Mar 29 (20x)","n"])
-        list.append(["ETHUSD","---","n","Ethereum | Perpetual (50x)","n"])
-        list.append(["ETHH19","---","n","Ethereum | Mar 29 (50x)","n"])
-        list.append(["LTCH19","---","n","Litecoin | Mar 29 (33.33x)","n"])
-        list.append(["TRXH19","---","n","Tron | Mar 29 (20x)","n"])
-        list.append(["XRPH19","---","n","Ripple | Mar 29 (20x)","n"])
+        let url3 = URL(string: "https://raw.githubusercontent.com/iveinvalue/BitMex-ticker-ios/master/symbol")
+        let taskk2 = URLSession.shared.dataTask(with: url3! as URL) { data, response, error in
+            guard let data = data, error == nil else { return }
+            //print(NSString(data: data, encoding: String.Encoding.utf8.rawValue))
+            let text2 = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+            var get_table_data = text2.components(separatedBy: "\n")
+            for i in 0 ... get_table_data.count - 2 {
+                var dataa = get_table_data[i].components(separatedBy: ",")
+                list.append([dataa[0],dataa[1],dataa[2],dataa[3],dataa[4],dataa[5]])
+            }
+            
+            DispatchQueue.main.async {
+                ws_()
+            }
+        }
+        taskk2.resume()
         
-        ws_()
-
         tableview.dataSource = self
         tableview.delegate = self
         
         if(timer != nil){timer.invalidate()}
-        timer = Timer(timeInterval: 0.1, target: self, selector: #selector(data_chart.timerDidFire), userInfo: nil, repeats: true)
+        timer = Timer(timeInterval: 0.5, target: self, selector: #selector(data_chart.timerDidFire), userInfo: nil, repeats: true)
         RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
         
         bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)

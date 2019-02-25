@@ -1,24 +1,28 @@
 PODS:
-  - Google-Mobile-Ads-SDK (7.39.0)
+  - Google-Mobile-Ads-SDK (7.40.0)
+  - JGProgressHUD (2.0.3)
   - SwiftWebSocket (2.7.0)
   - ZAlertView (1.0.4)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
+  - JGProgressHUD
   - SwiftWebSocket
   - ZAlertView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Google-Mobile-Ads-SDK
+    - JGProgressHUD
     - SwiftWebSocket
     - ZAlertView
 
 SPEC CHECKSUMS:
-  Google-Mobile-Ads-SDK: d0f10a7c4d7015db23075ff316602350d12049db
+  Google-Mobile-Ads-SDK: 9d1c38a83febea769470aa514a9c7954e2d1483d
+  JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   SwiftWebSocket: 612c9729fd503cb6b0b8b45390c788686dac306f
   ZAlertView: 59fffdb4e37a01df461835566d5101052b8af953
 
-PODFILE CHECKSUM: 853052221a2c5f69982cf6e6272a413a2047ddb9
+PODFILE CHECKSUM: 0998a5a40e7b1232fbca95bc82c5da55e031d3e6
 
 COCOAPODS: 1.5.3

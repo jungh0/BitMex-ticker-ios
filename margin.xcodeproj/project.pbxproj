@@ -22,6 +22,7 @@
 		CEA350DA21D7529600543AE2 /* marginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA350D921D7529600543AE2 /* marginUITests.swift */; };
 		CEA350E821D75B9400543AE2 /* ticker_table.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA350E721D75B9400543AE2 /* ticker_table.swift */; };
 		CEA350EA21D7A0A900543AE2 /* data_chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA350E921D7A0A900543AE2 /* data_chart.swift */; };
+		CEA6E96822226236004405E3 /* data_details.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6E96722226236004405E3 /* data_details.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		CEA350DB21D7529600543AE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEA350E721D75B9400543AE2 /* ticker_table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticker_table.swift; sourceTree = "<group>"; };
 		CEA350E921D7A0A900543AE2 /* data_chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_chart.swift; sourceTree = "<group>"; };
+		CEA6E96722226236004405E3 /* data_details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_details.swift; sourceTree = "<group>"; };
 		CEFC9FA52215880400D68ACB /* ZAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B449B5B6E3080293F1E721 /* Pods-marginUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marginUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-marginUITests/Pods-marginUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F9E1A1F0412110C44B462EBB /* Pods-margin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-margin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-margin/Pods-margin.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				CE96128722018C2D00FC0D54 /* data_tabbar.swift */,
 				CEA350E921D7A0A900543AE2 /* data_chart.swift */,
 				CE96128522018BEF00FC0D54 /* data_orderbook.swift */,
+				CEA6E96722226236004405E3 /* data_details.swift */,
 				CE96128922018D3100FC0D54 /* ws_func.swift */,
 				CE76469D2215772D0014EB77 /* setting_.swift */,
 			);
@@ -320,11 +323,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-margin/Pods-margin-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftWebSocket/SwiftWebSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/ZAlertView/ZAlertView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftWebSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZAlertView.framework",
 			);
@@ -398,6 +403,7 @@
 				CE96128822018C2D00FC0D54 /* data_tabbar.swift in Sources */,
 				CEA350B821D7529400543AE2 /* AppDelegate.swift in Sources */,
 				CEA350EA21D7A0A900543AE2 /* data_chart.swift in Sources */,
+				CEA6E96822226236004405E3 /* data_details.swift in Sources */,
 				CE96128A22018D3100FC0D54 /* ws_func.swift in Sources */,
 				CEA350E821D75B9400543AE2 /* ticker_table.swift in Sources */,
 				CE96128622018BF000FC0D54 /* data_orderbook.swift in Sources */,

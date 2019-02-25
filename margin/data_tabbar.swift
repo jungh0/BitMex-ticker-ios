@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 import SwiftWebSocket
-
+import StoreKit
 
 class data_tabbar: UITabBarController {
     
@@ -25,5 +25,6 @@ class data_tabbar: UITabBarController {
         super.viewDidLoad()
         
         self.navigationItem.title = chart_symbol
+        //SKStoreReviewController.requestReview()
     }
 }

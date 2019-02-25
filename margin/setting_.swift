@@ -27,19 +27,19 @@ class setting_: UITableViewController {
         //print("section: \(indexPath.section) row: \(indexPath.row)")
         
         if indexPath.section == 0 && indexPath.row == 0 {
-            let dialog = ZAlertView(title: "OpenSource", message: "SwiftWebSocket\nGoogle-Mobile-Ads-SDK\nZAlertView", closeButtonText: "OK", closeButtonHandler: { alertView in alertView.dismissAlertView()
+            let dialog = ZAlertView(title: "OpenSource", message: "SwiftWebSocket\nGoogle-Mobile-Ads-SDK\nZAlertView\nJGProgressHUD", closeButtonText: "OK", closeButtonHandler: { alertView in alertView.dismissAlertView()
             })
             dialog.show()
         }
         
         if indexPath.section == 0 && indexPath.row == 1 {
-            let dialog = ZAlertView(title: "Version", message: "1.2(3)", closeButtonText: "OK", closeButtonHandler: { alertView in alertView.dismissAlertView()
+            let dialog = ZAlertView(title: "Version", message: "1.3(4)", closeButtonText: "OK", closeButtonHandler: { alertView in alertView.dismissAlertView()
             })
             dialog.show()
         }
         
         if indexPath.section == 1 && indexPath.row == 0 {
-            UIApplication.shared.openURL(NSURL(string: "itms-apps://itunes.apple.com/us/app/apple-store/id1450104461?mt=8")! as URL)
+            UIApplication.shared.open(NSURL(string: "itms-apps://itunes.apple.com/us/app/apple-store/id1450104461?mt=8")! as URL)
         }
         
         if indexPath.section == 1 && indexPath.row == 1 {

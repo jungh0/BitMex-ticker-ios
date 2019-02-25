@@ -9,17 +9,21 @@
 import UIKit
 import Foundation
 import SwiftWebSocket
-
+import JGProgressHUD
 
 class data_orderbook: UITableViewController {
     @IBOutlet var tableview: UITableView!
     var timer:Timer!
     @IBOutlet var ask_label: UILabel!
     @IBOutlet var bid_label: UILabel!
+    let hud = JGProgressHUD(style: .dark)
     
     //새로고침
     @objc func timerDidFire(){
         tableview.reloadData()
+        if(orderbook.count > 5){
+            hud.dismiss(afterDelay: 0.0)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,6 +42,10 @@ class data_orderbook: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        
         orderbook.removeAll()
         
         tableview.dataSource = self
