@@ -124,8 +124,11 @@ class ticker_table: UITableViewController {
     //테이블 클릭
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         chart_symbol = list[indexPath.row][0]
-        let data_chart_ = self.storyboard?.instantiateViewController(withIdentifier: "data_tabbar") as! data_tabbar
-        self.navigationController?.pushViewController(data_chart_, animated: true)
+        if (!list[indexPath.row][1].contains("-")){
+            let data_chart_ = self.storyboard?.instantiateViewController(withIdentifier: "data_tabbar") as! data_tabbar
+            self.navigationController?.pushViewController(data_chart_, animated: true)
+        }
+        
     }
     
     //스크롤시 새로고침 잠금
