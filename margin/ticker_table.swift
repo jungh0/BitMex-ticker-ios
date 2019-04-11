@@ -113,7 +113,7 @@ class ticker_table: UITableViewController {
             bannerView.load(GADRequest())
         }
         
-        
+    
         
         
     }
