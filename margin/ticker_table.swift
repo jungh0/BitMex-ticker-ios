@@ -114,6 +114,8 @@ class ticker_table: UITableViewController {
         }
         
         
+        
+        
     }
   
     //섹션 별 개수
