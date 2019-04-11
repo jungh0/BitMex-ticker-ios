@@ -36,11 +36,17 @@ func ws_(){
     ws.event.close = { code, reason, clean in
         print("close")
         //self.navigationItem.prompt = "connecting server..."
-        restart = 1
+        print("send: connecting server..." + list.count.description)
+        restart = 0
+        if(list.count > 0){
+            for i in 0 ... list.count - 1 {
+                if(list[i][2].contains("y")){
+                    list[i][2] = "n"
+                }
+            }
+        }
         ws = WebSocket("wss://www.bitmex.com/realtime")
         ws_()
-        
-        
     }
     ws.event.error = { error in
         print("error \(error)")
@@ -101,7 +107,13 @@ func price_parse(str:String,symbol:String,index:Int){
             if(!price.contains("\"")){
                 //self.navigationItem.prompt = "connected"
                 //recent.text = symbol + ": " + price
-                recent_str = symbol + ": " + price
+                let b_o_s = split(str: str,w1: "\"side\":\"",w2: "\",")
+                let amount = split(str: str,w1: "\"size\":",w2: ",")
+                recent_str = symbol + " : " + price + " - " + b_o_s
+                //print(str)
+                if (symbol.contains(chart_symbol)){
+                    recent_str_order = symbol + " : " + price + " - " + b_o_s  + " - " + amount
+                }
                 
                 let ori = NSString(string: list[index][1])
                 let new = NSString(string: price)

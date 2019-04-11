@@ -11,12 +11,13 @@ import Foundation
 import SwiftWebSocket
 import GoogleMobileAds
 
-var chart_symbol = ""
+var chart_symbol = "---"
 var ws = WebSocket("wss://www.bitmex.com/realtime")
 var list = [[String]]()
 var orderbook = [[String]]()
 var restart = 0
 var recent_str = "---"
+var recent_str_order = "---"
 
 class ticker_table: UITableViewController {
     @IBOutlet weak var tableview: UITableView!
@@ -28,10 +29,13 @@ class ticker_table: UITableViewController {
     //새로고침
     @objc func timerDidFire(){
         if (is_scroll == 0){
-            let contentOffset = self.tableView.contentOffset
-            self.tableView.reloadData()
-            self.tableView.layoutIfNeeded()
-            self.tableView.setContentOffset(contentOffset, animated: false)
+            DispatchQueue.main.async {
+                let contentOffset = self.tableView.contentOffset
+                self.tableView.reloadData()
+                self.tableView.layoutIfNeeded()
+                self.tableView.setContentOffset(contentOffset, animated: false)
+            }
+            
         }
         
         recent.text = recent_str
@@ -63,6 +67,8 @@ class ticker_table: UITableViewController {
         let barButton2 = UIBarButtonItem.init(customView: button2)
         self.navigationItem.rightBarButtonItem = barButton2
         
+        
+        
         let url3 = URL(string: "https://raw.githubusercontent.com/iveinvalue/BitMex-ticker-ios/master/symbol")
         let taskk2 = URLSession.shared.dataTask(with: url3! as URL) { data, response, error in
             guard let data = data, error == nil else { return }
@@ -87,12 +93,27 @@ class ticker_table: UITableViewController {
         timer = Timer(timeInterval: 0.5, target: self, selector: #selector(data_chart.timerDidFire), userInfo: nil, repeats: true)
         RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
         
-        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-        addBannerViewToView(bannerView)
+        let loadedData = UserDefaults.standard.value(forKey: "world")
+        var letsgo = 0
         
-        bannerView.adUnitID = "ca-app-pub-0355430122346055/4509554445"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+        if (loadedData != nil){
+            let loadedData2 = loadedData as! Int
+            if (loadedData2 == 97970505){
+                letsgo = 1
+                print("thank you")
+            }
+        }
+        
+        if (letsgo == 0){
+            bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+            addBannerViewToView(bannerView)
+            
+            bannerView.adUnitID = "ca-app-pub-0355430122346055/4509554445"
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+        }
+        
+        
     }
   
     //섹션 별 개수
@@ -133,11 +154,11 @@ class ticker_table: UITableViewController {
     
     //스크롤시 새로고침 잠금
     override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        is_scroll = 0
+        is_scroll = 1
     }
     override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         is_scroll = 1
-        let time = DispatchTime.now() + .seconds(1)
+        let time = DispatchTime.now() + .milliseconds(500)
         DispatchQueue.main.asyncAfter(deadline: time) {
             self.is_scroll = 0
             //self.tableview.reloadData()

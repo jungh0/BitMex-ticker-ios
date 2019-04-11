@@ -34,6 +34,10 @@ class data_details: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell_detail", for: indexPath)
         cell.textLabel?.text = details[indexPath.row][0]
         cell.detailTextLabel?.text = details[indexPath.row][1]
+        //cell.selectionStyle = .gray
+        let customBGColorView = UIView()
+        customBGColorView.backgroundColor = UIColor(red: 8/255, green: 23/255, blue: 35/255, alpha: 1) as UIColor
+        cell.selectedBackgroundView = customBGColorView
         return cell
     }
     

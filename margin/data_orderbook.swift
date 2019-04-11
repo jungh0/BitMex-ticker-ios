@@ -17,13 +17,18 @@ class data_orderbook: UITableViewController {
     @IBOutlet var ask_label: UILabel!
     @IBOutlet var bid_label: UILabel!
     let hud = JGProgressHUD(style: .dark)
-    
+    @IBOutlet var recent_t: UILabel!
+    var price_length = 0
     //새로고침
     @objc func timerDidFire(){
-        tableview.reloadData()
+        self.tableView.reloadData()
         if(orderbook.count > 5){
             hud.dismiss(afterDelay: 0.0)
         }
+        if (recent_str_order.contains(chart_symbol)){
+            recent_t.text = recent_str_order.replacingOccurrences(of: chart_symbol + " : ", with: "")
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,11 +75,22 @@ class data_orderbook: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "order_cell", for: indexPath) as! order_cell
         cell.asks_c.text = orderbook[indexPath.row][0]
-        if(!orderbook[indexPath.row][1].contains(".")){
-            cell.price.text = orderbook[indexPath.row][1] + ".0"
+        
+        if(orderbook[indexPath.row][1].count > price_length){
+            price_length = orderbook[indexPath.row][1].count
+        }
+        
+        if(orderbook[indexPath.row][1].count < price_length){
+            if(orderbook[indexPath.row][1].contains(".")){
+                cell.price.text = orderbook[indexPath.row][1] + "0"
+            }else{
+                cell.price.text = orderbook[indexPath.row][1] + ".0"
+            }
         }else{
             cell.price.text = orderbook[indexPath.row][1]
         }
+        
+        
         cell.bids_c.text = orderbook[indexPath.row][2]
         
         if (orderbook[indexPath.row][2].contains("-")){

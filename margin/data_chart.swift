@@ -99,8 +99,8 @@ class data_chart: UIViewController  {
                     print("No Data :/")
                 }
             } catch {
-                print(text2)
-                print("Error, Could not parse the JSON request")
+                //print(text2)
+                //print("Error, Could not parse the JSON request")
             }
             
         }
@@ -138,7 +138,7 @@ class data_chart: UIViewController  {
         web.scrollView.isScrollEnabled = false;
         web.scrollView.bounces = false;
         
-        let js = "<!-- TradingView Widget BEGIN --><script type=\"text/javascript\" src=\"https://s3.tradingview.com/tv.js\"></script><script type=\"text/javascript\">new TradingView.widget({\"autosize\": true,\"symbol\": \"BITMEX:" + chart_symbol + "\",\"interval\": \"60\",\"timezone\": \"Asia/Seoul\",\"theme\": \"Dark\",\"style\": \"1\",\"locale\": \"en\",\"toolbar_bg\": \"rgba(18,31,48,1)\",\"enable_publishing\": false,\"hide_top_toolbar\": false,\"save_image\": false,\"hide_legend\": true, \"studies\": [\"BB@tv-basicstudies\"],\"hideideas\": true});</script><!-- TradingView Widget END -->"
+        let js = "<!-- TradingView Widget BEGIN --><script type=\"text/javascript\" src=\"https://s3.tradingview.com/tv.js\"></script><script type=\"text/javascript\">new TradingView.widget({\"autosize\": true,\"symbol\": \"BITMEX:" + chart_symbol + "\",\"interval\": \"60\",\"timezone\": \"exchange\",\"theme\": \"Dark\",\"style\": \"1\",\"locale\": \"en\",\"toolbar_bg\": \"rgba(18,31,48,1)\",\"enable_publishing\": false,\"hide_top_toolbar\": false,\"save_image\": false,\"hide_legend\": true, \"studies\": [\"BB@tv-basicstudies\"],\"hideideas\": true});</script><!-- TradingView Widget END -->"
         //ViewControllerUtils().showActivityIndicator(uiView: self.view)
         self.web.loadHTMLString(js, baseURL: nil)
         
