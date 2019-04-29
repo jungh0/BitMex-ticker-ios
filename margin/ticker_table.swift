@@ -104,6 +104,7 @@ class ticker_table: UITableViewController {
             }
         }
         
+        letsgo = 0
         if (letsgo == 0){
             bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
             addBannerViewToView(bannerView)
@@ -112,9 +113,6 @@ class ticker_table: UITableViewController {
             bannerView.rootViewController = self
             bannerView.load(GADRequest())
         }
-        
-    
-        
         
     }
   

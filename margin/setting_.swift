@@ -108,14 +108,15 @@ class setting_: UITableViewController,SKPaymentTransactionObserver, SKProductsRe
             //purchase.enabled = true
             //productTitle.text = product!.localizedTitle
             //productDescription.text = product!.localizedDescription
-            let payment = SKPayment(product: self.product!)
-            SKPaymentQueue.default().add(payment)
-            /*
+            
+            
             let dialog = ZAlertView(title: product!.localizedTitle, message: product!.localizedDescription, closeButtonText: "Purchase", closeButtonHandler: {
                 alertView in alertView.dismissAlertView()
+                let payment = SKPayment(product: self.product!)
+                SKPaymentQueue.default().add(payment)
                 
             })
-            dialog.show()*/
+            dialog.show()
             
         }else{
             let dialog = ZAlertView(title: "ERROR", message: "Can not check product information registered in Apple account", closeButtonText: "OK", closeButtonHandler: { alertView in alertView.dismissAlertView()
