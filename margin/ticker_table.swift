@@ -67,8 +67,6 @@ class ticker_table: UITableViewController {
         let barButton2 = UIBarButtonItem.init(customView: button2)
         self.navigationItem.rightBarButtonItem = barButton2
         
-        
-        
         let url3 = URL(string: "https://raw.githubusercontent.com/iveinvalue/BitMex-ticker-ios/master/symbol")
         let taskk2 = URLSession.shared.dataTask(with: url3! as URL) { data, response, error in
             guard let data = data, error == nil else { return }
@@ -77,7 +75,7 @@ class ticker_table: UITableViewController {
             var get_table_data = text2.components(separatedBy: "\n")
             for i in 0 ... get_table_data.count - 2 {
                 var dataa = get_table_data[i].components(separatedBy: ",")
-                list.append([dataa[0],dataa[1],dataa[2],dataa[3],dataa[4],dataa[5]])
+                list.append([dataa[0],dataa[1],dataa[2],dataa[3],dataa[4],dataa[5],dataa[6]])
             }
             
             DispatchQueue.main.async {

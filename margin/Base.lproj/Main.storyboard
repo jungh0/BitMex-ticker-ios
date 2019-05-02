@@ -166,11 +166,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mA-lF-JdK">
-                                <rect key="frame" x="0.0" y="115" width="375" height="503"/>
+                                <rect key="frame" x="0.0" y="125" width="375" height="493"/>
                                 <color key="backgroundColor" red="0.083776272829999998" green="0.12046314029999999" blue="0.1843214631" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </webView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMV-dv-eeC">
-                                <rect key="frame" x="0.0" y="20" width="375" height="95"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="105"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92p-wP-OFA">
                                         <rect key="frame" x="15" y="15" width="200" height="32.5"/>
@@ -190,16 +190,32 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Bitstamp : ---  " textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wp-cz-Lw4">
-                                        <rect key="frame" x="256.5" y="51" width="103.5" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Bitstamp  " textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wp-cz-Lw4">
+                                        <rect key="frame" x="287.5" y="59" width="72.5" height="17"/>
                                         <color key="backgroundColor" red="0.23303502800000001" green="0.47811645270000003" blue="0.82267230749999998" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.23303502800000001" green="0.47811645270000003" blue="0.82267230749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.23303502800000001" green="0.47811645270000003" blue="0.82267230749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Premium : ---  " textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kU9-cN-fnY">
-                                        <rect key="frame" x="256.5" y="73" width="103.5" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  ---  " textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kU9-cN-fnY">
+                                        <rect key="frame" x="325" y="81" width="35" height="17"/>
+                                        <color key="backgroundColor" red="0.23137254900000001" green="0.47843137250000001" blue="0.82352941180000006" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.23303502800000001" green="0.47811645270000003" blue="0.82267230749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  ---  " textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vz-hS-tJY">
+                                        <rect key="frame" x="325" y="37" width="35" height="17"/>
+                                        <color key="backgroundColor" red="0.23137254900000001" green="0.47843137250000001" blue="0.82352941180000006" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.23303502800000001" green="0.47811645270000003" blue="0.82267230749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Coinbase Pro  " textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mja-Mn-b3t">
+                                        <rect key="frame" x="258.5" y="15" width="101.5" height="17"/>
+                                        <color key="backgroundColor" red="0.23303502800000001" green="0.47811645270000003" blue="0.82267230749999998" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.23303502800000001" green="0.47811645270000003" blue="0.82267230749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.23303502800000001" green="0.47811645270000003" blue="0.82267230749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -208,14 +224,18 @@
                                 <color key="backgroundColor" red="0.083776272829999998" green="0.12046314029999999" blue="0.1843214631" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="92p-wP-OFA" firstAttribute="leading" secondItem="xMV-dv-eeC" secondAttribute="leading" constant="15" id="6Ex-hm-qJC"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Vz-hS-tJY" secondAttribute="trailing" constant="15" id="ATI-li-pDi"/>
                                     <constraint firstItem="HTv-Pq-OsK" firstAttribute="top" secondItem="92p-wP-OFA" secondAttribute="bottom" constant="8" id="FYz-EY-tzg"/>
-                                    <constraint firstAttribute="bottom" secondItem="kU9-cN-fnY" secondAttribute="bottom" constant="5" id="LJV-kC-sNo"/>
-                                    <constraint firstAttribute="height" constant="95" id="RRs-rr-A1g"/>
+                                    <constraint firstAttribute="height" constant="105" id="RRs-rr-A1g"/>
+                                    <constraint firstItem="Mja-Mn-b3t" firstAttribute="top" secondItem="xMV-dv-eeC" secondAttribute="top" constant="15" id="YZI-Ut-zAH"/>
                                     <constraint firstAttribute="trailing" secondItem="kU9-cN-fnY" secondAttribute="trailing" constant="15" id="ayo-JU-EvP"/>
                                     <constraint firstItem="HTv-Pq-OsK" firstAttribute="leading" secondItem="xMV-dv-eeC" secondAttribute="leading" constant="15" id="cdM-QY-lt7"/>
                                     <constraint firstItem="kU9-cN-fnY" firstAttribute="top" secondItem="1wp-cz-Lw4" secondAttribute="bottom" constant="5" id="kpH-ek-MRO"/>
                                     <constraint firstItem="92p-wP-OFA" firstAttribute="top" secondItem="xMV-dv-eeC" secondAttribute="top" constant="15" id="oaa-56-fBS"/>
                                     <constraint firstAttribute="trailing" secondItem="1wp-cz-Lw4" secondAttribute="trailing" constant="15" id="ppN-gp-hQ8"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mja-Mn-b3t" secondAttribute="trailing" constant="15" id="s63-W4-a8w"/>
+                                    <constraint firstItem="1wp-cz-Lw4" firstAttribute="top" secondItem="6Vz-hS-tJY" secondAttribute="bottom" constant="5" id="sVU-HP-bhn"/>
+                                    <constraint firstItem="6Vz-hS-tJY" firstAttribute="top" secondItem="Mja-Mn-b3t" secondAttribute="bottom" constant="5" id="u26-S9-Nyl"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -234,9 +254,11 @@
                     <tabBarItem key="tabBarItem" title="Item" image="coin" id="xzv-H7-yWx"/>
                     <connections>
                         <outlet property="bitstamp" destination="1wp-cz-Lw4" id="aMC-FP-Zya"/>
+                        <outlet property="coinbase" destination="Mja-Mn-b3t" id="hpT-0q-Ruq"/>
                         <outlet property="dollar" destination="HTv-Pq-OsK" id="KoF-sR-wO3"/>
                         <outlet property="main_price" destination="92p-wP-OFA" id="io5-eu-bWW"/>
                         <outlet property="premium" destination="kU9-cN-fnY" id="dFz-uh-KEE"/>
+                        <outlet property="premium2" destination="6Vz-hS-tJY" id="aDm-jR-KYs"/>
                         <outlet property="web" destination="8mA-lF-JdK" id="vNB-ZW-l85"/>
                     </connections>
                 </viewController>

@@ -18,11 +18,14 @@ class data_chart: UIViewController  {
     @IBOutlet var dollar: UILabel!
     @IBOutlet var bitstamp: UILabel!
     @IBOutlet var premium: UILabel!
+    @IBOutlet var premium2: UILabel!
+    @IBOutlet var coinbase: UILabel!
     
     var timer:Timer!
     var timer2:Timer!
     var check = -1
     var bitstamp_last = "0"
+    var coinbase_last = "0"
     
     private func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.landscapeLeft
@@ -61,9 +64,8 @@ class data_chart: UIViewController  {
         }
         
         //bitstamp 프리미엄
-        self.bitstamp.text = "  Bitstamp : " + bitstamp_last + "  "
-        self.premium.backgroundColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 0.1)
-        self.premium.textColor = UIColor.gray
+        self.bitstamp.backgroundColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 0.1)
+        self.bitstamp.textColor = UIColor.gray
         if (!list[self.check][1].contains("-")){
             let rslt  = ((Float(list[self.check][1])! - Float(bitstamp_last)!) / Float(bitstamp_last)! * 100)
             var tmp2 = Float(0.0)
@@ -72,13 +74,50 @@ class data_chart: UIViewController  {
             var plus = ""
             if tmp2 > Float(0) {
                 plus = "+"
-                self.premium.backgroundColor = UIColor(red: 70/255, green: 170/255, blue: 70/255, alpha: 0.1)
-                self.premium.textColor = UIColor(red: 70/255, green: 170/255, blue: 70/255, alpha: 1.0)
+                self.bitstamp.backgroundColor = UIColor(red: 70/255, green: 170/255, blue: 70/255, alpha: 0.1)
+                self.bitstamp.textColor = UIColor(red: 70/255, green: 170/255, blue: 70/255, alpha: 1.0)
             }else if  tmp2 < Float(0) {
-                self.premium.backgroundColor = UIColor(red: 200/255, green: 70/255, blue: 70/255, alpha: 0.1)
-                self.premium.textColor = UIColor(red: 200/255, green: 70/255, blue: 70/255, alpha: 1.0)
+                self.bitstamp.backgroundColor = UIColor(red: 200/255, green: 70/255, blue: 70/255, alpha: 0.1)
+                self.bitstamp.textColor = UIColor(red: 200/255, green: 70/255, blue: 70/255, alpha: 1.0)
             }
-            self.premium.text = "  Premium : " + plus + tmp2.description + "%  "
+            self.bitstamp.text = "  Bitstamp : " + plus + tmp2.description + "%  "
+            self.premium.text = "  " + bitstamp_last + "  "
+        }
+        if (bitstamp_last == "0"){
+            self.bitstamp.isHidden = true
+            self.premium.isHidden = true
+        }else{
+            self.bitstamp.isHidden = false
+            self.premium.isHidden = false
+        }
+        
+        //coinbase 프리미엄
+        let number = NSNumber(value: Float(coinbase_last)!)
+        self.coinbase.backgroundColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 0.1)
+        self.coinbase.textColor = UIColor.gray
+        if (!list[self.check][1].contains("-")){
+            let rslt  = ((Float(list[self.check][1])! - Float(coinbase_last)!) / Float(coinbase_last)! * 100)
+            var tmp2 = Float(0.0)
+            tmp2 = round(rslt * pow(10.0, Float(2))) / pow(10.0, Float(2))
+            
+            var plus = ""
+            if tmp2 > Float(0) {
+                plus = "+"
+                self.coinbase.backgroundColor = UIColor(red: 70/255, green: 170/255, blue: 70/255, alpha: 0.1)
+                self.coinbase.textColor = UIColor(red: 70/255, green: 170/255, blue: 70/255, alpha: 1.0)
+            }else if  tmp2 < Float(0) {
+                self.coinbase.backgroundColor = UIColor(red: 200/255, green: 70/255, blue: 70/255, alpha: 0.1)
+                self.coinbase.textColor = UIColor(red: 200/255, green: 70/255, blue: 70/255, alpha: 1.0)
+            }
+            self.coinbase.text = "  Coinbase : " + plus + tmp2.description + "%  "
+            self.premium2.text = "  " + number.decimalValue.description + "  "
+        }
+        if (coinbase_last == "0"){
+            self.coinbase.isHidden = true
+            self.premium2.isHidden = true
+        }else{
+            self.coinbase.isHidden = false
+            self.premium2.isHidden = false
         }
     }
     
@@ -105,6 +144,29 @@ class data_chart: UIViewController  {
             
         }
         taskk2.resume()
+        
+        let url4 = URL(string: "https://api.pro.coinbase.com/products/" + list[check][6] + "/ticker")
+        let taskk3 = URLSession.shared.dataTask(with: url4! as URL) { data, response, error in
+            guard let data = data, error == nil else { return }
+            let text2 = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+            print(text2)
+            let data_j = text2.data(using: String.Encoding.utf8)
+            
+            do {
+                if let data_j = data_j,
+                    let json = try JSONSerialization.jsonObject(with: data_j, options:[]) as? [String: AnyObject] {
+                    let last = json["price"] as? String
+                    self.coinbase_last = last ?? "0"
+                } else {
+                    print("No Data :/")
+                }
+            } catch {
+                //print(text2)
+                //print("Error, Could not parse the JSON request")
+            }
+            
+        }
+        taskk3.resume()
     }
     
     override func viewDidLoad() {
