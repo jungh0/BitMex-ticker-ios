@@ -18,9 +18,12 @@ class adView: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dark_theme = (UserDefaults.standard.value(forKey: "theme") != nil) // Load
-        //UserDefaults.standard.set(value, forKey: "CustomKey") // Save
-        //UserDefaults.standard.value(forKey: "CustomKey") // Load
+        let tmp = (UserDefaults.standard.value(forKey: "theme2")) as! Int
+        if (tmp == 0){
+            dark_theme = false
+        }else{
+            dark_theme = true
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

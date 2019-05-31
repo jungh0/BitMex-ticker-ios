@@ -44,15 +44,34 @@ class setting_: UITableViewController {
         if indexPath.section == 2 && indexPath.row == 0 {
             userPresenter.make_inapp()
         }
-        
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (dark_theme){
+            cell.backgroundColor = UIColor.appColor(.dark_table_in)
+            cell.textLabel?.textColor = UIColor.appColor(.dark_title)
+        }else{
+            cell.backgroundColor = UIColor.appColor(.light_table_in)
+            cell.textLabel?.textColor = UIColor.appColor(.light_title)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        set_theme()
         userPresenter.attachView(self)
         tableview.dataSource = self
         tableview.delegate = self
+    }
+    
+    func set_theme(){
+        self.navigationController?.navigationBar.tintColor = .white
+        if (dark_theme){
+            tableview.backgroundColor = UIColor.appColor(.dark_table_out)
+        }else{
+            tableview.backgroundColor = UIColor.appColor(.light_table_out)
+        }
     }
     
     override var shouldAutorotate: Bool {

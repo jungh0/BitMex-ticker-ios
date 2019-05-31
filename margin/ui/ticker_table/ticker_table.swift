@@ -49,10 +49,10 @@ class ticker_table: UITableViewController{
     @objc func change_theme(_ button:UIBarButtonItem!){
         if(dark_theme){
             dark_theme = false
-            UserDefaults.standard.set(false, forKey: "theme")
+            UserDefaults.standard.set(0, forKey: "theme2")
         }else{
             dark_theme = true
-            UserDefaults.standard.set(true, forKey: "theme")
+            UserDefaults.standard.set(1, forKey: "theme2")
         }
         set_theme()
         self.tableView.reloadData()
@@ -70,6 +70,7 @@ class ticker_table: UITableViewController{
         
         tableview.dataSource = self
         tableview.delegate = self
+    
     }
     
     //섹션 별 개수
@@ -167,6 +168,7 @@ extension ticker_table: UserView {
     func navibar_setting(){
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        
         let button2 = UIButton.init(type: .custom)
         button2.setImage(UIImage.init(named: "setting"), for: UIControl.State.normal)
         button2.addTarget(self, action:#selector(go_setting), for:.touchUpInside)
@@ -174,15 +176,14 @@ extension ticker_table: UserView {
         let barButton2 = UIBarButtonItem.init(customView: button2)
         self.navigationItem.rightBarButtonItem = barButton2
         
-        let button3 = UIButton.init(type: .custom)
-        button3.setImage(UIImage.init(named: "setting"), for: UIControl.State.normal)
-        button3.addTarget(self, action:#selector(change_theme), for:.touchUpInside)
-        button3.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30) //CGRectMake(0, 0, 30, 30)
-        let barButton3 = UIBarButtonItem.init(customView: button3)
-        self.navigationItem.leftBarButtonItem = barButton3
     }
     
     func set_theme(){
+        
+        let button3 = UIButton.init(type: .custom)
+        button3.addTarget(self, action:#selector(change_theme), for:.touchUpInside)
+        button3.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30) //CGRectMake(0, 0, 30, 30)
+        
         if (dark_theme){
             navigationController?.navigationBar.barTintColor = UIColor.appColor(.dark_navi)
             tableview.backgroundColor = UIColor.appColor(.dark_table_out)
@@ -191,6 +192,7 @@ extension ticker_table: UserView {
             table_view1_2.backgroundColor = UIColor.appColor(.dark_table_out)
             table_view2.backgroundColor = UIColor.appColor(.dark_table_out)
             recent.textColor = UIColor.appColor(.dark_title2)
+            button3.setImage(UIImage.init(named: "noon"), for: UIControl.State.normal)
         }else{
             navigationController?.navigationBar.barTintColor = UIColor.appColor(.light_navi)
             tableview.backgroundColor = UIColor.appColor(.light_table_out)
@@ -199,7 +201,11 @@ extension ticker_table: UserView {
             table_view1_2.backgroundColor = UIColor.appColor(.light_table_out)
             table_view2.backgroundColor = UIColor.appColor(.light_table_out)
             recent.textColor = UIColor.appColor(.light_title2)
+            button3.setImage(UIImage.init(named: "night"), for: UIControl.State.normal)
         }
+        
+        let barButton3 = UIBarButtonItem.init(customView: button3)
+        self.navigationItem.leftBarButtonItem = barButton3
     }
 
 }

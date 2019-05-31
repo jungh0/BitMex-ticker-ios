@@ -18,6 +18,8 @@
 		CE31119C229FC9E800BA2D50 /* data_chartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31119B229FC9E800BA2D50 /* data_chartPresenter.swift */; };
 		CE31119F229FEA0000BA2D50 /* data_detailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31119E229FEA0000BA2D50 /* data_detailsPresenter.swift */; };
 		CE3111A322A0DBE200BA2D50 /* setting_Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3111A222A0DBE200BA2D50 /* setting_Presenter.swift */; };
+		CE4A330522A157B8006D91C6 /* orderbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A330422A157B8006D91C6 /* orderbook.swift */; };
+		CE4A330722A157C4006D91C6 /* orderbookPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A330622A157C4006D91C6 /* orderbookPresenter.swift */; };
 		CE50F24B22A12AE700F6865A /* theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50F24A22A12AE700F6865A /* theme.swift */; };
 		CE76469E2215772D0014EB77 /* setting_.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76469D2215772D0014EB77 /* setting_.swift */; };
 		CE96128622018BF000FC0D54 /* data_orderbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96128522018BEF00FC0D54 /* data_orderbook.swift */; };
@@ -67,6 +69,8 @@
 		CE31119B229FC9E800BA2D50 /* data_chartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_chartPresenter.swift; sourceTree = "<group>"; };
 		CE31119E229FEA0000BA2D50 /* data_detailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_detailsPresenter.swift; sourceTree = "<group>"; };
 		CE3111A222A0DBE200BA2D50 /* setting_Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting_Presenter.swift; sourceTree = "<group>"; };
+		CE4A330422A157B8006D91C6 /* orderbook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderbook.swift; sourceTree = "<group>"; };
+		CE4A330622A157C4006D91C6 /* orderbookPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderbookPresenter.swift; sourceTree = "<group>"; };
 		CE50F24A22A12AE700F6865A /* theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theme.swift; sourceTree = "<group>"; };
 		CE76469D2215772D0014EB77 /* setting_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting_.swift; sourceTree = "<group>"; };
 		CE96128522018BEF00FC0D54 /* data_orderbook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = data_orderbook.swift; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 			children = (
 				CE96128522018BEF00FC0D54 /* data_orderbook.swift */,
 				CE311193229FB8A900BA2D50 /* data_orderbookPresenter.swift */,
+				CE4A330422A157B8006D91C6 /* orderbook.swift */,
+				CE4A330622A157C4006D91C6 /* orderbookPresenter.swift */,
 			);
 			path = orderbook;
 			sourceTree = "<group>";
@@ -523,6 +529,8 @@
 				CE96128822018C2D00FC0D54 /* data_tabbar.swift in Sources */,
 				CE311188229EB1F600BA2D50 /* socket.swift in Sources */,
 				CE311198229FC5F700BA2D50 /* adView.swift in Sources */,
+				CE4A330722A157C4006D91C6 /* orderbookPresenter.swift in Sources */,
+				CE4A330522A157B8006D91C6 /* orderbook.swift in Sources */,
 				CEA350B821D7529400543AE2 /* AppDelegate.swift in Sources */,
 				CEA350EA21D7A0A900543AE2 /* data_chart.swift in Sources */,
 				CEA6E96822226236004405E3 /* data_details.swift in Sources */,

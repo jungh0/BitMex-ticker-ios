@@ -35,7 +35,7 @@ class ticker_tablePresenter {
             guard let data = data, error == nil else { return }
             let text2 = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
             var get_table_data = text2.components(separatedBy: "\n")
-            for i in 0 ... get_table_data.count - 2 {
+            for i in 0 ... get_table_data.count - 1 {
                 var dataa = get_table_data[i].components(separatedBy: ",")
                 sok.c_list_append(list: [dataa[0],dataa[1],dataa[2],dataa[3],dataa[4],dataa[5],dataa[6]])
             }
@@ -108,12 +108,12 @@ class ticker_tablePresenter {
     
     func find_color(str:String) -> UIColor{
         if (str.contains("g")){
-            return UIColor(red: 70/255, green: 170/255, blue: 70/255, alpha: 1) as UIColor
+            return UIColor(red: 70/255, green: 170/255, blue: 70/255, alpha: 0.9) as UIColor
         }
         if (str.contains("r")){
-            return UIColor(red: 200/255, green: 70/255, blue: 70/255, alpha: 1) as UIColor
+            return UIColor(red: 200/255, green: 70/255, blue: 70/255, alpha: 0.9) as UIColor
         }
-        return UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1) as UIColor
+        return UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 0.7) as UIColor
     }
     
 }

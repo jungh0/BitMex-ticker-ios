@@ -65,7 +65,7 @@ class data_chart: UIViewController  {
             self.tabBarController?.tabBar.barStyle = .black
             self.tabBarController?.tabBar.barTintColor = UIColor.appColor(.dark_navi)
             view_background.backgroundColor = UIColor.appColor(.dark_table_out)
-            view1.backgroundColor = UIColor.appColor(.dark_table_in)
+            view1.backgroundColor = UIColor.appColor(.dark_table_out)
             view1.layer.borderColor = UIColor(red:54/255, green:60/255, blue:77/255, alpha: 1).cgColor
             web.backgroundColor = UIColor.appColor(.dark_table_out)
             dollar.textColor = UIColor.appColor(.dark_title2)
