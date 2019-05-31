@@ -54,7 +54,13 @@ class data_chartPresenter{
     }
     
     func make_web(str:String){
-         let js = "<!-- TradingView Widget BEGIN --><script type=\"text/javascript\" src=\"https://s3.tradingview.com/tv.js\"></script><script type=\"text/javascript\">new TradingView.widget({\"autosize\": true,\"symbol\": \"BITMEX:" + str + "\",\"interval\": \"60\",\"timezone\": \"exchange\",\"theme\": \"Dark\",\"style\": \"1\",\"locale\": \"en\",\"toolbar_bg\": \"rgba(18,31,48,1)\",\"enable_publishing\": false,\"hide_top_toolbar\": false,\"save_image\": false,\"hide_legend\": true, \"studies\": [\"BB@tv-basicstudies\"],\"hideideas\": true});</script><!-- TradingView Widget END -->"
+        var str3 = "Dark"
+        var str2 = "rgba(18,31,48,1)"
+        if (!dark_theme){
+            str3 = "Light"
+            str2 = "rgba(255,255,255,1)"
+        }
+        let js = "<!-- TradingView Widget BEGIN --><script type=\"text/javascript\" src=\"https://s3.tradingview.com/tv.js\"></script><script type=\"text/javascript\">new TradingView.widget({\"autosize\": true,\"symbol\": \"BITMEX:" + str + "\",\"interval\": \"60\",\"timezone\": \"exchange\",\"theme\": \"" + str3 + "\",\"style\": \"1\",\"locale\": \"en\",\"toolbar_bg\": \"" + str2 + "\",\"enable_publishing\": false,\"hide_top_toolbar\": false,\"save_image\": false,\"hide_legend\": true, \"studies\": [\"BB@tv-basicstudies\"],\"hideideas\": true});</script><!-- TradingView Widget END -->"
         userView?.show_web(js: js)
     }
     

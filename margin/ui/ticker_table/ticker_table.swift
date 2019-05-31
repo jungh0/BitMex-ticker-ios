@@ -22,12 +22,16 @@ class ticker_cell: UITableViewCell {
 class ticker_table: UITableViewController{
     
     let userPresenter = ticker_tablePresenter()
-    let customBGColorView = UIView()
     var bannerView: GADBannerView!
     let hud = JGProgressHUD(style: .dark)
     
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var recent: UILabel!
+    
+    @IBOutlet var table_view1: UIView!
+    @IBOutlet var table_view1_1: UIView!
+    @IBOutlet var table_view1_2: UIView!
+    @IBOutlet var table_view2: UIView!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -42,8 +46,21 @@ class ticker_table: UITableViewController{
         self.navigationController?.pushViewController(ViewController, animated: true)
     }
     
+    @objc func change_theme(_ button:UIBarButtonItem!){
+        if(dark_theme){
+            dark_theme = false
+            UserDefaults.standard.set(false, forKey: "theme")
+        }else{
+            dark_theme = true
+            UserDefaults.standard.set(true, forKey: "theme")
+        }
+        set_theme()
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        set_theme()
         show_hud()
         navibar_setting()
 
@@ -51,7 +68,6 @@ class ticker_table: UITableViewController{
         userPresenter.timer_start()
         userPresenter.ad_check()
         
-        customBGColorView.backgroundColor = UIColor(red: 8/255, green: 23/255, blue: 35/255, alpha: 1) as UIColor
         tableview.dataSource = self
         tableview.delegate = self
     }
@@ -69,14 +85,19 @@ class ticker_table: UITableViewController{
         cell.symbol2.text = info[3]
         
         cell.ticker2.setTitle(info[1], for: .normal)
-        //cell.ticker2.titleEdgeInsets = UIEdgeInsets(top: 0,left: 10,bottom: 0,right: 10)
-        //cell.ticker2.setTitleColor(UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), for: .normal)
         cell.ticker2.layer.cornerRadius = 2
         cell.ticker2.layer.masksToBounds = true
-        //cell.ticker.textColor = userPresenter.find_color(str: info[4])
         cell.ticker2.backgroundColor = userPresenter.find_color(str: info[4])
         
-        cell.selectedBackgroundView = customBGColorView
+        if (dark_theme){
+            cell.backgroundColor = UIColor.appColor(.dark_table_in)
+            cell.symbol.textColor = UIColor.appColor(.dark_title)
+            cell.symbol2.textColor = UIColor.appColor(.dark_title2)
+        }else{
+            cell.backgroundColor = UIColor.appColor(.light_table_in)
+            cell.symbol.textColor = UIColor.appColor(.light_title)
+            cell.symbol2.textColor = UIColor.appColor(.light_title2)
+        }
         return cell
     }
     
@@ -152,7 +173,34 @@ extension ticker_table: UserView {
         button2.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30) //CGRectMake(0, 0, 30, 30)
         let barButton2 = UIBarButtonItem.init(customView: button2)
         self.navigationItem.rightBarButtonItem = barButton2
+        
+        let button3 = UIButton.init(type: .custom)
+        button3.setImage(UIImage.init(named: "setting"), for: UIControl.State.normal)
+        button3.addTarget(self, action:#selector(change_theme), for:.touchUpInside)
+        button3.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30) //CGRectMake(0, 0, 30, 30)
+        let barButton3 = UIBarButtonItem.init(customView: button3)
+        self.navigationItem.leftBarButtonItem = barButton3
     }
     
+    func set_theme(){
+        if (dark_theme){
+            navigationController?.navigationBar.barTintColor = UIColor.appColor(.dark_navi)
+            tableview.backgroundColor = UIColor.appColor(.dark_table_out)
+            table_view1.backgroundColor = UIColor.appColor(.dark_table_in)
+            table_view1_1.backgroundColor = UIColor.appColor(.dark_table_out)
+            table_view1_2.backgroundColor = UIColor.appColor(.dark_table_out)
+            table_view2.backgroundColor = UIColor.appColor(.dark_table_out)
+            recent.textColor = UIColor.appColor(.dark_title2)
+        }else{
+            navigationController?.navigationBar.barTintColor = UIColor.appColor(.light_navi)
+            tableview.backgroundColor = UIColor.appColor(.light_table_out)
+            table_view1.backgroundColor = UIColor.appColor(.light_table_in)
+            table_view1_1.backgroundColor = UIColor.appColor(.light_table_out)
+            table_view1_2.backgroundColor = UIColor.appColor(.light_table_out)
+            table_view2.backgroundColor = UIColor.appColor(.light_table_out)
+            recent.textColor = UIColor.appColor(.light_title2)
+        }
+    }
+
 }
 

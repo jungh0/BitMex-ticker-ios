@@ -24,6 +24,10 @@ class data_chart: UIViewController  {
     @IBOutlet var coinbase: UILabel!
     
     @IBOutlet var view1: UIView!
+    @IBOutlet var view_background: UIView!
+    
+    @IBOutlet var bitstamp_r_l: UILabel!
+    @IBOutlet var coinbase_r_l: UILabel!
     
     
     private func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
@@ -35,12 +39,11 @@ class data_chart: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        set_theme()
         self.title = sok.chart_symbol
         
-        self.view1.layer.cornerRadius = 2
+        self.view1.layer.cornerRadius = 3
         self.view1.layer.borderWidth = 1
-        self.view1.layer.borderColor = UIColor(red:54/255, green:60/255, blue:77/255, alpha: 1).cgColor
-
         
         userPresenter.attachView(self)
         userPresenter.timer1_start()
@@ -55,6 +58,33 @@ class data_chart: UIViewController  {
         userPresenter.set_premium()
         userPresenter.get_premium()
     }
+    
+    func set_theme(){
+        if (dark_theme){
+            self.navigationController?.navigationBar.tintColor = .white
+            self.tabBarController?.tabBar.barStyle = .black
+            self.tabBarController?.tabBar.barTintColor = UIColor.appColor(.dark_navi)
+            view_background.backgroundColor = UIColor.appColor(.dark_table_out)
+            view1.backgroundColor = UIColor.appColor(.dark_table_in)
+            view1.layer.borderColor = UIColor(red:54/255, green:60/255, blue:77/255, alpha: 1).cgColor
+            web.backgroundColor = UIColor.appColor(.dark_table_out)
+            dollar.textColor = UIColor.appColor(.dark_title2)
+            bitstamp_r_l.textColor = UIColor.appColor(.dark_title2)
+            coinbase_r_l.textColor = UIColor.appColor(.dark_title2)
+        }else{
+            self.navigationController?.navigationBar.tintColor = UIColor.white
+            self.tabBarController?.tabBar.barStyle = .default
+            self.tabBarController?.tabBar.barTintColor = UIColor.white
+            view_background.backgroundColor = UIColor.appColor(.light_table_out)
+            view1.backgroundColor = UIColor.appColor(.light_table_in)
+            view1.layer.borderColor = UIColor(red:220/255, green:220/255, blue:220/255, alpha: 1).cgColor
+            web.backgroundColor = UIColor.appColor(.light_table_out)
+            dollar.textColor = UIColor.appColor(.light_title2)
+            bitstamp_r_l.textColor = UIColor.appColor(.light_title2)
+            coinbase_r_l.textColor = UIColor.appColor(.light_title2)
+        }
+    }
+    
 }
 
 extension data_chart: ChartView {

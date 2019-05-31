@@ -15,7 +15,6 @@ import JGProgressHUD
 class data_details: UITableViewController {
     
     let userPresenter = data_detailsPresenter()
-    let customBGColorView = UIView()
     let hud = JGProgressHUD(style: .dark)
     
     @IBOutlet var tableview: UITableView!
@@ -39,7 +38,15 @@ class data_details: UITableViewController {
         let info = userPresenter.get_details()[indexPath.row]
         cell.textLabel?.text = info[0]
         cell.detailTextLabel?.text = info[1]
-        cell.selectedBackgroundView = customBGColorView
+        if (dark_theme){
+            cell.backgroundColor = UIColor.appColor(.dark_table_in)
+            cell.textLabel?.textColor = UIColor.appColor(.dark_title)
+            cell.detailTextLabel?.textColor = UIColor.appColor(.dark_title2)
+        }else{
+            cell.backgroundColor = UIColor.appColor(.light_table_in)
+            cell.textLabel?.textColor = UIColor.appColor(.light_title)
+            cell.detailTextLabel?.textColor = UIColor.appColor(.light_title2)
+        }
         return cell
     }
     
@@ -51,14 +58,22 @@ class data_details: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        set_theme()
         show_hud()
         
         userPresenter.attachView(self)
         userPresenter.get_details_api()
-        customBGColorView.backgroundColor = UIColor(red: 8/255, green: 23/255, blue: 35/255, alpha: 1) as UIColor
         
         tableview.dataSource = self
         tableview.delegate = self
+    }
+    
+    func set_theme(){
+        if (dark_theme){
+            tableview.backgroundColor = UIColor.appColor(.dark_table_out)
+        }else{
+            tableview.backgroundColor = UIColor.appColor(.light_table_out)
+        }
     }
     
     override var shouldAutorotate: Bool {

@@ -87,7 +87,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFc-3f-5zo">
-                                            <rect key="frame" x="15" y="12" width="70" height="21"/>
+                                            <rect key="frame" x="15" y="11" width="70" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="n6x-TI-Tal"/>
                                             </constraints>
@@ -128,7 +128,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooK-js-X8J">
-                                            <rect key="frame" x="15" y="33" width="33" height="16"/>
+                                            <rect key="frame" x="15" y="32" width="33" height="16"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" white="1" alpha="0.38016374143835618" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -142,7 +142,7 @@
                                         <constraint firstItem="Tnp-gg-NK8" firstAttribute="centerY" secondItem="M2U-zG-CYw" secondAttribute="centerY" id="VKv-aL-HMv"/>
                                         <constraint firstAttribute="trailing" secondItem="nIX-lH-QlY" secondAttribute="trailing" constant="15" id="ceE-Hz-VGD"/>
                                         <constraint firstItem="nIX-lH-QlY" firstAttribute="centerY" secondItem="M2U-zG-CYw" secondAttribute="centerY" id="fQD-Bp-eDj"/>
-                                        <constraint firstItem="Tnp-gg-NK8" firstAttribute="top" secondItem="DFc-3f-5zo" secondAttribute="bottom" constant="-3" id="fgN-5c-Zlz"/>
+                                        <constraint firstItem="Tnp-gg-NK8" firstAttribute="top" secondItem="DFc-3f-5zo" secondAttribute="bottom" constant="-2" id="fgN-5c-Zlz"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="7fW-Ca-nEo" secondAttribute="bottom" constant="7" id="iz2-tY-zm9"/>
                                         <constraint firstItem="DFc-3f-5zo" firstAttribute="leading" secondItem="ooK-js-X8J" secondAttribute="leading" id="juz-r2-9Ki"/>
                                         <constraint firstItem="7fW-Ca-nEo" firstAttribute="centerY" secondItem="M2U-zG-CYw" secondAttribute="centerY" id="kv5-T0-oeE"/>
@@ -166,6 +166,10 @@
                     <navigationItem key="navigationItem" title="Ticker" id="s88-c2-rjJ"/>
                     <connections>
                         <outlet property="recent" destination="f67-12-qy0" id="OIB-ks-dhI"/>
+                        <outlet property="table_view1" destination="AtN-9s-0zw" id="J97-jW-o7t"/>
+                        <outlet property="table_view1_1" destination="feB-yx-XmY" id="0E8-tG-BCL"/>
+                        <outlet property="table_view1_2" destination="Zmn-bc-EEp" id="sLt-2W-Wwz"/>
+                        <outlet property="table_view2" destination="Tg3-dR-yhJ" id="9Mu-P2-Ojk"/>
                         <outlet property="tableview" destination="jer-ub-Wj8" id="bvV-zx-UHY"/>
                     </connections>
                 </tableViewController>
@@ -249,16 +253,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitstamp :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMj-Na-kZu">
-                                        <rect key="frame" x="15" y="76.5" width="75" height="17"/>
+                                        <rect key="frame" x="15" y="76.5" width="75" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="mpB-Wz-G5L"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coinbase :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4s-df-ZfG">
-                                        <rect key="frame" x="15" y="101.5" width="75" height="18"/>
+                                        <rect key="frame" x="15" y="102.5" width="75" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="lAp-DT-qIH"/>
                                         </constraints>
@@ -304,12 +308,15 @@
                     <tabBarItem key="tabBarItem" title="Item" image="coin" id="xzv-H7-yWx"/>
                     <connections>
                         <outlet property="bitstamp" destination="1wp-cz-Lw4" id="aMC-FP-Zya"/>
+                        <outlet property="bitstamp_r_l" destination="aMj-Na-kZu" id="EB6-gx-eiH"/>
                         <outlet property="coinbase" destination="Mja-Mn-b3t" id="hpT-0q-Ruq"/>
+                        <outlet property="coinbase_r_l" destination="P4s-df-ZfG" id="Rli-zH-dR5"/>
                         <outlet property="dollar" destination="HTv-Pq-OsK" id="KoF-sR-wO3"/>
                         <outlet property="main_price" destination="92p-wP-OFA" id="io5-eu-bWW"/>
                         <outlet property="premium" destination="kU9-cN-fnY" id="dFz-uh-KEE"/>
                         <outlet property="premium2" destination="6Vz-hS-tJY" id="aDm-jR-KYs"/>
                         <outlet property="view1" destination="xMV-dv-eeC" id="bvs-SA-bVu"/>
+                        <outlet property="view_background" destination="bxB-7W-EtC" id="3sm-Jd-u2C"/>
                         <outlet property="web" destination="8mA-lF-JdK" id="vNB-ZW-l85"/>
                     </connections>
                 </viewController>
@@ -498,6 +505,7 @@
                         <outlet property="bid_label" destination="IFC-ui-1bC" id="9LX-x2-nTR"/>
                         <outlet property="recent_t" destination="HTO-Li-QGY" id="amG-Yz-QC1"/>
                         <outlet property="tableview" destination="etf-i7-kuD" id="4Ve-Uc-S8Z"/>
+                        <outlet property="view1" destination="sUr-8j-u1A" id="wbm-9E-1Fn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IAy-sg-lRd" userLabel="First Responder" sceneMemberID="firstResponder"/>

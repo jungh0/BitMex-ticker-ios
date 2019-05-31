@@ -84,6 +84,8 @@ class data_orderbookPresenter{
     }
     
     func set_order_color(str:String,str2:String) -> UIColor?{
+        
+        
         if (str.contains("-")){
             return UIColor(red: 70/255, green: 170/255, blue: 70/255, alpha: 1)
         }

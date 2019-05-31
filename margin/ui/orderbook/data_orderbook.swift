@@ -31,7 +31,8 @@ class data_orderbook: UITableViewController {
     @IBOutlet var bid_label: UILabel!
     @IBOutlet var recent_t: UILabel!
     
-
+    @IBOutlet var view1: UIView!
+    
     override func viewDidAppear(_ animated: Bool) {
         userPresenter.attachView(self)
         sok.send(str1: "subscribe",str2: "orderBook10",str3: sok.chart_symbol)
@@ -44,7 +45,7 @@ class data_orderbook: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        set_theme()
         self.show_hud()
         userPresenter.orderbook_reset()
         userPresenter.timer_start()
@@ -71,7 +72,22 @@ class data_orderbook: UITableViewController {
         cell.price.text = userPresenter.make_0(str: info[1])
         cell.bids_c.text = userPresenter.set_order_text(str: info[2])
         cell.price.textColor = userPresenter.set_order_color(str: info[0],str2:info[2])
+        if (dark_theme){
+            cell.backgroundColor = UIColor.appColor(.dark_table_out)
+        }else{
+            cell.backgroundColor = UIColor.appColor(.light_table_out)
+        }
         return cell
+    }
+    
+    func set_theme(){
+        if (dark_theme){
+            tableview.backgroundColor = UIColor.appColor(.dark_table_out)
+            view1.backgroundColor = UIColor.appColor(.dark_table_out)
+        }else{
+            tableview.backgroundColor = UIColor.appColor(.light_table_out)
+             view1.backgroundColor = UIColor.appColor(.light_table_out)
+        }
     }
 
 }

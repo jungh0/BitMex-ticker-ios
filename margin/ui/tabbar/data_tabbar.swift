@@ -22,6 +22,9 @@ class data_tabbar: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = sok.chart_symbol
+        
     }
+    
+    
     
 }
