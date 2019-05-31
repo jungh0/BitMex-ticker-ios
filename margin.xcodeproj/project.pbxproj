@@ -11,6 +11,13 @@
 		48DEE169BC0BEAB22B53A0AD /* Pods_marginUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B508383A689982004A335AEA /* Pods_marginUITests.framework */; };
 		495C57CCFDF574CFC7DC00D6 /* Pods_marginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33F0B8F8B251AA4E0DDAEBF /* Pods_marginTests.framework */; };
 		CE247A13224C90F80065D212 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE247A12224C90F80065D212 /* StoreKit.framework */; };
+		CE311188229EB1F600BA2D50 /* socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE311187229EB1F600BA2D50 /* socket.swift */; };
+		CE311190229F6DBD00BA2D50 /* ticker_tablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31118F229F6DBD00BA2D50 /* ticker_tablePresenter.swift */; };
+		CE311194229FB8A900BA2D50 /* data_orderbookPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE311193229FB8A900BA2D50 /* data_orderbookPresenter.swift */; };
+		CE311198229FC5F700BA2D50 /* adView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE311197229FC5F700BA2D50 /* adView.swift */; };
+		CE31119C229FC9E800BA2D50 /* data_chartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31119B229FC9E800BA2D50 /* data_chartPresenter.swift */; };
+		CE31119F229FEA0000BA2D50 /* data_detailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31119E229FEA0000BA2D50 /* data_detailsPresenter.swift */; };
+		CE3111A322A0DBE200BA2D50 /* setting_Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3111A222A0DBE200BA2D50 /* setting_Presenter.swift */; };
 		CE76469E2215772D0014EB77 /* setting_.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76469D2215772D0014EB77 /* setting_.swift */; };
 		CE96128622018BF000FC0D54 /* data_orderbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96128522018BEF00FC0D54 /* data_orderbook.swift */; };
 		CE96128822018C2D00FC0D54 /* data_tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96128722018C2D00FC0D54 /* data_tabbar.swift */; };
@@ -52,6 +59,13 @@
 		ACB94CF06AF11224942D5405 /* Pods-marginTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marginTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-marginTests/Pods-marginTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B508383A689982004A335AEA /* Pods_marginUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_marginUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE247A12224C90F80065D212 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CE311187229EB1F600BA2D50 /* socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = socket.swift; sourceTree = "<group>"; };
+		CE31118F229F6DBD00BA2D50 /* ticker_tablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticker_tablePresenter.swift; sourceTree = "<group>"; };
+		CE311193229FB8A900BA2D50 /* data_orderbookPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_orderbookPresenter.swift; sourceTree = "<group>"; };
+		CE311197229FC5F700BA2D50 /* adView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adView.swift; sourceTree = "<group>"; };
+		CE31119B229FC9E800BA2D50 /* data_chartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_chartPresenter.swift; sourceTree = "<group>"; };
+		CE31119E229FEA0000BA2D50 /* data_detailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_detailsPresenter.swift; sourceTree = "<group>"; };
+		CE3111A222A0DBE200BA2D50 /* setting_Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting_Presenter.swift; sourceTree = "<group>"; };
 		CE76469D2215772D0014EB77 /* setting_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting_.swift; sourceTree = "<group>"; };
 		CE96128522018BEF00FC0D54 /* data_orderbook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = data_orderbook.swift; sourceTree = "<group>"; };
 		CE96128722018C2D00FC0D54 /* data_tabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = data_tabbar.swift; sourceTree = "<group>"; };
@@ -130,6 +144,97 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CE31118D229F6D7700BA2D50 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				CE3111A1229FEE9A00BA2D50 /* setting */,
+				CE3111A0229FEE0600BA2D50 /* tabbar */,
+				CE31119D229FE9E300BA2D50 /* details */,
+				CE31119A229FC9B700BA2D50 /* chart */,
+				CE311199229FC5FB00BA2D50 /* adView */,
+				CE311192229FB80E00BA2D50 /* orderbook */,
+				CE31118E229F6D7E00BA2D50 /* ticker_table */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		CE31118E229F6D7E00BA2D50 /* ticker_table */ = {
+			isa = PBXGroup;
+			children = (
+				CEA350E721D75B9400543AE2 /* ticker_table.swift */,
+				CE31118F229F6DBD00BA2D50 /* ticker_tablePresenter.swift */,
+			);
+			path = ticker_table;
+			sourceTree = "<group>";
+		};
+		CE311192229FB80E00BA2D50 /* orderbook */ = {
+			isa = PBXGroup;
+			children = (
+				CE96128522018BEF00FC0D54 /* data_orderbook.swift */,
+				CE311193229FB8A900BA2D50 /* data_orderbookPresenter.swift */,
+			);
+			path = orderbook;
+			sourceTree = "<group>";
+		};
+		CE311195229FC52200BA2D50 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				CE311187229EB1F600BA2D50 /* socket.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		CE311196229FC54800BA2D50 /* trash */ = {
+			isa = PBXGroup;
+			children = (
+				CE96128922018D3100FC0D54 /* ws_func.swift */,
+			);
+			path = trash;
+			sourceTree = "<group>";
+		};
+		CE311199229FC5FB00BA2D50 /* adView */ = {
+			isa = PBXGroup;
+			children = (
+				CE311197229FC5F700BA2D50 /* adView.swift */,
+			);
+			path = adView;
+			sourceTree = "<group>";
+		};
+		CE31119A229FC9B700BA2D50 /* chart */ = {
+			isa = PBXGroup;
+			children = (
+				CEA350E921D7A0A900543AE2 /* data_chart.swift */,
+				CE31119B229FC9E800BA2D50 /* data_chartPresenter.swift */,
+			);
+			path = chart;
+			sourceTree = "<group>";
+		};
+		CE31119D229FE9E300BA2D50 /* details */ = {
+			isa = PBXGroup;
+			children = (
+				CEA6E96722226236004405E3 /* data_details.swift */,
+				CE31119E229FEA0000BA2D50 /* data_detailsPresenter.swift */,
+			);
+			path = details;
+			sourceTree = "<group>";
+		};
+		CE3111A0229FEE0600BA2D50 /* tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				CE96128722018C2D00FC0D54 /* data_tabbar.swift */,
+			);
+			path = tabbar;
+			sourceTree = "<group>";
+		};
+		CE3111A1229FEE9A00BA2D50 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				CE76469D2215772D0014EB77 /* setting_.swift */,
+				CE3111A222A0DBE200BA2D50 /* setting_Presenter.swift */,
+			);
+			path = setting;
+			sourceTree = "<group>";
+		};
 		CEA350AB21D7529300543AE2 = {
 			isa = PBXGroup;
 			children = (
@@ -155,18 +260,14 @@
 		CEA350B621D7529400543AE2 /* margin */ = {
 			isa = PBXGroup;
 			children = (
+				CE311196229FC54800BA2D50 /* trash */,
+				CE311195229FC52200BA2D50 /* model */,
+				CE31118D229F6D7700BA2D50 /* ui */,
 				CEA350B721D7529400543AE2 /* AppDelegate.swift */,
 				CEA350BD21D7529400543AE2 /* Main.storyboard */,
 				CEA350C021D7529600543AE2 /* Assets.xcassets */,
 				CEA350C221D7529600543AE2 /* LaunchScreen.storyboard */,
 				CEA350C521D7529600543AE2 /* Info.plist */,
-				CEA350E721D75B9400543AE2 /* ticker_table.swift */,
-				CE96128722018C2D00FC0D54 /* data_tabbar.swift */,
-				CEA350E921D7A0A900543AE2 /* data_chart.swift */,
-				CE96128522018BEF00FC0D54 /* data_orderbook.swift */,
-				CEA6E96722226236004405E3 /* data_details.swift */,
-				CE96128922018D3100FC0D54 /* ws_func.swift */,
-				CE76469D2215772D0014EB77 /* setting_.swift */,
 			);
 			path = margin;
 			sourceTree = "<group>";
@@ -261,6 +362,7 @@
 				TargetAttributes = {
 					CEA350B321D7529400543AE2 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -269,10 +371,12 @@
 					};
 					CEA350C921D7529600543AE2 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = CEA350B321D7529400543AE2;
 					};
 					CEA350D421D7529600543AE2 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = CEA350B321D7529400543AE2;
 					};
 				};
@@ -332,15 +436,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-margin/Pods-margin-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftWebSocket/SwiftWebSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/ZAlertView/ZAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftWebSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -410,12 +518,19 @@
 			files = (
 				CE76469E2215772D0014EB77 /* setting_.swift in Sources */,
 				CE96128822018C2D00FC0D54 /* data_tabbar.swift in Sources */,
+				CE311188229EB1F600BA2D50 /* socket.swift in Sources */,
+				CE311198229FC5F700BA2D50 /* adView.swift in Sources */,
 				CEA350B821D7529400543AE2 /* AppDelegate.swift in Sources */,
 				CEA350EA21D7A0A900543AE2 /* data_chart.swift in Sources */,
 				CEA6E96822226236004405E3 /* data_details.swift in Sources */,
+				CE311194229FB8A900BA2D50 /* data_orderbookPresenter.swift in Sources */,
 				CE96128A22018D3100FC0D54 /* ws_func.swift in Sources */,
+				CE31119F229FEA0000BA2D50 /* data_detailsPresenter.swift in Sources */,
+				CE3111A322A0DBE200BA2D50 /* setting_Presenter.swift in Sources */,
 				CEA350E821D75B9400543AE2 /* ticker_table.swift in Sources */,
+				CE311190229F6DBD00BA2D50 /* ticker_tablePresenter.swift in Sources */,
 				CE96128622018BF000FC0D54 /* data_orderbook.swift in Sources */,
+				CE31119C229FC9E800BA2D50 /* data_chartPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,7 +715,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -619,7 +734,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -640,7 +755,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin.marginTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/margin.app/margin";
 			};
@@ -662,7 +777,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin.marginTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/margin.app/margin";
 			};
@@ -683,7 +798,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin.marginUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = margin;
 			};
@@ -704,7 +819,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin.marginUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = margin;
 			};
