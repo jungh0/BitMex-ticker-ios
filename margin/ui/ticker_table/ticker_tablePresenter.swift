@@ -16,6 +16,8 @@ protocol UserView: NSObjectProtocol {
     func show_ad()
     func show_hud()
     func dissmiss_hud()
+    func reloadTable()
+    func set_theme()
     
 }
 
@@ -30,11 +32,9 @@ class ticker_tablePresenter {
     }
     
     private func request_coin(){
-        let url3 = URL(string: "http://jungh0.com/symbol")
-        let taskk2 = URLSession.shared.dataTask(with: url3! as URL) { data, response, error in
-            guard let data = data, error == nil else { return }
-            let text2 = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
-            var get_table_data = text2.components(separatedBy: "\n")
+        let url = "http://jungh0.com/symbol"
+        requestHTTP(url: url,completion: { result in
+            var get_table_data = result.components(separatedBy: "\n")
             for i in 0 ... get_table_data.count - 1 {
                 var dataa = get_table_data[i].components(separatedBy: ",")
                 sok.c_list_append(list: [dataa[0],dataa[1],dataa[2],dataa[3],dataa[4],dataa[5],dataa[6]])
@@ -42,12 +42,15 @@ class ticker_tablePresenter {
             DispatchQueue.main.async {
                 sok.start()
             }
-        }
-        taskk2.resume()
+        })
     }
     
     func attachView(_ view:UserView){
         userView = view
+        userView?.show_hud()
+        userView?.set_theme()
+        self.ad_check()
+        self.timer_start()
     }
     
     func detachView() {
@@ -58,9 +61,11 @@ class ticker_tablePresenter {
         sok.chart_symbol = str
     }
     
-    func timer_start(){
+    private func timer_start(){
         if(timer != nil){timer.invalidate()}
-        timer = Timer(timeInterval: 0.5, target: self, selector: #selector(recent_trade), userInfo:nil, repeats: true)
+        timer = Timer(timeInterval: 0.5, target: self,
+                      selector: #selector(recent_trade),
+                      userInfo:nil, repeats: true)
         RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
     }
     
@@ -74,7 +79,7 @@ class ticker_tablePresenter {
         if (is_scroll == 0){
             userView?.recent_list()
         }
-        userView?.recent_text(str: sok.recent_str)
+        //userView?.recent_text(str: sok.recent_str)
     }
     
     func BeginDragging(){
@@ -89,7 +94,7 @@ class ticker_tablePresenter {
         }
     }
     
-    func ad_check(){
+    private func ad_check(){
         let loadedData = UserDefaults.standard.value(forKey: "world")
         var letsgo = 0
         if (loadedData != nil){
@@ -106,14 +111,16 @@ class ticker_tablePresenter {
         return sok.c_list
     }
     
-    func find_color(str:String) -> UIColor{
-        if (str.contains("g")){
-            return UIColor(red: 70/255, green: 170/255, blue: 70/255, alpha: 0.9) as UIColor
+    func change_theme(){
+        if(dark_theme){
+            dark_theme = false
+            UserDefaults.standard.set(0, forKey: "theme2")
+        }else{
+            dark_theme = true
+            UserDefaults.standard.set(1, forKey: "theme2")
         }
-        if (str.contains("r")){
-            return UIColor(red: 200/255, green: 70/255, blue: 70/255, alpha: 0.9) as UIColor
-        }
-        return UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 0.7) as UIColor
+        userView?.set_theme()
+        userView?.reloadTable()
     }
     
 }

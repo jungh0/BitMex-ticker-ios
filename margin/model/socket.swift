@@ -72,6 +72,8 @@ class socket{
         }
     }
     
+    
+    
     public func send(str1:String,str2:String,str3:String){
         let msg = "{\"op\": \"" + str1 + "\", \"args\": [\"" + str2 + ":" + str3 + "\"]}"
         //print("send: \(msg)")

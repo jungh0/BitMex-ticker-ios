@@ -66,6 +66,11 @@ class data_chartPresenter{
     
     func attachView(_ view:ChartView){
         userView = view
+        self.timer1_start()
+        self.timer2_start()
+        self.make_web(str: sok.chart_symbol)
+        self.set_premium()
+        self.get_premium()
     }
     
     func detachView() {
@@ -100,49 +105,36 @@ class data_chartPresenter{
     }
     
     func get_http_bitstamp(){
-        let url3 = URL(string: "https://www.bitstamp.net/api/v2/ticker/" + sok.c_list[check][5] + "/")
-        let request = URLSession.shared.dataTask(with: url3! as URL) { data, response, error in
-            guard let data = data, error == nil else { return }
-            let text2 = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
-            let data_j = text2.data(using: String.Encoding.utf8)
-            do {
-                if let data_j = data_j,
-                    let json = try JSONSerialization.jsonObject(with: data_j, options:[]) as? [String: AnyObject] {
-                    let last = json["last"] as? String
-                    let tmp = last ?? "0"
-                    if (tmp != "0"){
-                        self.bitstamp_last = tmp
-                    }
-                } else {
-                    print("No Data :/")
-                }
-            } catch {
+        let url = "https://www.bitstamp.net/api/v2/ticker/" + sok.c_list[check][5] + "/"
+        requestHTTP(url: url, completion: { text2 in
+            let last = self.getjson(json: text2,str: "last")
+            if(last != nil){
+                self.bitstamp_last = last!
             }
-        }
-        request.resume()
+        })
     }
     
     func get_http_coinbase(){
-        let url4 = URL(string: "https://api.pro.coinbase.com/products/" + sok.c_list[check][6] + "/ticker")
-        let request = URLSession.shared.dataTask(with: url4! as URL) { data, response, error in
-            guard let data = data, error == nil else { return }
-            let text2 = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
-            let data_j = text2.data(using: String.Encoding.utf8)
-            do {
-                if let data_j = data_j,
-                    let json = try JSONSerialization.jsonObject(with: data_j, options:[]) as? [String: AnyObject] {
-                    let last = json["price"] as? String
-                    let tmp = last ?? "0"
-                    if (tmp != "0"){
-                        self.coinbase_last = tmp
-                    }
-                } else {
-                    print("No Data :/")
-                }
-            } catch {
+        let url = "https://api.pro.coinbase.com/products/" + sok.c_list[check][6] + "/ticker"
+        requestHTTP(url: url) { (text2) in
+            let last = self.getjson(json: text2,str: "price")
+            if(last != nil){
+                self.coinbase_last = last!
             }
         }
-        request.resume()
+    }
+    
+    private func getjson(json:String,str:String) -> String?{
+        let data_j = json.data(using: String.Encoding.utf8)
+        do {
+            if let data_j = data_j,
+                let json = try JSONSerialization.jsonObject(with: data_j, options:[]) as? [String: AnyObject] {
+                let last = json[str] as? String
+                let tmp = last ?? "0"
+                if (tmp != "0"){return tmp}
+            } else {return nil}
+        } catch {}
+        return nil
     }
     
     func get_c_list() -> [[String]]{

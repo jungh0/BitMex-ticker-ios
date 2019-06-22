@@ -17,6 +17,15 @@ class ticker_cell: UITableViewCell {
     @IBOutlet weak var ticker: UILabel!
     @IBOutlet weak var symbol2: UILabel!
     @IBOutlet var ticker2: UIButton!
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let separator = UIView()
+        separator.frame = CGRect(x: self.frame.origin.x, y: self.frame.size.height - 1,
+                                 width: self.frame.size.width, height: 1)
+        separator.backgroundColor = UIColor.appColor(.table_out)
+        self.addSubview(separator)
+    }
 }
 
 class ticker_table: UITableViewController{
@@ -25,12 +34,12 @@ class ticker_table: UITableViewController{
     var bannerView: GADBannerView!
     let hud = JGProgressHUD(style: .dark)
     
-    @IBOutlet weak var tableview: UITableView!
-    @IBOutlet weak var recent: UILabel!
+    @IBOutlet var symbol: UILabel!
+    @IBOutlet var price: UILabel!
     
+    @IBOutlet weak var tableview: UITableView!
     @IBOutlet var table_view1: UIView!
     @IBOutlet var table_view1_1: UIView!
-    @IBOutlet var table_view1_2: UIView!
     @IBOutlet var table_view2: UIView!
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,30 +56,15 @@ class ticker_table: UITableViewController{
     }
     
     @objc func change_theme(_ button:UIBarButtonItem!){
-        if(dark_theme){
-            dark_theme = false
-            UserDefaults.standard.set(0, forKey: "theme2")
-        }else{
-            dark_theme = true
-            UserDefaults.standard.set(1, forKey: "theme2")
-        }
-        set_theme()
-        self.tableView.reloadData()
+        userPresenter.change_theme()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        set_theme()
-        show_hud()
         navibar_setting()
-
         userPresenter.attachView(self)
-        userPresenter.timer_start()
-        userPresenter.ad_check()
-        
         tableview.dataSource = self
         tableview.delegate = self
-    
     }
     
     //섹션 별 개수
@@ -83,22 +77,21 @@ class ticker_table: UITableViewController{
         let cell = tableview.dequeueReusableCell(withIdentifier: "ticker_cell", for: indexPath) as! ticker_cell
         var info = userPresenter.get_c_list()[indexPath.row]
         cell.symbol.text = info[0]
+        cell.symbol.textColor = UIColor.appColor(.title)
+        
         cell.symbol2.text = info[3]
+        cell.symbol2.textColor = UIColor.appColor(.title2)
         
         cell.ticker2.setTitle(info[1], for: .normal)
         cell.ticker2.layer.cornerRadius = 2
         cell.ticker2.layer.masksToBounds = true
-        cell.ticker2.backgroundColor = userPresenter.find_color(str: info[4])
+        cell.ticker2.backgroundColor = find_color(str: info[4])
         
-        if (dark_theme){
-            cell.backgroundColor = UIColor.appColor(.dark_table_in)
-            cell.symbol.textColor = UIColor.appColor(.dark_title)
-            cell.symbol2.textColor = UIColor.appColor(.dark_title2)
-        }else{
-            cell.backgroundColor = UIColor.appColor(.light_table_in)
-            cell.symbol.textColor = UIColor.appColor(.light_title)
-            cell.symbol2.textColor = UIColor.appColor(.light_title2)
-        }
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.appColor(.table_click)
+        cell.selectedBackgroundView = backgroundView
+        cell.backgroundColor = UIColor.appColor(.table_in)
+        
         return cell
     }
     
@@ -115,8 +108,50 @@ class ticker_table: UITableViewController{
     override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         userPresenter.BeginDragging()
     }
+    
     override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         userPresenter.EndDragging()
+    }
+    
+    func show_ad(){
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = "ca-app-pub-0355430122346055/4509554445"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+    }
+    
+    //광고 위치
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,attribute: .bottom,relatedBy: .equal,toItem: bottomLayoutGuide,attribute: .top,multiplier: 1,constant: 0),
+             NSLayoutConstraint(item: bannerView,attribute: .centerX,relatedBy: .equal,toItem: view,attribute: .centerX,multiplier: 1,constant: 0)
+            ])
+    }
+    
+    func navibar_setting(){
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        setTopset()
+        setTopBtn()
+    }
+    
+    func setTopset(){
+        let topset = UIButton.init(type: .custom)
+        topset.setImage(UIImage.init(named: "setting"), for: UIControl.State.normal)
+        topset.addTarget(self, action:#selector(go_setting), for:.touchUpInside)
+        topset.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: topset)
+    }
+    
+    func setTopBtn(){
+        let topBtn = UIButton.init(type: .custom)
+        topBtn.addTarget(self, action:#selector(change_theme), for:.touchUpInside)
+        topBtn.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        topBtn.setImage(UIImage.appImg(.topImg), for: UIControl.State.normal)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: topBtn)
     }
     
 }
@@ -144,69 +179,22 @@ extension ticker_table: UserView {
     }
     
     func recent_text(str: String){
-        recent.text = str
+        //recent.text = str
     }
     
-    func show_ad(){
-        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-        addBannerViewToView(bannerView)
-        bannerView.adUnitID = "ca-app-pub-0355430122346055/4509554445"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-    }
-    
-    //광고 위치
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        view.addConstraints(
-            [NSLayoutConstraint(item: bannerView,attribute: .bottom,relatedBy: .equal,toItem: bottomLayoutGuide,attribute: .top,multiplier: 1,constant: 0),
-             NSLayoutConstraint(item: bannerView,attribute: .centerX,relatedBy: .equal,toItem: view,attribute: .centerX,multiplier: 1,constant: 0)
-            ])
-    }
-    
-    func navibar_setting(){
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        
-        let button2 = UIButton.init(type: .custom)
-        button2.setImage(UIImage.init(named: "setting"), for: UIControl.State.normal)
-        button2.addTarget(self, action:#selector(go_setting), for:.touchUpInside)
-        button2.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30) //CGRectMake(0, 0, 30, 30)
-        let barButton2 = UIBarButtonItem.init(customView: button2)
-        self.navigationItem.rightBarButtonItem = barButton2
-        
+    func reloadTable(){
+        self.tableView.reloadData()
     }
     
     func set_theme(){
-        
-        let button3 = UIButton.init(type: .custom)
-        button3.addTarget(self, action:#selector(change_theme), for:.touchUpInside)
-        button3.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30) //CGRectMake(0, 0, 30, 30)
-        
-        if (dark_theme){
-            navigationController?.navigationBar.barTintColor = UIColor.appColor(.dark_navi)
-            tableview.backgroundColor = UIColor.appColor(.dark_table_out)
-            table_view1.backgroundColor = UIColor.appColor(.dark_table_in)
-            table_view1_1.backgroundColor = UIColor.appColor(.dark_table_out)
-            table_view1_2.backgroundColor = UIColor.appColor(.dark_table_out)
-            table_view2.backgroundColor = UIColor.appColor(.dark_table_out)
-            recent.textColor = UIColor.appColor(.dark_title2)
-            button3.setImage(UIImage.init(named: "noon"), for: UIControl.State.normal)
-        }else{
-            navigationController?.navigationBar.barTintColor = UIColor.appColor(.light_navi)
-            tableview.backgroundColor = UIColor.appColor(.light_table_out)
-            table_view1.backgroundColor = UIColor.appColor(.light_table_in)
-            table_view1_1.backgroundColor = UIColor.appColor(.light_table_out)
-            table_view1_2.backgroundColor = UIColor.appColor(.light_table_out)
-            table_view2.backgroundColor = UIColor.appColor(.light_table_out)
-            recent.textColor = UIColor.appColor(.light_title2)
-            button3.setImage(UIImage.init(named: "night"), for: UIControl.State.normal)
-        }
-        
-        let barButton3 = UIBarButtonItem.init(customView: button3)
-        self.navigationItem.leftBarButtonItem = barButton3
+        setTopBtn()
+        navigationController?.navigationBar.barTintColor = UIColor.appColor(.navi)
+        tableview.backgroundColor = UIColor.appColor(.table_out)
+        table_view1.backgroundColor = UIColor.appColor(.navi)
+        table_view1_1.backgroundColor = UIColor.appColor(.table_in)
+        table_view2.backgroundColor = UIColor.appColor(.table_out)
+        symbol.textColor = UIColor.appColor(.title2)
+        price.textColor = UIColor.appColor(.title2)
     }
-
+    
 }
-

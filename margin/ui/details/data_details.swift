@@ -38,15 +38,14 @@ class data_details: UITableViewController {
         let info = userPresenter.get_details()[indexPath.row]
         cell.textLabel?.text = info[0]
         cell.detailTextLabel?.text = info[1]
-        if (dark_theme){
-            cell.backgroundColor = UIColor.appColor(.dark_table_in)
-            cell.textLabel?.textColor = UIColor.appColor(.dark_title)
-            cell.detailTextLabel?.textColor = UIColor.appColor(.dark_title2)
-        }else{
-            cell.backgroundColor = UIColor.appColor(.light_table_in)
-            cell.textLabel?.textColor = UIColor.appColor(.light_title)
-            cell.detailTextLabel?.textColor = UIColor.appColor(.light_title2)
-        }
+        
+        cell.backgroundColor = UIColor.appColor(.table_in)
+        cell.textLabel?.textColor = UIColor.appColor(.title)
+        cell.detailTextLabel?.textColor = UIColor.appColor(.title2)
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.appColor(.table_click)
+        cell.selectedBackgroundView = backgroundView
+        
         return cell
     }
     
@@ -69,11 +68,7 @@ class data_details: UITableViewController {
     }
     
     func set_theme(){
-        if (dark_theme){
-            tableview.backgroundColor = UIColor.appColor(.dark_table_out)
-        }else{
-            tableview.backgroundColor = UIColor.appColor(.light_table_out)
-        }
+        tableview.backgroundColor = UIColor.appColor(.table_out)
     }
     
     override var shouldAutorotate: Bool {

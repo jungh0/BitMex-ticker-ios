@@ -8,6 +8,9 @@ target 'margin' do
   pod 'Google-Mobile-Ads-SDK'
   pod 'ZAlertView'
   pod 'JGProgressHUD'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+  pod 'SCLAlertView'
   # Pods for margin
 
   target 'marginTests' do

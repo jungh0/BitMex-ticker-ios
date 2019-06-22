@@ -13,7 +13,6 @@
 		CE247A13224C90F80065D212 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE247A12224C90F80065D212 /* StoreKit.framework */; };
 		CE311188229EB1F600BA2D50 /* socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE311187229EB1F600BA2D50 /* socket.swift */; };
 		CE311190229F6DBD00BA2D50 /* ticker_tablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31118F229F6DBD00BA2D50 /* ticker_tablePresenter.swift */; };
-		CE311194229FB8A900BA2D50 /* data_orderbookPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE311193229FB8A900BA2D50 /* data_orderbookPresenter.swift */; };
 		CE311198229FC5F700BA2D50 /* adView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE311197229FC5F700BA2D50 /* adView.swift */; };
 		CE31119C229FC9E800BA2D50 /* data_chartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31119B229FC9E800BA2D50 /* data_chartPresenter.swift */; };
 		CE31119F229FEA0000BA2D50 /* data_detailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31119E229FEA0000BA2D50 /* data_detailsPresenter.swift */; };
@@ -21,10 +20,12 @@
 		CE4A330522A157B8006D91C6 /* orderbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A330422A157B8006D91C6 /* orderbook.swift */; };
 		CE4A330722A157C4006D91C6 /* orderbookPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A330622A157C4006D91C6 /* orderbookPresenter.swift */; };
 		CE50F24B22A12AE700F6865A /* theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50F24A22A12AE700F6865A /* theme.swift */; };
+		CE70975722B1063B0049235C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE70975622B1063B0049235C /* GoogleService-Info.plist */; };
+		CE70975A22B1E9E20049235C /* data_alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70975922B1E9E20049235C /* data_alert.swift */; };
 		CE76469E2215772D0014EB77 /* setting_.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76469D2215772D0014EB77 /* setting_.swift */; };
-		CE96128622018BF000FC0D54 /* data_orderbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96128522018BEF00FC0D54 /* data_orderbook.swift */; };
 		CE96128822018C2D00FC0D54 /* data_tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96128722018C2D00FC0D54 /* data_tabbar.swift */; };
 		CE96128A22018D3100FC0D54 /* ws_func.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96128922018D3100FC0D54 /* ws_func.swift */; };
+		CE9FA94222BA5DE500289395 /* data_alertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9FA94122BA5DE500289395 /* data_alertPresenter.swift */; };
 		CEA350B821D7529400543AE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA350B721D7529400543AE2 /* AppDelegate.swift */; };
 		CEA350BF21D7529400543AE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA350BD21D7529400543AE2 /* Main.storyboard */; };
 		CEA350C121D7529600543AE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA350C021D7529600543AE2 /* Assets.xcassets */; };
@@ -34,6 +35,10 @@
 		CEA350E821D75B9400543AE2 /* ticker_table.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA350E721D75B9400543AE2 /* ticker_table.swift */; };
 		CEA350EA21D7A0A900543AE2 /* data_chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA350E921D7A0A900543AE2 /* data_chart.swift */; };
 		CEA6E96822226236004405E3 /* data_details.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6E96722226236004405E3 /* data_details.swift */; };
+		CEBC7D5E22A63E06005D3FC1 /* recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7D5C22A63E06005D3FC1 /* recent.swift */; };
+		CEBC7D5F22A63E06005D3FC1 /* recentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7D5D22A63E06005D3FC1 /* recentPresenter.swift */; };
+		CEFB9D7622BE307900D685DC /* findRG.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB9D7522BE307900D685DC /* findRG.swift */; };
+		CEFB9D7822BE312000D685DC /* requestHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB9D7722BE312000D685DC /* requestHTTP.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +69,6 @@
 		CE247A12224C90F80065D212 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CE311187229EB1F600BA2D50 /* socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = socket.swift; sourceTree = "<group>"; };
 		CE31118F229F6DBD00BA2D50 /* ticker_tablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticker_tablePresenter.swift; sourceTree = "<group>"; };
-		CE311193229FB8A900BA2D50 /* data_orderbookPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_orderbookPresenter.swift; sourceTree = "<group>"; };
 		CE311197229FC5F700BA2D50 /* adView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adView.swift; sourceTree = "<group>"; };
 		CE31119B229FC9E800BA2D50 /* data_chartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_chartPresenter.swift; sourceTree = "<group>"; };
 		CE31119E229FEA0000BA2D50 /* data_detailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_detailsPresenter.swift; sourceTree = "<group>"; };
@@ -72,10 +76,13 @@
 		CE4A330422A157B8006D91C6 /* orderbook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderbook.swift; sourceTree = "<group>"; };
 		CE4A330622A157C4006D91C6 /* orderbookPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderbookPresenter.swift; sourceTree = "<group>"; };
 		CE50F24A22A12AE700F6865A /* theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theme.swift; sourceTree = "<group>"; };
+		CE70975522B105E00049235C /* margin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = margin.entitlements; sourceTree = "<group>"; };
+		CE70975622B1063B0049235C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE70975922B1E9E20049235C /* data_alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_alert.swift; sourceTree = "<group>"; };
 		CE76469D2215772D0014EB77 /* setting_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting_.swift; sourceTree = "<group>"; };
-		CE96128522018BEF00FC0D54 /* data_orderbook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = data_orderbook.swift; sourceTree = "<group>"; };
 		CE96128722018C2D00FC0D54 /* data_tabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = data_tabbar.swift; sourceTree = "<group>"; };
 		CE96128922018D3100FC0D54 /* ws_func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ws_func.swift; sourceTree = "<group>"; };
+		CE9FA94122BA5DE500289395 /* data_alertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_alertPresenter.swift; sourceTree = "<group>"; };
 		CEA350B421D7529400543AE2 /* margin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = margin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA350B721D7529400543AE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEA350BE21D7529400543AE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,6 +98,10 @@
 		CEA350E721D75B9400543AE2 /* ticker_table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticker_table.swift; sourceTree = "<group>"; };
 		CEA350E921D7A0A900543AE2 /* data_chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_chart.swift; sourceTree = "<group>"; };
 		CEA6E96722226236004405E3 /* data_details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_details.swift; sourceTree = "<group>"; };
+		CEBC7D5C22A63E06005D3FC1 /* recent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recent.swift; sourceTree = "<group>"; };
+		CEBC7D5D22A63E06005D3FC1 /* recentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recentPresenter.swift; sourceTree = "<group>"; };
+		CEFB9D7522BE307900D685DC /* findRG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findRG.swift; sourceTree = "<group>"; };
+		CEFB9D7722BE312000D685DC /* requestHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestHTTP.swift; sourceTree = "<group>"; };
 		CEFC9FA52215880400D68ACB /* ZAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B449B5B6E3080293F1E721 /* Pods-marginUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marginUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-marginUITests/Pods-marginUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F9E1A1F0412110C44B462EBB /* Pods-margin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-margin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-margin/Pods-margin.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +164,8 @@
 		CE31118D229F6D7700BA2D50 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				CE70975822B1E9D00049235C /* alert */,
+				CEBC7D5B22A63DC1005D3FC1 /* recent */,
 				CE3111A1229FEE9A00BA2D50 /* setting */,
 				CE3111A0229FEE0600BA2D50 /* tabbar */,
 				CE31119D229FE9E300BA2D50 /* details */,
@@ -176,8 +189,6 @@
 		CE311192229FB80E00BA2D50 /* orderbook */ = {
 			isa = PBXGroup;
 			children = (
-				CE96128522018BEF00FC0D54 /* data_orderbook.swift */,
-				CE311193229FB8A900BA2D50 /* data_orderbookPresenter.swift */,
 				CE4A330422A157B8006D91C6 /* orderbook.swift */,
 				CE4A330622A157C4006D91C6 /* orderbookPresenter.swift */,
 			);
@@ -189,6 +200,8 @@
 			children = (
 				CE311187229EB1F600BA2D50 /* socket.swift */,
 				CE50F24A22A12AE700F6865A /* theme.swift */,
+				CEFB9D7522BE307900D685DC /* findRG.swift */,
+				CEFB9D7722BE312000D685DC /* requestHTTP.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -244,6 +257,15 @@
 			path = setting;
 			sourceTree = "<group>";
 		};
+		CE70975822B1E9D00049235C /* alert */ = {
+			isa = PBXGroup;
+			children = (
+				CE70975922B1E9E20049235C /* data_alert.swift */,
+				CE9FA94122BA5DE500289395 /* data_alertPresenter.swift */,
+			);
+			path = alert;
+			sourceTree = "<group>";
+		};
 		CEA350AB21D7529300543AE2 = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +291,7 @@
 		CEA350B621D7529400543AE2 /* margin */ = {
 			isa = PBXGroup;
 			children = (
+				CE70975522B105E00049235C /* margin.entitlements */,
 				CE311196229FC54800BA2D50 /* trash */,
 				CE311195229FC52200BA2D50 /* model */,
 				CE31118D229F6D7700BA2D50 /* ui */,
@@ -277,6 +300,7 @@
 				CEA350C021D7529600543AE2 /* Assets.xcassets */,
 				CEA350C221D7529600543AE2 /* LaunchScreen.storyboard */,
 				CEA350C521D7529600543AE2 /* Info.plist */,
+				CE70975622B1063B0049235C /* GoogleService-Info.plist */,
 			);
 			path = margin;
 			sourceTree = "<group>";
@@ -297,6 +321,15 @@
 				CEA350DB21D7529600543AE2 /* Info.plist */,
 			);
 			path = marginUITests;
+			sourceTree = "<group>";
+		};
+		CEBC7D5B22A63DC1005D3FC1 /* recent */ = {
+			isa = PBXGroup;
+			children = (
+				CEBC7D5C22A63E06005D3FC1 /* recent.swift */,
+				CEBC7D5D22A63E06005D3FC1 /* recentPresenter.swift */,
+			);
+			path = recent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,7 +406,13 @@
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
 							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -416,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA350C421D7529600543AE2 /* LaunchScreen.storyboard in Resources */,
+				CE70975722B1063B0049235C /* GoogleService-Info.plist in Resources */,
 				CEA350C121D7529600543AE2 /* Assets.xcassets in Resources */,
 				CEA350BF21D7529400543AE2 /* Main.storyboard in Resources */,
 			);
@@ -447,6 +487,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-margin/Pods-margin-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftWebSocket/SwiftWebSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/ZAlertView/ZAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -455,6 +497,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftWebSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -526,23 +570,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE76469E2215772D0014EB77 /* setting_.swift in Sources */,
+				CEFB9D7622BE307900D685DC /* findRG.swift in Sources */,
+				CE9FA94222BA5DE500289395 /* data_alertPresenter.swift in Sources */,
+				CEBC7D5F22A63E06005D3FC1 /* recentPresenter.swift in Sources */,
 				CE96128822018C2D00FC0D54 /* data_tabbar.swift in Sources */,
 				CE311188229EB1F600BA2D50 /* socket.swift in Sources */,
 				CE311198229FC5F700BA2D50 /* adView.swift in Sources */,
 				CE4A330722A157C4006D91C6 /* orderbookPresenter.swift in Sources */,
 				CE4A330522A157B8006D91C6 /* orderbook.swift in Sources */,
+				CEBC7D5E22A63E06005D3FC1 /* recent.swift in Sources */,
 				CEA350B821D7529400543AE2 /* AppDelegate.swift in Sources */,
 				CEA350EA21D7A0A900543AE2 /* data_chart.swift in Sources */,
+				CE70975A22B1E9E20049235C /* data_alert.swift in Sources */,
 				CEA6E96822226236004405E3 /* data_details.swift in Sources */,
-				CE311194229FB8A900BA2D50 /* data_orderbookPresenter.swift in Sources */,
 				CE96128A22018D3100FC0D54 /* ws_func.swift in Sources */,
 				CE50F24B22A12AE700F6865A /* theme.swift in Sources */,
 				CE31119F229FEA0000BA2D50 /* data_detailsPresenter.swift in Sources */,
 				CE3111A322A0DBE200BA2D50 /* setting_Presenter.swift in Sources */,
 				CEA350E821D75B9400543AE2 /* ticker_table.swift in Sources */,
 				CE311190229F6DBD00BA2D50 /* ticker_tablePresenter.swift in Sources */,
-				CE96128622018BF000FC0D54 /* data_orderbook.swift in Sources */,
 				CE31119C229FC9E800BA2D50 /* data_chartPresenter.swift in Sources */,
+				CEFB9D7822BE312000D685DC /* requestHTTP.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +766,7 @@
 			baseConfigurationReference = F9E1A1F0412110C44B462EBB /* Pods-margin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = margin/margin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
 				INFOPLIST_FILE = margin/Info.plist;
@@ -737,6 +786,7 @@
 			baseConfigurationReference = 52DEB68B35B4CA53EAD638B8 /* Pods-margin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = margin/margin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
 				INFOPLIST_FILE = margin/Info.plist;

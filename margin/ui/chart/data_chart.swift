@@ -14,21 +14,22 @@ import WebKit
 class data_chart: UIViewController  {
     
     let userPresenter = data_chartPresenter()
-    
     @IBOutlet var web: UIWebView!
+    
     @IBOutlet var main_price: UILabel!
     @IBOutlet var dollar: UILabel!
+    
     @IBOutlet var bitstamp: UILabel!
-    @IBOutlet var premium: UILabel!
-    @IBOutlet var premium2: UILabel!
     @IBOutlet var coinbase: UILabel!
     
-    @IBOutlet var view1: UIView!
-    @IBOutlet var view_background: UIView!
+    @IBOutlet var premium: UILabel!
+    @IBOutlet var premium2: UILabel!
     
     @IBOutlet var bitstamp_r_l: UILabel!
     @IBOutlet var coinbase_r_l: UILabel!
     
+    @IBOutlet var view1: UIView!
+    @IBOutlet var view_background: UIView!
     
     private func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.landscapeLeft
@@ -39,50 +40,40 @@ class data_chart: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        set_theme()
         self.title = sok.chart_symbol
-        
-        self.view1.layer.cornerRadius = 3
-        self.view1.layer.borderWidth = 1
-        
+        init_ui()
         userPresenter.attachView(self)
-        userPresenter.timer1_start()
-        userPresenter.timer2_start()
-        userPresenter.make_web(str: sok.chart_symbol)
-
+    }
+    
+    func init_ui(){
+        view1.layer.cornerRadius = 3
+        view1.layer.borderWidth = 1
         bitstamp.layer.cornerRadius = 2
         bitstamp.layer.masksToBounds = true
         premium.layer.cornerRadius = 2
         premium.layer.masksToBounds = true
-        
-        userPresenter.set_premium()
-        userPresenter.get_premium()
+        set_theme()
     }
     
     func set_theme(){
         if (dark_theme){
             self.navigationController?.navigationBar.tintColor = .white
             self.tabBarController?.tabBar.barStyle = .black
-            self.tabBarController?.tabBar.barTintColor = UIColor.appColor(.dark_navi)
-            view_background.backgroundColor = UIColor.appColor(.dark_table_out)
-            view1.backgroundColor = UIColor.appColor(.dark_table_out)
-            view1.layer.borderColor = UIColor(red:54/255, green:60/255, blue:77/255, alpha: 1).cgColor
-            web.backgroundColor = UIColor.appColor(.dark_table_out)
-            dollar.textColor = UIColor.appColor(.dark_title2)
-            bitstamp_r_l.textColor = UIColor.appColor(.dark_title2)
-            coinbase_r_l.textColor = UIColor.appColor(.dark_title2)
+            self.tabBarController?.tabBar.barTintColor = UIColor.appColor(.navi)
         }else{
             self.navigationController?.navigationBar.tintColor = UIColor.white
             self.tabBarController?.tabBar.barStyle = .default
             self.tabBarController?.tabBar.barTintColor = UIColor.white
-            view_background.backgroundColor = UIColor.appColor(.light_table_out)
-            view1.backgroundColor = UIColor.appColor(.light_table_in)
-            view1.layer.borderColor = UIColor(red:220/255, green:220/255, blue:220/255, alpha: 1).cgColor
-            web.backgroundColor = UIColor.appColor(.light_table_out)
-            dollar.textColor = UIColor.appColor(.light_title2)
-            bitstamp_r_l.textColor = UIColor.appColor(.light_title2)
-            coinbase_r_l.textColor = UIColor.appColor(.light_title2)
         }
+        web.backgroundColor = UIColor.appColor(.table_out)
+        dollar.textColor = UIColor.appColor(.title2)
+        
+        view1.backgroundColor = UIColor.appColor(.detail_table_in)
+        view1.layer.borderColor = UIColor.appColor(.border)?.cgColor
+        view_background.backgroundColor = UIColor.appColor(.table_out)
+        
+        bitstamp_r_l.textColor = UIColor.appColor(.title2)
+        coinbase_r_l.textColor = UIColor.appColor(.title2)
     }
     
 }

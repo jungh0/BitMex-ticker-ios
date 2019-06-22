@@ -48,13 +48,8 @@ class setting_: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if (dark_theme){
-            cell.backgroundColor = UIColor.appColor(.dark_table_in)
-            cell.textLabel?.textColor = UIColor.appColor(.dark_title)
-        }else{
-            cell.backgroundColor = UIColor.appColor(.light_table_in)
-            cell.textLabel?.textColor = UIColor.appColor(.light_title)
-        }
+        cell.backgroundColor = UIColor.appColor(.table_in)
+        cell.textLabel?.textColor = UIColor.appColor(.title)
     }
     
     override func viewDidLoad() {
@@ -67,11 +62,7 @@ class setting_: UITableViewController {
     
     func set_theme(){
         self.navigationController?.navigationBar.tintColor = .white
-        if (dark_theme){
-            tableview.backgroundColor = UIColor.appColor(.dark_table_out)
-        }else{
-            tableview.backgroundColor = UIColor.appColor(.light_table_out)
-        }
+        tableview.backgroundColor = UIColor.appColor(.table_out)
     }
     
     override var shouldAutorotate: Bool {

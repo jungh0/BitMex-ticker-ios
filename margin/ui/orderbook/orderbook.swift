@@ -70,7 +70,7 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
         cell.bids_c.text = userPresenter.set_order_text(str: info[2])
         cell.price.textColor = userPresenter.set_order_color(str: info[0],str2:info[2])
         if (dark_theme){
-            cell.backgroundColor = UIColor.appColor(.dark_table_out)
+            cell.backgroundColor = UIColor.appColor(.table_out)
         }else{
             cell.backgroundColor = UIColor.white
         }
@@ -83,23 +83,14 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
         self.view2.layer.cornerRadius = 3
         self.view2.layer.borderWidth = 1
         
-        if (dark_theme){
-            tableview.backgroundColor = UIColor.appColor(.dark_table_out)
-            view1.backgroundColor = UIColor.appColor(.dark_table_out)
-            view1.layer.borderColor = UIColor(red:54/255, green:60/255, blue:77/255, alpha: 1).cgColor
-            view2.backgroundColor = UIColor.appColor(.dark_table_out)
-            view2.layer.borderColor = UIColor(red:54/255, green:60/255, blue:77/255, alpha: 1).cgColor
-            view.backgroundColor = UIColor.appColor(.dark_table_out)
-        }else{
-            tableview.backgroundColor = UIColor.white
-            view1.backgroundColor = UIColor.white
-            view1.layer.borderColor = UIColor(red:220/255, green:220/255, blue:220/255, alpha: 1).cgColor
-            view2.backgroundColor = UIColor.white
-            view2.layer.borderColor = UIColor(red:220/255, green:220/255, blue:220/255, alpha: 1).cgColor
-            view.backgroundColor = UIColor.appColor(.light_table_out)
-        }
+        tableview.backgroundColor = UIColor.appColor(.table_out)
+        view1.backgroundColor = UIColor.appColor(.table_out)
+        view1.layer.borderColor = UIColor.appColor(.border)?.cgColor
+        view2.backgroundColor = UIColor.appColor(.table_out)
+        view2.layer.borderColor = UIColor.appColor(.border)?.cgColor
+        view.backgroundColor = UIColor.appColor(.table_out)
+        
     }
-    
 }
 
 extension orderbook: OrderView2 {
