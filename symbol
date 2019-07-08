@@ -1,9 +1,9 @@
 XBTUSD,---,n,Bitcoin | Perpetual (100x),n,btcusd,btc-usd
-ADAM19,---,n,Cardano | Jun 28 (20x),n,adabtc,ada-btc
-BCHM19,---,n,BitcoinCash | Jun 28 (20x),n,bchbtc,bch-btc
-EOSM19,---,n,EOS | Jun 29 (20x),n,eosbtc,eos-btc
+ADAU19,---,n,Cardano | Sep 27 (20x),n,adabtc,ada-btc
+BCHU19,---,n,BitcoinCash | Sep 27 (20x),n,bchbtc,bch-btc
+EOSU19,---,n,EOS | Sep 27 (20x),n,eosbtc,eos-btc
 ETHUSD,---,n,Ethereum | Perpetual (50x),n,ethusd,eth-usd
-ETHM19,---,n,Ethereum | Jun 28 (50x),n,ethbtc,eth-btc
-LTCM19,---,n,Litecoin | Jun 28 (33.33x),n,ltcbtc,ltc-btc
-TRXM19,---,n,Tron | Jun 28 (20x),n,trxbtc,trx-btc
-XRPM19,---,n,Ripple | Jun 29 (20x),n,xrpbtc,xrp-btc
+ETHU19,---,n,Ethereum | Sep 27 (50x),n,ethbtc,eth-btc
+LTCU19,---,n,Litecoin | Sep 27 (33.33x),n,ltcbtc,ltc-btc
+TRXU19,---,n,Tron | Sep 27 (20x),n,trxbtc,trx-btc
+XRPU19,---,n,Ripple | Sep 27 (20x),n,xrpbtc,xrp-btc
