@@ -83,7 +83,7 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
         self.view2.layer.cornerRadius = 3
         self.view2.layer.borderWidth = 1
         
-        tableview.backgroundColor = UIColor.appColor(.table_out)
+        tableview.backgroundColor = UIColor.appColor(.table_in_order)
         view1.backgroundColor = UIColor.appColor(.table_in_order)
         view1.layer.borderColor = UIColor.appColor(.border)?.cgColor
         view2.backgroundColor = UIColor.appColor(.table_in_order)
