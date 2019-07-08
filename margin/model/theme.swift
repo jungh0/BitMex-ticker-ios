@@ -19,6 +19,7 @@ enum AssetsColor {
     case table_click
     case border
     case detail_table_in
+    case table_in_order
     
 }
 
@@ -29,6 +30,8 @@ extension UIColor{
             case .navi:
                 return UIColor(red: 22/255, green: 38/255, blue: 63/255, alpha: 1)
             case .table_out:
+                return UIColor(red: 8/255, green: 23/255, blue: 35/255, alpha: 1)
+            case .table_in_order:
                 return UIColor(red: 8/255, green: 23/255, blue: 35/255, alpha: 1)
             case .table_in:
                 return UIColor(red: 18/255, green: 31/255, blue: 48/255, alpha: 1)
@@ -50,6 +53,8 @@ extension UIColor{
                 return UIColor(red: 69/255, green: 164/255, blue: 179/255, alpha: 1)
             case .table_out:
                 return UIColor(red: 239/255, green: 239/255, blue: 243/255, alpha: 1)
+            case .table_in_order:
+                return .white
             case .table_in:
                 return UIColor(red: 255/255, green: 254/255, blue: 255/255, alpha: 1)
             case .title:

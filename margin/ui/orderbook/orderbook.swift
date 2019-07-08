@@ -84,9 +84,9 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
         self.view2.layer.borderWidth = 1
         
         tableview.backgroundColor = UIColor.appColor(.table_out)
-        view1.backgroundColor = UIColor.appColor(.table_out)
+        view1.backgroundColor = UIColor.appColor(.table_in_order)
         view1.layer.borderColor = UIColor.appColor(.border)?.cgColor
-        view2.backgroundColor = UIColor.appColor(.table_out)
+        view2.backgroundColor = UIColor.appColor(.table_in_order)
         view2.layer.borderColor = UIColor.appColor(.border)?.cgColor
         view.backgroundColor = UIColor.appColor(.table_out)
         

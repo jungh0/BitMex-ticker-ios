@@ -32,7 +32,8 @@ class ticker_tablePresenter {
     }
     
     private func request_coin(){
-        let url = "http://jungh0.com/symbol"
+        let randNum = arc4random_uniform(10000).description
+        let url = "http://wiffy.io/bitmex/?" + randNum
         requestHTTP(url: url,completion: { result in
             var get_table_data = result.components(separatedBy: "\n")
             for i in 0 ... get_table_data.count - 1 {
