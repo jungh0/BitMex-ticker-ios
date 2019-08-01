@@ -11,6 +11,7 @@ target 'margin' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'SCLAlertView'
+  pod 'SwiftSoup'
   # Pods for margin
 
   target 'marginTests' do

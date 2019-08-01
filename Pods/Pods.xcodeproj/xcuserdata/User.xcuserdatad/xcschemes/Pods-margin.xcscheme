@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "926363B1761A38514737A5B25B8CFE3D"
+               BlueprintIdentifier = "936E0FCC2903AC7BE67F55958B489D4F"
                BuildableName = "Pods_margin.framework"
                BlueprintName = "Pods-margin"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "926363B1761A38514737A5B25B8CFE3D"
+            BlueprintIdentifier = "936E0FCC2903AC7BE67F55958B489D4F"
             BuildableName = "Pods_margin.framework"
             BlueprintName = "Pods-margin"
             ReferencedContainer = "container:Pods.xcodeproj">
