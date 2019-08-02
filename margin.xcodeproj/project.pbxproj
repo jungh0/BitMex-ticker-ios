@@ -300,6 +300,9 @@
 		CEA350B621D7529400543AE2 /* margin */ = {
 			isa = PBXGroup;
 			children = (
+				CE311195229FC52200BA2D50 /* func */,
+				CE31118D229F6D7700BA2D50 /* ui */,
+				CE311196229FC54800BA2D50 /* trash */,
 				CE70975522B105E00049235C /* margin.entitlements */,
 				CEA350B721D7529400543AE2 /* AppDelegate.swift */,
 				CEA350BD21D7529400543AE2 /* Main.storyboard */,
@@ -307,9 +310,6 @@
 				CEA350C221D7529600543AE2 /* LaunchScreen.storyboard */,
 				CEA350C521D7529600543AE2 /* Info.plist */,
 				CE70975622B1063B0049235C /* GoogleService-Info.plist */,
-				CE311195229FC52200BA2D50 /* func */,
-				CE31118D229F6D7700BA2D50 /* ui */,
-				CE311196229FC54800BA2D50 /* trash */,
 			);
 			path = margin;
 			sourceTree = "<group>";

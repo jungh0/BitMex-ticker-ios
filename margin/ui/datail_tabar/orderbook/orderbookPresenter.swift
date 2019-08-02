@@ -49,7 +49,7 @@ class orderbookPresenter{
         }
         let tmp = sok.chart_symbol
         if (sok.recent_str_order.contains(tmp)){
-            let aa = sok.recent_str_order.replace(" : ", "")
+            let aa = sok.recent_str_order.replace(" : ", "").replace(tmp, "")
             //let aa = sok.recent_str_order.replacingOccurrences(of: tmp + " : ", with: "")
             userView?.recent_text(str: aa)
         }

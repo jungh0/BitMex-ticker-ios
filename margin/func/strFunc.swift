@@ -16,7 +16,15 @@ extension String {
     }
     
     func split_(_ w:String) -> [String]{
-        return self.components(separatedBy: w)
+        if (self.contains(w)){
+            return self.components(separatedBy: w)
+        }else{
+            return [""]
+        }
+    }
+    
+    var isNumber: Bool {
+        return NumberFormatter().number(from: self) != nil
     }
     
 }

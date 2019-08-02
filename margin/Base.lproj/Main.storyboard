@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.031372549019607843" green="0.089284725489999994" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="AtN-9s-0zw">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="AtN-9s-0zw">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -985,17 +985,40 @@
                                     <constraint firstAttribute="height" constant="70" id="yvF-F1-KCA"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qio-8x-ODY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qio-8x-ODY">
                                 <rect key="frame" x="8" y="176" width="359" height="318"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wGw-3t-3tb">
-                                        <rect key="frame" x="0.0" y="28" width="359" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="alertCell" id="wGw-3t-3tb" customClass="alertCell" customModule="margin" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="359" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wGw-3t-3tb" id="Kfu-1f-bPW">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPl-2C-OEO">
+                                                    <rect key="frame" x="30" y="11.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6VI-Ab-7B4">
+                                                    <rect key="frame" x="286" y="7" width="43" height="30"/>
+                                                    <state key="normal" title="delete"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6VI-Ab-7B4" firstAttribute="centerY" secondItem="Kfu-1f-bPW" secondAttribute="centerY" id="6rf-Yc-UmU"/>
+                                                <constraint firstItem="YPl-2C-OEO" firstAttribute="leading" secondItem="Kfu-1f-bPW" secondAttribute="leadingMargin" constant="15" id="VIR-dB-hKO"/>
+                                                <constraint firstItem="YPl-2C-OEO" firstAttribute="centerY" secondItem="Kfu-1f-bPW" secondAttribute="centerY" id="gj2-g6-f5B"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6VI-Ab-7B4" secondAttribute="trailing" constant="15" id="qok-cF-xL3"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="add_alert_" destination="6VI-Ab-7B4" id="in8-hU-RdX"/>
+                                            <outlet property="cellPrice" destination="YPl-2C-OEO" id="YzA-TC-A4u"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

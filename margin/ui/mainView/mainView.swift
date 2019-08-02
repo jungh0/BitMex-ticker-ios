@@ -31,8 +31,8 @@ class mainView: UINavigationController {
         }
         
         /*
-        Messaging.messaging().subscribe(toTopic: "XBTUSD_9939") { error in
-            let url = "http://wiffy.io/bitmex/reg/?d=9939"
+        Messaging.messaging().subscribe(toTopic: "XBTUSD_9932.5") { error in
+            let url = "http://wiffy.io/bitmex/reg/?d=9932.5"
             requestHTTP(url: url,completion: { result in
             })
             print("Subscribed")

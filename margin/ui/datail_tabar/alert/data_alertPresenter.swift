@@ -17,6 +17,7 @@ protocol data_alert_view: NSObjectProtocol {
     func set_main_color(color:UIColor)
     func set_dollar_text(str:String)
     func set_field(str:String)
+    func reload_table()
     
 }
 
@@ -70,10 +71,31 @@ class data_alertPresenter{
     }
     
     func subscribe(price:String){
-        Messaging.messaging().subscribe(toTopic: price) { error in
-            print("Subscribed to weather topic")
-            self.userView?.show_dialog(price: price)
+        
+        
+        var result = ""
+        if (price.isNumber){
+            let priceDouble = ((price) as NSString).doubleValue
+            let priceInt = ((price) as NSString).integerValue
+            if (!price.contains(".")){
+                result = price
+            }
+            else if (priceDouble == Double(priceInt)){
+                result = price.split_(".")[0]
+            }else{
+                result = priceDouble.description
+            }
+            print(result)
+            addAlertList(alerV: (result))
+            
+            Messaging.messaging().subscribe(toTopic: sok.chart_symbol + "_" + result) { error in
+                let url = "http://wiffy.io/bitmex/reg/?d=" + result
+                requestHTTP(url: url,completion: { result in
+                })
+                self.userView?.show_dialog(price: "subscribed - " + result)
+            }
         }
+        
     }
     
     private func find_main_color(str:String) -> UIColor{
@@ -104,5 +126,31 @@ class data_alertPresenter{
             return new
         }
     }
+    
+    func delAlertList(alerV:String){
+        var array = UserDefaults.standard.value(forKey: sok.chart_symbol + "_AlertList") as? [String] ?? [String]()
+        if let index = array.firstIndex(of:alerV) {
+            Messaging.messaging().unsubscribe(fromTopic: sok.chart_symbol + "_" + alerV) { error in
+                self.userView?.show_dialog(price: "unsubscribed - " + alerV)
+            }
+            array.remove(at: index)
+            UserDefaults.standard.set(array, forKey: sok.chart_symbol + "_AlertList")
+            userView?.reload_table()
+        }
+    }
+    
+    private func addAlertList(alerV:String){
+        var array = UserDefaults.standard.value(forKey: sok.chart_symbol + "_AlertList") as? [String] ?? [String]()
+        if (!array.contains(alerV)){
+            array.append(alerV)
+            array.sort()
+            array.reverse()
+            UserDefaults.standard.set(array, forKey: sok.chart_symbol + "_AlertList")
+            userView?.reload_table()
+        }
+    }
    
+    func getAlertList() -> [String]{
+        return UserDefaults.standard.value(forKey: sok.chart_symbol + "_AlertList") as? [String] ?? [String]()
+    }
 }
