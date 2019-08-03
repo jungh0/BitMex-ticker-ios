@@ -14,48 +14,91 @@ import WebKit
 class data_chart: UIViewController  {
     
     let userPresenter = data_chartPresenter()
-    @IBOutlet var web: UIWebView!
     
     @IBOutlet var main_price: UILabel!
     @IBOutlet var dollar: UILabel!
     
+    @IBOutlet var bitstamp_r_l: UILabel!
     @IBOutlet var bitstamp: UILabel!
-    @IBOutlet var coinbase: UILabel!
-    
     @IBOutlet var premium: UILabel!
+    
+    @IBOutlet var coinbase_r_l: UILabel!
+    @IBOutlet var coinbase: UILabel!
     @IBOutlet var premium2: UILabel!
     
-    @IBOutlet var bitstamp_r_l: UILabel!
-    @IBOutlet var coinbase_r_l: UILabel!
-    
-    @IBOutlet var view1: UIView!
     @IBOutlet var view_background: UIView!
-    
-    private func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.landscapeLeft
-    }
-    private func shouldAutorotate() -> Bool {
-        return true
-    }
+    @IBOutlet var view1: UIView!
+    @IBOutlet var web: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = sok.chart_symbol
-        init_ui()
         userPresenter.attachView(self)
     }
+}
+
+extension data_chart: ChartView {
     
-    func init_ui(){
-        view1.layer.cornerRadius = 3
-        view1.layer.borderWidth = 1
-        bitstamp.layer.cornerRadius = 2
-        bitstamp.layer.masksToBounds = true
-        premium.layer.cornerRadius = 2
-        premium.layer.masksToBounds = true
-        set_theme()
+    func show_web(js:String){
+        web.isOpaque = false
+        web.scrollView.isScrollEnabled = false;
+        web.scrollView.bounces = false;
+        self.web.loadHTMLString(js, baseURL: nil)
+    }
+    
+    func set_main_text(str:String,color:UIColor){
+        main_price.text = str
+        main_price.textColor = color
+    }
+
+    func set_dollar_text(str:String){
+        dollar.text = "≈ " + str + " $"
+    }
+    
+    func bitstamp_hidden(ishidden:Bool){
+        self.bitstamp.text = "no data"
+        self.premium.text = "---"
+    }
+    
+    func bitstamp_pre_text(_ str:String,_ b_color:UIColor,_ t_color:UIColor){
+        self.premium.text = "" + str + "%"
+        self.premium.backgroundColor = b_color
+        self.premium.textColor = t_color
+    }
+    
+    func bitstamp_price_text(str:String){
+        self.bitstamp.text = "" + str + ""
+    }
+    
+    func coinbase_hidden(ishidden:Bool){
+        self.coinbase.text = "no data"
+        self.premium2.text = "---"
+    }
+    
+    func coinbase_pre_text(_ str:String,_ b_color:UIColor,_ t_color:UIColor){
+        self.premium2.text = "" + str + "%"
+        self.premium2.backgroundColor = b_color
+        self.premium2.textColor = t_color
+    }
+    
+    func coinbase_price_text(str:String){
+        self.coinbase.text = "" + str + ""
     }
     
     func set_theme(){
+        view1.layer.cornerRadius = 3
+        view1.layer.borderWidth = 1
+        
+        bitstamp.layer.cornerRadius = 3
+        bitstamp.layer.masksToBounds = true
+        premium.layer.cornerRadius = 3
+        premium.layer.masksToBounds = true
+        
+        coinbase.layer.cornerRadius = 3
+        coinbase.layer.masksToBounds = true
+        premium2.layer.cornerRadius = 3
+        premium2.layer.masksToBounds = true
+        
         if (dark_theme){
             self.navigationController?.navigationBar.tintColor = .white
             self.tabBarController?.tabBar.barStyle = .black
@@ -74,75 +117,6 @@ class data_chart: UIViewController  {
         
         bitstamp_r_l.textColor = UIColor.appColor(.title2)
         coinbase_r_l.textColor = UIColor.appColor(.title2)
-    }
-    
-}
-
-extension data_chart: ChartView {
-    
-    func show_web(js:String){
-        web.isOpaque = false
-        web.scrollView.isScrollEnabled = false;
-        web.scrollView.bounces = false;
-        self.web.loadHTMLString(js, baseURL: nil)
-    }
-    
-    func set_main_text(str:String){
-        main_price.text = str
-    }
-    
-    func set_main_color(color:UIColor){
-        main_price.textColor = color
-    }
-    
-    func set_dollar_text(str:String){
-        dollar.text = "≈ " + str + " $"
-    }
-    
-    func bitstamp_hidden(ishidden:Bool){
-        //self.bitstamp.isHidden = ishidden
-        //self.premium.isHidden = ishidden
-        self.bitstamp.text = "no data"
-        self.premium.text = "---"
-    }
-    
-    func bitstamp_text(str:String){
-        self.premium.text = "" + str + "%"
-    }
-    
-    func bitstamp_backgroundColor(b_color:UIColor){
-        self.premium.backgroundColor = b_color
-    }
-    
-    func bitstamp_textColor(t_color:UIColor){
-        self.premium.textColor = t_color
-    }
-    
-    func bitstamp_price_text(str:String){
-        self.bitstamp.text = "" + str + ""
-    }
-    
-    func coinbase_hidden(ishidden:Bool){
-        //self.premium2.isHidden = ishidden
-        //self.coinbase.isHidden = ishidden
-        self.coinbase.text = "no data"
-        self.premium2.text = "---"
-    }
-    
-    func coinbase_text(str:String){
-        self.premium2.text = "" + str + "%"
-    }
-    
-    func coinbase_backgroundColor(b_color:UIColor){
-        self.premium2.backgroundColor = b_color
-    }
-    
-    func coinbase_textColor(t_color:UIColor){
-        self.premium2.textColor = t_color
-    }
-    
-    func coinbase_price_text(str:String){
-        self.coinbase.text = "" + str + ""
     }
     
 }

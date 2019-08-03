@@ -11,13 +11,14 @@ import UIKit
 
 protocol UserView: NSObjectProtocol {
     
-    func recent_list()
-    func recent_text(str: String)
     func show_ad()
     func show_hud()
     func dissmiss_hud()
-    func reloadTable()
+
     func set_theme()
+    func showUpdateStr()
+    
+    func recent_list()
     
 }
 
@@ -29,6 +30,19 @@ class ticker_tablePresenter {
     
     init(){
         self.request_coin()
+    }
+    
+    func attachView(_ view:UserView){
+        userView = view
+        userView?.showUpdateStr()
+        userView?.show_hud()
+        userView?.set_theme()
+        self.ad_check()
+        self.timer_start()
+    }
+    
+    func detachView() {
+        userView = nil
     }
     
     private func request_coin(){
@@ -46,22 +60,6 @@ class ticker_tablePresenter {
         })
     }
     
-    func attachView(_ view:UserView){
-        userView = view
-        userView?.show_hud()
-        userView?.set_theme()
-        self.ad_check()
-        self.timer_start()
-    }
-    
-    func detachView() {
-        userView = nil
-    }
-    
-    func set_chartsymbol(str:String){
-        sok.chart_symbol = str
-    }
-    
     private func timer_start(){
         if(timer != nil){timer.invalidate()}
         timer = Timer(timeInterval: 0.5, target: self,selector: #selector(recent_trade),
@@ -70,7 +68,6 @@ class ticker_tablePresenter {
     }
     
     @objc func recent_trade(){
-        //print(sok.recent_str)
         if (sok.is_waiting){
             userView?.show_hud()
         }else{
@@ -106,18 +103,6 @@ class ticker_tablePresenter {
     
     func get_c_list() -> [[String]]{
         return sok.c_list
-    }
-    
-    func change_theme(){
-        if(dark_theme){
-            dark_theme = false
-            setData("theme2",0)
-        }else{
-            dark_theme = true
-            setData("theme2",1)
-        }
-        userView?.set_theme()
-        userView?.reloadTable()
     }
     
 }

@@ -11,9 +11,9 @@ import StoreKit
 
 protocol SettingView: NSObjectProtocol {
     
-    func show_dialog(title:String, str: String)
     func open_url(str: String)
     func cpoy_clipboard(str: String)
+    func set_theme()
     
 }
 
@@ -29,6 +29,7 @@ class setting_Presenter /*: SKPaymentTransactionObserver, SKProductsRequestDeleg
     
     func attachView(_ view: SettingView){
         userView = view
+        userView?.set_theme()
     }
     
     func detachView() {
@@ -36,17 +37,18 @@ class setting_Presenter /*: SKPaymentTransactionObserver, SKProductsRequestDeleg
     }
     
     func make_open_dialog(){
-        userView?.show_dialog(title: "OpenSource", str:
-            "SwiftWebSocket\n(https://github.com/tidwall/SwiftWebSocket)\nMIT License.\n\n" +
+        showAlert(userView as? UIViewController,"OpenSource",
+                  "SwiftWebSocket\n(https://github.com/tidwall/SwiftWebSocket)\nMIT License.\n\n" +
             "ZAlertView\n(https://github.com/zelic91/ZAlertView)\nMIT license.\n\n" +
-            "JGProgressHUD\n(https://github.com/JonasGessner/JGProgressHUD)\n©2014-2018, Jonas Gessner.\nMIT License.")
+            "JGProgressHUD\n(https://github.com/JonasGessner/JGProgressHUD)\n©2014-2018, Jonas Gessner.\nMIT License.\n\n" +
+            "SwiftSoup\n(https://github.com/scinfu/SwiftSoup)\nMIT License.")
     }
     
     func make_version_dialog(){
         let dictionary = Bundle.main.infoDictionary!
         let version = dictionary["CFBundleShortVersionString"] as! String
         let build = dictionary["CFBundleVersion"] as! String
-        userView?.show_dialog(title: "Version", str: version + "(" + build + ")")
+        showAlert(userView as? UIViewController,"Version",version + "(" + build + ")")
     }
     
     func make_url(){
@@ -55,12 +57,23 @@ class setting_Presenter /*: SKPaymentTransactionObserver, SKProductsRequestDeleg
     
     func make_clipboard(){
         userView?.cpoy_clipboard(str: "iveinvalue@gmail.com")
-        userView?.show_dialog(title: "iveinvalue@gmail.com", str: "Copied email")
+        showAlert(userView as? UIViewController,"iveinvalue@gmail.com","Copied email")
     }
     
     func make_inapp(){
         //SKPaymentQueue.default().add(self)
         //getProductInfo()
+    }
+    
+    func change_theme(){
+        if(dark_theme){
+            dark_theme = false
+            setData("theme2",0)
+        }else{
+            dark_theme = true
+            setData("theme2",1)
+        }
+        userView?.set_theme()
     }
     
     /*

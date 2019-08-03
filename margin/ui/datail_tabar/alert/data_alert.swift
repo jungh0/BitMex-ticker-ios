@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import ZAlertView
 import Firebase
+import JGProgressHUD
 
 class alertCell: UITableViewCell {
     @IBOutlet var cellPrice: UILabel!
@@ -31,6 +32,7 @@ class alertCell: UITableViewCell {
 class data_alert: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     let userPresenter = data_alertPresenter()
+    let hud = JGProgressHUD(style: .dark)
     
     @IBOutlet var view0: UIView!
     @IBOutlet var view1: UIView!
@@ -100,6 +102,10 @@ class data_alert: UIViewController, UITableViewDelegate, UITableViewDataSource{
         //table.deselectRow(at: indexPath, animated: true)
     }
     
+    @IBAction func doneBtnClicked (sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     func set_theme(){
         view0.backgroundColor = UIColor.appColor(.table_out)
         
@@ -113,6 +119,14 @@ class data_alert: UIViewController, UITableViewDelegate, UITableViewDataSource{
         table.layer.borderColor = UIColor.appColor(.border)?.cgColor
         
         doll.textColor = UIColor.appColor(.title2)
+        
+        let toolBarKeyboard = UIToolbar()
+        toolBarKeyboard.sizeToFit()
+        let btnDoneBar = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneBtnClicked))
+        toolBarKeyboard.items = [btnDoneBar]
+        toolBarKeyboard.tintColor = #colorLiteral(red: 0.231372549, green: 0.4784313725, blue: 0.8235294118, alpha: 1)
+        
+        price_field.inputAccessoryView = toolBarKeyboard
         price_field.backgroundColor = UIColor.appColor(.detail_table_in)
         price_field.textColor = UIColor.appColor(.title)
         price_field.layer.borderColor = UIColor.appColor(.border)?.cgColor
@@ -151,4 +165,17 @@ extension data_alert: data_alert_view {
     func reload_table(){
         self.table.reloadData()
     }
+    
+    func show_hud(){
+        if (!hud.isVisible){
+            hud.textLabel.text = "Loading"
+            hud.show(in: self.view)
+        }
+    }
+    
+    func dissmiss_hud(){
+        hud.dismiss(afterDelay: 0.0)
+    }
+    
+    
 }

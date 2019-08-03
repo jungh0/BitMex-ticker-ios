@@ -150,9 +150,36 @@ class socket{
     }
     
     private func order_parse(str:String){
+        //print(str)
         let asks_str = split(str: str,w1: "\"asks\":[[",w2: "]]")
         //print(asks_str)
         var asks_array = asks_str.components(separatedBy: "],[")
+        
+        
+        
+        if let data = str.data(using: .utf8) {
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyObject] {
+                    //print(json["data"])
+                    let tmp = json["data"] as? [[String:AnyObject]]
+                    let tmp2 = tmp?[0]["asks"] as? [[AnyObject]]
+                    let tmp3 = tmp2?[0]
+                    print(tmp3)
+                    //let tmp2 = tmp?[0]["asks"]
+                    //print(tmp2)
+                    
+                    //print(tmp?[0]["asks"] as? [[String]])
+                    //let jsonData = json["data"] as? [String: AnyObject]
+                    //print(jsonData?["asks"])
+                }
+            } catch {
+                print("JSON 파싱 에러")
+            }
+        }
+        
+        
+        
+        
         
         let bids_str = split(str: str,w1: "\"bids\":[[",w2: "]]")
         //print(bids_str)

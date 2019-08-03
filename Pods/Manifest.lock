@@ -33,7 +33,7 @@ PODS:
     - GoogleUtilities/Reachability (~> 6.2)
     - GoogleUtilities/UserDefaults (~> 6.2)
     - Protobuf (~> 3.1)
-  - Google-Mobile-Ads-SDK (7.47.0):
+  - Google-Mobile-Ads-SDK (7.48.0):
     - GoogleAppMeasurement (~> 6.0)
   - GoogleAppMeasurement (6.0.4):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
@@ -66,7 +66,6 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.9.0)
-  - SCLAlertView (0.8)
   - SwiftSoup (2.2.0)
   - SwiftWebSocket (2.7.0)
   - ZAlertView (1.0.4)
@@ -76,7 +75,6 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Google-Mobile-Ads-SDK
   - JGProgressHUD
-  - SCLAlertView
   - SwiftSoup
   - SwiftWebSocket
   - ZAlertView
@@ -95,7 +93,6 @@ SPEC REPOS:
     - JGProgressHUD
     - nanopb
     - Protobuf
-    - SCLAlertView
     - SwiftSoup
     - SwiftWebSocket
     - ZAlertView
@@ -107,17 +104,16 @@ SPEC CHECKSUMS:
   FirebaseCore: aecf02fb2274ec361b9bebeac112f5daa18273bd
   FirebaseInstanceID: 662b8108a09fe9ed01aafdedba100fde8536b0f6
   FirebaseMessaging: 6bb0bdaf64c55fef7a219b7bb1e94e94a0855ced
-  Google-Mobile-Ads-SDK: a10b30f4a51a3283df7df3c9ea7e84553b508e4b
+  Google-Mobile-Ads-SDK: 709fa768c3ba8e8b260d8cb085c607097fd3f79d
   GoogleAppMeasurement: 183bd916af7f80deb67c01888368f1108d641832
   GoogleUtilities: d2b0e277a95962e09bb27f5cd42f5f0b6a506c7d
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
-  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SwiftSoup: 230991361c5ba249d140161860a3864a28b63860
   SwiftWebSocket: 612c9729fd503cb6b0b8b45390c788686dac306f
   ZAlertView: 59fffdb4e37a01df461835566d5101052b8af953
 
-PODFILE CHECKSUM: 73bbe500d7bbce6bd49fa90ecfeeed9fc9146743
+PODFILE CHECKSUM: fcacfb4a7557332fc7b1c9b47b31a822fa95bc36
 
 COCOAPODS: 1.5.3

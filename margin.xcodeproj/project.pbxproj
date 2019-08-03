@@ -40,6 +40,7 @@
 		CEA6E96822226236004405E3 /* data_details.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6E96722226236004405E3 /* data_details.swift */; };
 		CEBC7D5E22A63E06005D3FC1 /* recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7D5C22A63E06005D3FC1 /* recent.swift */; };
 		CEBC7D5F22A63E06005D3FC1 /* recentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7D5D22A63E06005D3FC1 /* recentPresenter.swift */; };
+		CEF84C3D22F577A100CBEDFA /* alertFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF84C3C22F577A100CBEDFA /* alertFunc.swift */; };
 		CEFB9D7622BE307900D685DC /* findRG.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB9D7522BE307900D685DC /* findRG.swift */; };
 		CEFB9D7822BE312000D685DC /* requestHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB9D7722BE312000D685DC /* requestHTTP.swift */; };
 /* End PBXBuildFile section */
@@ -106,6 +107,7 @@
 		CEA6E96722226236004405E3 /* data_details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_details.swift; sourceTree = "<group>"; };
 		CEBC7D5C22A63E06005D3FC1 /* recent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recent.swift; sourceTree = "<group>"; };
 		CEBC7D5D22A63E06005D3FC1 /* recentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recentPresenter.swift; sourceTree = "<group>"; };
+		CEF84C3C22F577A100CBEDFA /* alertFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertFunc.swift; sourceTree = "<group>"; };
 		CEFB9D7522BE307900D685DC /* findRG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findRG.swift; sourceTree = "<group>"; };
 		CEFB9D7722BE312000D685DC /* requestHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestHTTP.swift; sourceTree = "<group>"; };
 		CEFC9FA52215880400D68ACB /* ZAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,6 +214,7 @@
 			children = (
 				CE311187229EB1F600BA2D50 /* socket.swift */,
 				CE01D3CD22EF16A500DBE1F4 /* strFunc.swift */,
+				CEF84C3C22F577A100CBEDFA /* alertFunc.swift */,
 				CE50F24A22A12AE700F6865A /* theme.swift */,
 				CEFB9D7522BE307900D685DC /* findRG.swift */,
 				CEFB9D7722BE312000D685DC /* requestHTTP.swift */,
@@ -497,7 +500,6 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftWebSocket/SwiftWebSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/ZAlertView/ZAlertView.framework",
@@ -508,7 +510,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftWebSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZAlertView.framework",
@@ -602,6 +603,7 @@
 				CE3111A322A0DBE200BA2D50 /* setting_Presenter.swift in Sources */,
 				CEA350E821D75B9400543AE2 /* ticker_table.swift in Sources */,
 				CE311190229F6DBD00BA2D50 /* ticker_tablePresenter.swift in Sources */,
+				CEF84C3D22F577A100CBEDFA /* alertFunc.swift in Sources */,
 				CE01D3D322EF23FE00DBE1F4 /* getjson.swift in Sources */,
 				CE31119C229FC9E800BA2D50 /* data_chartPresenter.swift in Sources */,
 				CEFB9D7822BE312000D685DC /* requestHTTP.swift in Sources */,

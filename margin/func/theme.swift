@@ -50,7 +50,8 @@ extension UIColor{
         else{
             switch name {
             case .navi:
-                return UIColor(red: 69/255, green: 164/255, blue: 179/255, alpha: 1)
+                return UIColor(red: 22/255, green: 38/255, blue: 63/255, alpha: 1)
+                //return UIColor(red: 69/255, green: 164/255, blue: 179/255, alpha: 1)
             case .table_out:
                 return UIColor(red: 239/255, green: 239/255, blue: 243/255, alpha: 1)
             case .table_in_order:

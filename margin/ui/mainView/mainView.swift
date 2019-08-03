@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import GoogleMobileAds
-import ZAlertView
 import Firebase
 
 var sok = socket(wss: "wss://www.bitmex.com/realtime")
@@ -19,8 +18,7 @@ class mainView: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        ZAlertView.positiveColor = UIColor(red: 70/255, green: 170/255, blue: 70/255, alpha: 0.9)
+
         do {
             let tmp = Int(getData("theme2"))
             if (tmp == 0){
@@ -37,11 +35,6 @@ class mainView: UINavigationController {
             })
             print("Subscribed")
         }*/
-        /*
-        Messaging.messaging().unsubscribe(fromTopic: "weather2") { error in
-            print("unSubscribed to weather topic")
-        }*/
-       
     }
     
     override func viewDidAppear(_ animated: Bool) {

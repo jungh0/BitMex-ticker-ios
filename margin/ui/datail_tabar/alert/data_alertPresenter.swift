@@ -18,6 +18,8 @@ protocol data_alert_view: NSObjectProtocol {
     func set_dollar_text(str:String)
     func set_field(str:String)
     func reload_table()
+    func show_hud()
+    func dissmiss_hud()
     
 }
 
@@ -72,7 +74,6 @@ class data_alertPresenter{
     
     func subscribe(price:String){
         
-        
         var result = ""
         if (price.isNumber){
             let priceDouble = ((price) as NSString).doubleValue
@@ -86,13 +87,19 @@ class data_alertPresenter{
                 result = priceDouble.description
             }
             print(result)
-            addAlertList(alerV: (result))
             
+            DispatchQueue.main.async {
+                self.userView?.show_hud()
+            }
             Messaging.messaging().subscribe(toTopic: sok.chart_symbol + "_" + result) { error in
-                let url = "http://wiffy.io/bitmex/reg/?d=" + result
+                let url = "http://wiffy.io/bitmex/reg/?d=" + "alert_" + sok.chart_symbol + ":" + result
                 requestHTTP(url: url,completion: { result in
                 })
-                self.userView?.show_dialog(price: "subscribed - " + result)
+                DispatchQueue.main.async {
+                    self.addAlertList(alerV: (result))
+                    self.userView?.dissmiss_hud()
+                    self.userView?.show_dialog(price: "subscribed - " + result)
+                }
             }
         }
         
@@ -130,12 +137,18 @@ class data_alertPresenter{
     func delAlertList(alerV:String){
         var array = UserDefaults.standard.value(forKey: sok.chart_symbol + "_AlertList") as? [String] ?? [String]()
         if let index = array.firstIndex(of:alerV) {
-            Messaging.messaging().unsubscribe(fromTopic: sok.chart_symbol + "_" + alerV) { error in
-                self.userView?.show_dialog(price: "unsubscribed - " + alerV)
+            DispatchQueue.main.async {
+                self.userView?.show_hud()
             }
-            array.remove(at: index)
-            UserDefaults.standard.set(array, forKey: sok.chart_symbol + "_AlertList")
-            userView?.reload_table()
+            Messaging.messaging().unsubscribe(fromTopic: sok.chart_symbol + "_" + alerV) { error in
+                array.remove(at: index)
+                UserDefaults.standard.set(array, forKey: sok.chart_symbol + "_AlertList")
+                DispatchQueue.main.async {
+                    self.userView?.dissmiss_hud()
+                    self.userView?.reload_table()
+                    self.userView?.show_dialog(price: "unsubscribed - " + alerV)
+                }
+            }
         }
     }
     

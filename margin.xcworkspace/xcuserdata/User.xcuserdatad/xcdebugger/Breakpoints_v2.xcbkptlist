@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "margin/ui/datail_tabar/alert/data_alertPresenter.swift"
-            timestampString = "586427080.654292"
+            timestampString = "586541687.904734"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "subscribe(price:)"
             landmarkType = "7">
          </BreakpointContent>

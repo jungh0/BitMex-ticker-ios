@@ -11,6 +11,7 @@ import Foundation
 import SwiftWebSocket
 import GoogleMobileAds
 import JGProgressHUD
+import ZAlertView
 
 class ticker_cell: UITableViewCell {
     @IBOutlet weak var symbol: UILabel!
@@ -30,6 +31,7 @@ class ticker_cell: UITableViewCell {
 
 class ticker_table: UITableViewController{
     
+    var beforeTheme = dark_theme
     let userPresenter = ticker_tablePresenter()
     var bannerView: GADBannerView!
     let hud = JGProgressHUD(style: .dark)
@@ -56,14 +58,11 @@ class ticker_table: UITableViewController{
         self.navigationController?.pushViewController(ViewController, animated: true)
     }
     
-    @objc func change_theme(_ button:UIBarButtonItem!){
-        userPresenter.change_theme()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navibar_setting()
+        
         userPresenter.attachView(self)
+        
         tableview.dataSource = self
         tableview.delegate = self
     }
@@ -98,7 +97,7 @@ class ticker_table: UITableViewController{
     
     //테이블 클릭
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        userPresenter.set_chartsymbol(str: userPresenter.get_c_list()[indexPath.row][0])
+        sok.chart_symbol = userPresenter.get_c_list()[indexPath.row][0]
         if (!userPresenter.get_c_list()[indexPath.row][1].contains("-")){
             let data_chart_ = self.storyboard?.instantiateViewController(withIdentifier: "datail_tabar") as! datail_tabar
             self.navigationController?.pushViewController(data_chart_, animated: true)
@@ -132,13 +131,6 @@ class ticker_table: UITableViewController{
             ])
     }
     
-    func navibar_setting(){
-        //navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        //navigationController?.navigationBar.shadowImage = UIImage()
-        setTopset()
-        setTopBtn()
-    }
-    
     func setTopset(){
         let topset = UIButton.init(type: .custom)
         topset.setImage(UIImage.init(named: "setting"), for: UIControl.State.normal)
@@ -148,11 +140,7 @@ class ticker_table: UITableViewController{
     }
     
     func setTopBtn(){
-        let topBtn = UIButton.init(type: .custom)
-        topBtn.addTarget(self, action:#selector(change_theme), for:.touchUpInside)
-        topBtn.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
-        topBtn.setImage(UIImage.appImg(.topImg), for: UIControl.State.normal)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: topBtn)
+        
     }
     
 }
@@ -176,27 +164,36 @@ extension ticker_table: UserView {
             self.tableView.reloadData()
             self.tableView.layoutIfNeeded()
             self.tableView.setContentOffset(contentOffset, animated: false)
+            if (self.beforeTheme != dark_theme){
+                self.beforeTheme = dark_theme
+                self.set_theme()
+            }
         }
     }
     
-    func recent_text(str: String){
-        //recent.text = str
-    }
-    
-    func reloadTable(){
-        self.tableView.reloadData()
-    }
-    
     func set_theme(){
+        setTopset()
         setTopBtn()
+        
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.view.backgroundColor = UIColor.appColor(.table_out)
         navigationController?.navigationBar.barTintColor = UIColor.appColor(.navi)
         tableview.backgroundColor = UIColor.appColor(.table_out)
         table_view_top.backgroundColor = UIColor.appColor(.table_out)
         table_view_dominance.backgroundColor = UIColor.appColor(.table_in)
         table_view_symbol_price.backgroundColor = UIColor.appColor(.table_in)
         table_view_bottom.backgroundColor = UIColor.appColor(.table_out)
-        //symbol.textColor = UIColor.appColor(.title2)
-        //price.textColor = UIColor.appColor(.title2)
+    }
+    
+    func showUpdateStr(){
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        let isnoti = UserDefaults.standard.value(forKey: appVersion)
+        if (isnoti == nil){
+            UserDefaults.standard.set("aa", forKey: appVersion)
+            showAlert(self, "Update History",
+                      "Price notification available in XBTUSD\n" +
+                "(It is provided as a PRO function after the beta test.)")
+        }
     }
     
 }

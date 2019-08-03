@@ -15,6 +15,7 @@ protocol OrderView2: NSObjectProtocol {
     func show_hud()
     func dissmiss_hud()
     func reload_table()
+    func set_theme()
     
 }
 
@@ -30,6 +31,8 @@ class orderbookPresenter{
     
     func attachView(_ view:OrderView2){
         userView = view
+        userView?.set_theme()
+        userView?.show_hud()
     }
     
     func detachView() {

@@ -47,6 +47,8 @@ framework module GoogleMobileAds {
   header "GADInAppPurchase.h"
   header "GADInAppPurchaseDelegate.h"
   header "GADInitializationStatus.h"
+  header "GADInstreamAd.h"
+  header "GADInstreamAdView.h"
   header "GADInterstitial.h"
   header "GADInterstitialDelegate.h"
   header "GADMediaAspectRatio.h"

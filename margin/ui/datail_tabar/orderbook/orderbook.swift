@@ -22,9 +22,13 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
     let userPresenter = orderbookPresenter()
     let hud = JGProgressHUD(style: .dark)
     
-    @IBOutlet var resent_trade: UILabel!
-    @IBOutlet var tableview: UITableView!
+    @IBOutlet var askLabel: UILabel!
+    @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var bidLabel: UILabel!
     
+    @IBOutlet var resent_trade: UILabel!
+    
+    @IBOutlet var tableview: UITableView!
     @IBOutlet var view1: UIView!
     @IBOutlet var view2: UIView!
     
@@ -41,18 +45,11 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        set_theme()
-        self.show_hud()
         userPresenter.orderbook_reset()
         userPresenter.timer_start()
         
         tableview.dataSource = self
         tableview.delegate = self
-        
-        //ask_label.layer.cornerRadius = 2
-        //ask_label.layer.masksToBounds = true
-        //bid_label.layer.cornerRadius = 2
-        //bid_label.layer.masksToBounds = true
         
     }
     
@@ -77,19 +74,6 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
-    func set_theme(){
-        self.view1.layer.cornerRadius = 3
-        self.view1.layer.borderWidth = 1
-        self.view2.layer.cornerRadius = 3
-        self.view2.layer.borderWidth = 1
-        
-        tableview.backgroundColor = UIColor.appColor(.table_in_order)
-        view1.backgroundColor = UIColor.appColor(.table_in_order)
-        view1.layer.borderColor = UIColor.appColor(.border)?.cgColor
-        view2.backgroundColor = UIColor.appColor(.table_in_order)
-        view2.layer.borderColor = UIColor.appColor(.border)?.cgColor
-        view.backgroundColor = UIColor.appColor(.table_out)
-    }
 }
 
 extension orderbook: OrderView2 {
@@ -109,6 +93,27 @@ extension orderbook: OrderView2 {
     
     func reload_table(){
         self.tableview.reloadData()
+    }
+    
+    func set_theme(){
+        self.view1.layer.cornerRadius = 3
+        self.view1.layer.borderWidth = 1
+        self.view2.layer.cornerRadius = 3
+        self.view2.layer.borderWidth = 1
+        
+        askLabel.layer.masksToBounds = true
+        askLabel.layer.cornerRadius = 8
+        priceLabel.layer.masksToBounds = true
+        priceLabel.layer.cornerRadius = 8
+        bidLabel.layer.masksToBounds = true
+        bidLabel.layer.cornerRadius = 8
+        
+        tableview.backgroundColor = UIColor.appColor(.table_in_order)
+        view1.backgroundColor = UIColor.appColor(.table_in_order)
+        view1.layer.borderColor = UIColor.appColor(.border)?.cgColor
+        view2.backgroundColor = UIColor.appColor(.table_in_order)
+        view2.layer.borderColor = UIColor.appColor(.border)?.cgColor
+        view.backgroundColor = UIColor.appColor(.table_out)
     }
     
 }

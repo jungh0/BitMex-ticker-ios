@@ -7,13 +7,18 @@
 //
 import UIKit
 import Foundation
-import ZAlertView
 
 class setting_: UITableViewController {
     
     let userPresenter = setting_Presenter()
     
     @IBOutlet var tableview: UITableView!
+    @IBOutlet var themeLabel: UILabel!
+    @IBOutlet var themeSwitch_: UISwitch!
+    
+    @IBAction func themeSwitch(_ sender: Any) {
+        userPresenter.change_theme()
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
@@ -25,44 +30,44 @@ class setting_: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        if indexPath.section == 0 && indexPath.row == 0 {
+        if indexPath.section == 1 && indexPath.row == 0 {
             userPresenter.make_open_dialog()
         }
         
-        if indexPath.section == 0 && indexPath.row == 1 {
+        if indexPath.section == 1 && indexPath.row == 1 {
             userPresenter.make_version_dialog()
         }
         
-        if indexPath.section == 1 && indexPath.row == 0 {
+        if indexPath.section == 2 && indexPath.row == 0 {
             userPresenter.make_url()
         }
         
-        if indexPath.section == 1 && indexPath.row == 1 {
+        if indexPath.section == 2 && indexPath.row == 1 {
             userPresenter.make_clipboard()
         }
         
-        if indexPath.section == 2 && indexPath.row == 0 {
+        if indexPath.section == 3 && indexPath.row == 0 {
             userPresenter.make_inapp()
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.appColor(.table_in)
         cell.textLabel?.textColor = UIColor.appColor(.title)
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.appColor(.table_click)
+        cell.selectedBackgroundView = backgroundView
+        cell.backgroundColor = UIColor.appColor(.table_in)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        set_theme()
+        
         userPresenter.attachView(self)
+        
         tableview.dataSource = self
         tableview.delegate = self
-    }
-    
-    func set_theme(){
-        self.navigationController?.navigationBar.tintColor = .white
-        tableview.backgroundColor = UIColor.appColor(.table_out)
     }
     
     override var shouldAutorotate: Bool {
@@ -81,11 +86,17 @@ class setting_: UITableViewController {
 
 extension setting_: SettingView {
     
-    func show_dialog(title:String, str: String){
-        let dialog = ZAlertView(title: title, message: str
-            , closeButtonText: "OK", closeButtonHandler: { alertView in alertView.dismissAlertView()
-        })
-        dialog.show()
+    func set_theme(){
+        self.navigationController?.navigationBar.tintColor = .white
+        tableview.backgroundColor = UIColor.appColor(.table_out)
+        themeLabel.textColor = UIColor.appColor(.title)
+        
+        if(dark_theme){
+            themeSwitch_.isOn = true
+        }else{
+            themeSwitch_.isOn = false
+        }
+        tableview.reloadData()
     }
     
     func open_url(str: String){

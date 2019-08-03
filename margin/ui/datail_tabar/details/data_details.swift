@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import Foundation
-import ZAlertView
 import JGProgressHUD
 
 class data_details: UITableViewController {
@@ -57,18 +56,12 @@ class data_details: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        set_theme()
-        show_hud()
         
         userPresenter.attachView(self)
         userPresenter.get_details_api()
         
         tableview.dataSource = self
         tableview.delegate = self
-    }
-    
-    func set_theme(){
-        tableview.backgroundColor = UIColor.appColor(.table_out)
     }
     
     override var shouldAutorotate: Bool {
@@ -87,6 +80,10 @@ class data_details: UITableViewController {
 
 extension data_details: DetailView {
     
+    func set_theme(){
+        tableview.backgroundColor = UIColor.appColor(.table_out)
+    }
+    
     func show_hud(){
         hud.textLabel.text = "Loading"
         hud.show(in: self.view)
@@ -98,12 +95,6 @@ extension data_details: DetailView {
     
     func reload_table(){
         self.tableView.reloadData()
-    }
-    
-    func show_dialog(str: [String]){
-        let dialog = ZAlertView(title: str[0], message: str[1], closeButtonText: "OK", closeButtonHandler: { alertView in alertView.dismissAlertView()
-        })
-        dialog.show()
     }
     
 }

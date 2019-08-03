@@ -80,19 +80,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
+        
+        /*
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
         
         // Print full message.
-        print(userInfo)
-        if (userInfo.description.contains("body = ")){
-            let tmp = userInfo.description.components(separatedBy: "body = ")[1].components(separatedBy: ";")[0]
-            //print(tmp)
-            Messaging.messaging().unsubscribe(fromTopic: tmp) { error in
-                print("unSubscribed to " + tmp)
-            }
-        }
+        print(userInfo)*/
+        
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
@@ -103,32 +99,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
+        
+        /*
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
         
         // Print full message.
-        print(userInfo)
-        if (userInfo.description.contains("body = ")){
-            let tmp = userInfo.description.components(separatedBy: "body = ")[1].components(separatedBy: ";")[0]
-            //print(tmp)
-            Messaging.messaging().unsubscribe(fromTopic: tmp) { error in
-                print("unSubscribed to " + tmp)
-            }
-        }
+        print(userInfo)*/
+
         
         completionHandler(UIBackgroundFetchResult.newData)
     }
     // [END receive_message]
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Unable to register for remote notifications: \(error.localizedDescription)")
+        //print("Unable to register for remote notifications: \(error.localizedDescription)")
     }
     
     // This function is added here only for debugging purposes, and can be removed if swizzling is enabled.
     // If swizzling is disabled then this function must be implemented so that the APNs token can be paired to
     // the FCM registration token.
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("APNs token retrieved: \(deviceToken)")
+        //print("APNs token retrieved: \(deviceToken)")
         
         // With swizzling disabled you must set the APNs token here.
         // Messaging.messaging().apnsToken = deviceToken
@@ -149,19 +141,15 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
+
+        /*
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
         
         // Print full message.
-        print(userInfo)
-        if (userInfo.description.contains("body = ")){
-            let tmp = userInfo.description.components(separatedBy: "body = ")[1].components(separatedBy: ";")[0]
-            //print(tmp)
-            Messaging.messaging().unsubscribe(fromTopic: tmp) { error in
-                print("unSubscribed to " + tmp)
-            }
-        }
+        print(userInfo)*/
+
         
         // Change this to your preferred presentation option
         completionHandler([.alert,.sound])
@@ -172,19 +160,14 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         // Print message ID.
+        
+        /*
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
         
         // Print full message.
-        print(userInfo)
-        if (userInfo.description.contains("body = ")){
-            let tmp = userInfo.description.components(separatedBy: "body = ")[1].components(separatedBy: ";")[0]
-            //print(tmp)
-            Messaging.messaging().unsubscribe(fromTopic: tmp) { error in
-                print("unSubscribed to " + tmp)
-            }
-        }
+        print(userInfo)*/
         
         completionHandler()
     }
@@ -194,7 +177,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 extension AppDelegate : MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        print("Firebase registration token: \(fcmToken)")
+        //print("Firebase registration token: \(fcmToken)")
         
         let dataDict:[String: String] = ["token": fcmToken]
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
@@ -206,7 +189,7 @@ extension AppDelegate : MessagingDelegate {
     // Receive data messages on iOS 10+ directly from FCM (bypassing APNs) when the app is in the foreground.
     // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        print("Received data message: \(remoteMessage.appData)")
+        //print("Received data message: \(remoteMessage.appData)")
     }
     // [END ios_10_data_message]
 }

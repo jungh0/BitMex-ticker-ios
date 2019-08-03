@@ -10,7 +10,6 @@ target 'margin' do
   pod 'JGProgressHUD'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
-  pod 'SCLAlertView'
   pod 'SwiftSoup'
   # Pods for margin
 
