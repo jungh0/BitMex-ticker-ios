@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import ZAlertView
 import Firebase
 import JGProgressHUD
 
@@ -139,12 +138,6 @@ class data_alert: UIViewController, UITableViewDelegate, UITableViewDataSource{
 }
 
 extension data_alert: data_alert_view {
-    
-    func show_dialog(price:String){
-        let dialog = ZAlertView(title: "Success", message: "" + price, closeButtonText: "OK", closeButtonHandler: { alertView in alertView.dismissAlertView()
-        })
-        dialog.show()
-    }
     
     func set_main_text(str:String){
         m_price.text = str

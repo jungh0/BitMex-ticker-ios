@@ -68,7 +68,6 @@ PODS:
   - Protobuf (3.9.0)
   - SwiftSoup (2.2.0)
   - SwiftWebSocket (2.7.0)
-  - ZAlertView (1.0.4)
 
 DEPENDENCIES:
   - Firebase/Core
@@ -77,7 +76,6 @@ DEPENDENCIES:
   - JGProgressHUD
   - SwiftSoup
   - SwiftWebSocket
-  - ZAlertView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -95,7 +93,6 @@ SPEC REPOS:
     - Protobuf
     - SwiftSoup
     - SwiftWebSocket
-    - ZAlertView
 
 SPEC CHECKSUMS:
   Firebase: dedc9e48ea3f3649ad5f6b982f8a0c73508a14b5
@@ -112,8 +109,7 @@ SPEC CHECKSUMS:
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   SwiftSoup: 230991361c5ba249d140161860a3864a28b63860
   SwiftWebSocket: 612c9729fd503cb6b0b8b45390c788686dac306f
-  ZAlertView: 59fffdb4e37a01df461835566d5101052b8af953
 
-PODFILE CHECKSUM: fcacfb4a7557332fc7b1c9b47b31a822fa95bc36
+PODFILE CHECKSUM: db1e902bf5c6c7a34a3a3fdeef501af25ded0d6d
 
 COCOAPODS: 1.5.3

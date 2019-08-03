@@ -20,3 +20,14 @@ func getjson(json:String,str:String) -> String{
     } catch {}
     return ""
 }
+
+func getAnyJson(json:String,str:String) -> Any?{
+    let data_j = json.data(using: String.Encoding.utf8)
+    do {
+        if let data_j = data_j,
+            let json = try JSONSerialization.jsonObject(with: data_j, options:[]) as? [String: AnyObject] {
+            return json[str]
+        } else {return nil}
+    } catch {}
+    return nil
+}

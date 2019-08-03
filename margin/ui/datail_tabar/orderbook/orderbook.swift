@@ -102,11 +102,11 @@ extension orderbook: OrderView2 {
         self.view2.layer.borderWidth = 1
         
         askLabel.layer.masksToBounds = true
-        askLabel.layer.cornerRadius = 8
+        askLabel.layer.cornerRadius = 5
         priceLabel.layer.masksToBounds = true
-        priceLabel.layer.cornerRadius = 8
+        priceLabel.layer.cornerRadius = 5
         bidLabel.layer.masksToBounds = true
-        bidLabel.layer.cornerRadius = 8
+        bidLabel.layer.cornerRadius = 5
         
         tableview.backgroundColor = UIColor.appColor(.table_in_order)
         view1.backgroundColor = UIColor.appColor(.table_in_order)

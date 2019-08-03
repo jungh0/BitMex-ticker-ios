@@ -12,7 +12,6 @@ import Firebase
 
 protocol data_alert_view: NSObjectProtocol {
 
-    func show_dialog(price:String)
     func set_main_text(str:String)
     func set_main_color(color:UIColor)
     func set_dollar_text(str:String)
@@ -98,7 +97,7 @@ class data_alertPresenter{
                 DispatchQueue.main.async {
                     self.addAlertList(alerV: (result))
                     self.userView?.dissmiss_hud()
-                    self.userView?.show_dialog(price: "subscribed - " + result)
+                    showAlert(self.userView as? UIViewController,"Success","subscribed - " + result)
                 }
             }
         }
@@ -146,7 +145,7 @@ class data_alertPresenter{
                 DispatchQueue.main.async {
                     self.userView?.dissmiss_hud()
                     self.userView?.reload_table()
-                    self.userView?.show_dialog(price: "unsubscribed - " + alerV)
+                    showAlert(self.userView as? UIViewController,"Success","unsubscribed - " + alerV)
                 }
             }
         }

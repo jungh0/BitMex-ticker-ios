@@ -11,7 +11,6 @@ import Foundation
 import SwiftWebSocket
 import GoogleMobileAds
 import JGProgressHUD
-import ZAlertView
 
 class ticker_cell: UITableViewCell {
     @IBOutlet weak var symbol: UILabel!
@@ -60,9 +59,7 @@ class ticker_table: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         userPresenter.attachView(self)
-        
         tableview.dataSource = self
         tableview.delegate = self
     }

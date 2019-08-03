@@ -6,7 +6,6 @@ target 'margin' do
   use_frameworks!
   pod 'SwiftWebSocket'
   pod 'Google-Mobile-Ads-SDK'
-  pod 'ZAlertView'
   pod 'JGProgressHUD'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'

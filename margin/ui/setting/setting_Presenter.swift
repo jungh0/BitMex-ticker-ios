@@ -39,7 +39,6 @@ class setting_Presenter /*: SKPaymentTransactionObserver, SKProductsRequestDeleg
     func make_open_dialog(){
         showAlert(userView as? UIViewController,"OpenSource",
                   "SwiftWebSocket\n(https://github.com/tidwall/SwiftWebSocket)\nMIT License.\n\n" +
-            "ZAlertView\n(https://github.com/zelic91/ZAlertView)\nMIT license.\n\n" +
             "JGProgressHUD\n(https://github.com/JonasGessner/JGProgressHUD)\n©2014-2018, Jonas Gessner.\nMIT License.\n\n" +
             "SwiftSoup\n(https://github.com/scinfu/SwiftSoup)\nMIT License.")
     }

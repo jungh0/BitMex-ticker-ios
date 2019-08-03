@@ -88,13 +88,6 @@
 			<key>orderHint</key>
 			<integer>12</integer>
 		</dict>
-		<key>ZAlertView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>13</integer>
-		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>isShown</key>
