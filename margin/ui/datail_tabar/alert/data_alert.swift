@@ -43,35 +43,14 @@ class data_alert: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet var add_alert_: UIButton!
     @IBOutlet var price_field: UITextField!
     @IBAction func add_alert(_ sender: Any) {
+        self.view.endEditing(true)
         let price = price_field.text!
         userPresenter.subscribe(price: price)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        //userPresenter.detachView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        self.view1.layer.cornerRadius = 3
-        self.view1.layer.borderWidth = 1
-        self.view2.layer.cornerRadius = 3
-        self.view2.layer.borderWidth = 1
-        self.table.layer.cornerRadius = 3
-        self.table.layer.borderWidth = 1
-        
-        self.table.layer.cornerRadius = 3
-        self.add_alert_.layer.cornerRadius = 3
-        self.price_field.layer.cornerRadius = 3
-        self.price_field.layer.borderWidth = 1
-        
-        
-        set_theme()
-        
         userPresenter.attachView(view: self)
-        userPresenter.timer1_start()
-        
         table.delegate = self
         table.dataSource = self
     }
@@ -91,6 +70,8 @@ class data_alert: UIViewController, UITableViewDelegate, UITableViewDataSource{
         backgroundView.backgroundColor = UIColor.appColor(.table_click)
         cell.selectedBackgroundView = backgroundView
         cell.backgroundColor = UIColor.appColor(.detail_table_in)
+        
+        //cell.add_alert_.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
 
         return cell
     }
@@ -98,37 +79,11 @@ class data_alert: UIViewController, UITableViewDelegate, UITableViewDataSource{
     //테이블 클릭
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         userPresenter.delAlertList(alerV: userPresenter.getAlertList()[indexPath.row])
-        //table.deselectRow(at: indexPath, animated: true)
+        table.deselectRow(at: indexPath, animated: true)
     }
     
     @IBAction func doneBtnClicked (sender: Any) {
         self.view.endEditing(true)
-    }
-    
-    func set_theme(){
-        view0.backgroundColor = UIColor.appColor(.table_out)
-        
-        view1.backgroundColor = UIColor.appColor(.detail_table_in)
-        view1.layer.borderColor = UIColor.appColor(.border)?.cgColor
-        
-        view2.backgroundColor = UIColor.appColor(.detail_table_in)
-        view2.layer.borderColor = UIColor.appColor(.border)?.cgColor
-        
-        table.backgroundColor = UIColor.appColor(.detail_table_in)
-        table.layer.borderColor = UIColor.appColor(.border)?.cgColor
-        
-        doll.textColor = UIColor.appColor(.title2)
-        
-        let toolBarKeyboard = UIToolbar()
-        toolBarKeyboard.sizeToFit()
-        let btnDoneBar = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneBtnClicked))
-        toolBarKeyboard.items = [btnDoneBar]
-        toolBarKeyboard.tintColor = #colorLiteral(red: 0.231372549, green: 0.4784313725, blue: 0.8235294118, alpha: 1)
-        
-        price_field.inputAccessoryView = toolBarKeyboard
-        price_field.backgroundColor = UIColor.appColor(.detail_table_in)
-        price_field.textColor = UIColor.appColor(.title)
-        price_field.layer.borderColor = UIColor.appColor(.border)?.cgColor
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -170,5 +125,39 @@ extension data_alert: data_alert_view {
         hud.dismiss(afterDelay: 0.0)
     }
     
+    func set_theme(){
+        view0.backgroundColor = UIColor.appColor(.table_out)
+        
+        view1.backgroundColor = UIColor.appColor(.detail_table_in)
+        view1.layer.borderColor = UIColor.appColor(.border)?.cgColor
+        view1.layer.cornerRadius = 3
+        view1.layer.borderWidth = 1
+        
+        view2.backgroundColor = UIColor.appColor(.detail_table_in)
+        view2.layer.borderColor = UIColor.appColor(.border)?.cgColor
+        view2.layer.cornerRadius = 3
+        view2.layer.borderWidth = 1
+        
+        table.backgroundColor = UIColor.appColor(.detail_table_in)
+        table.layer.borderColor = UIColor.appColor(.border)?.cgColor
+        table.layer.cornerRadius = 3
+        table.layer.borderWidth = 1
+        
+        doll.textColor = UIColor.appColor(.title2)
+        add_alert_.layer.cornerRadius = 3
+        price_field.layer.cornerRadius = 3
+        price_field.layer.borderWidth = 1
+        
+        let toolBarKeyboard = UIToolbar()
+        toolBarKeyboard.sizeToFit()
+        let btnDoneBar = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneBtnClicked))
+        toolBarKeyboard.items = [btnDoneBar]
+        toolBarKeyboard.tintColor = #colorLiteral(red: 0.231372549, green: 0.4784313725, blue: 0.8235294118, alpha: 1)
+        
+        price_field.inputAccessoryView = toolBarKeyboard
+        price_field.backgroundColor = UIColor.appColor(.detail_table_in)
+        price_field.textColor = UIColor.appColor(.title)
+        price_field.layer.borderColor = UIColor.appColor(.border)?.cgColor
+    }
     
 }

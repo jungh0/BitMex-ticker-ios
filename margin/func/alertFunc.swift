@@ -16,7 +16,7 @@ func selectAlert(_ viewController: UIViewController?,_ title: String, _ msg: Str
     let defaultAction = UIAlertAction(title: buttonTitle, style: .default, handler: handler)
     alertController.addAction(defaultAction)
     
-    let cancel = UIAlertAction(title: "취소", style: .default, handler: nil)
+    let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
     alertController.addAction(cancel)
     
     viewController?.present(alertController, animated: true, completion: nil)
@@ -24,7 +24,7 @@ func selectAlert(_ viewController: UIViewController?,_ title: String, _ msg: Str
 
 func showAlert(_ viewController: UIViewController?, _ title: String, _ msg: String){
     let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-    let cancel = UIAlertAction(title: "확인", style: .default, handler: nil)
+    let cancel = UIAlertAction(title: "OK", style: .default, handler: nil)
     alertController.addAction(cancel)
     viewController?.present(alertController, animated: true, completion: nil)
 }

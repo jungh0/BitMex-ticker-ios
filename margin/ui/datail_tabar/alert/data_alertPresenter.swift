@@ -19,6 +19,7 @@ protocol data_alert_view: NSObjectProtocol {
     func reload_table()
     func show_hud()
     func dissmiss_hud()
+    func set_theme()
     
 }
 
@@ -37,6 +38,16 @@ class data_alertPresenter{
                 }
             }
         }
+    }
+    
+    func attachView(view:data_alert_view){
+        userView = view
+        userView?.set_theme()
+        timer1_start()
+    }
+    
+    func detachView() {
+        userView = nil
     }
     
     func get_c_list() -> [[String]]{
@@ -63,16 +74,7 @@ class data_alertPresenter{
         userView!.set_dollar_text(str: make_dollar_text(str: info[1]))
     }
     
-    func attachView(view:data_alert_view){
-        userView = view
-    }
-    
-    func detachView() {
-        userView = nil
-    }
-    
     func subscribe(price:String){
-        
         var result = ""
         if (price.isNumber){
             let priceDouble = ((price) as NSString).doubleValue
@@ -97,11 +99,9 @@ class data_alertPresenter{
                 DispatchQueue.main.async {
                     self.addAlertList(alerV: (result))
                     self.userView?.dissmiss_hud()
-                    showAlert(self.userView as? UIViewController,"Success","subscribed - " + result)
                 }
             }
         }
-        
     }
     
     private func find_main_color(str:String) -> UIColor{
@@ -134,21 +134,27 @@ class data_alertPresenter{
     }
     
     func delAlertList(alerV:String){
-        var array = UserDefaults.standard.value(forKey: sok.chart_symbol + "_AlertList") as? [String] ?? [String]()
-        if let index = array.firstIndex(of:alerV) {
-            DispatchQueue.main.async {
-                self.userView?.show_hud()
-            }
-            Messaging.messaging().unsubscribe(fromTopic: sok.chart_symbol + "_" + alerV) { error in
-                array.remove(at: index)
-                UserDefaults.standard.set(array, forKey: sok.chart_symbol + "_AlertList")
+        func someHandler(alert: UIAlertAction!) {
+            var array = UserDefaults.standard.value(forKey: sok.chart_symbol + "_AlertList") as? [String] ?? [String]()
+            if let index = array.firstIndex(of:alerV) {
                 DispatchQueue.main.async {
-                    self.userView?.dissmiss_hud()
-                    self.userView?.reload_table()
-                    showAlert(self.userView as? UIViewController,"Success","unsubscribed - " + alerV)
+                    self.userView?.show_hud()
+                }
+                Messaging.messaging().unsubscribe(fromTopic: sok.chart_symbol + "_" + alerV) { error in
+                    array.remove(at: index)
+                    UserDefaults.standard.set(array, forKey: sok.chart_symbol + "_AlertList")
+                    DispatchQueue.main.async {
+                        self.userView?.dissmiss_hud()
+                        self.userView?.reload_table()
+                        showAlert(self.userView as? UIViewController,"Success","Unsubscribed " + alerV)
+                    }
                 }
             }
         }
+        selectAlert(self.userView as? UIViewController,
+                    "Unsubscribe",sok.chart_symbol + ":" + alerV,
+                    "OK",someHandler)
+        
     }
     
     private func addAlertList(alerV:String){
@@ -159,6 +165,9 @@ class data_alertPresenter{
             array.reverse()
             UserDefaults.standard.set(array, forKey: sok.chart_symbol + "_AlertList")
             userView?.reload_table()
+            showAlert(self.userView as? UIViewController,"Success","Subscribed " + alerV)
+        }else{
+            showAlert(self.userView as? UIViewController,"Fail","Subscription already exists")
         }
     }
    
