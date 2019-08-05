@@ -63,22 +63,28 @@ class data_alert: UIViewController, UITableViewDelegate, UITableViewDataSource{
     //테이블 데이터 로드
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "alertCell", for: indexPath) as! alertCell
-        cell.cellPrice.text = userPresenter.getAlertList()[indexPath.row]
-        cell.cellPrice.textColor = UIColor.appColor(.title)
+        cell.cellPrice.text = sok.chart_symbol + " : " + userPresenter.getAlertList()[indexPath.row]
+        cell.cellPrice.textColor = UIColor.appColor(.title2)
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.appColor(.table_click)
         cell.selectedBackgroundView = backgroundView
         cell.backgroundColor = UIColor.appColor(.detail_table_in)
         
-        //cell.add_alert_.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
-
+        cell.add_alert_.addTarget(self, action: #selector(addAlertBtn), for: UIControl.Event.touchUpInside)
+        cell.add_alert_.tag = indexPath.row
+        cell.add_alert_.layer.cornerRadius = 3
         return cell
+    }
+    
+    @objc func addAlertBtn(sender : UIButton!) {
+        let row = sender.tag;
+        userPresenter.delAlertList(alerV: userPresenter.getAlertList()[row])
     }
     
     //테이블 클릭
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        userPresenter.delAlertList(alerV: userPresenter.getAlertList()[indexPath.row])
+        //userPresenter.delAlertList(alerV: userPresenter.getAlertList()[indexPath.row])
         table.deselectRow(at: indexPath, animated: true)
     }
     
@@ -144,10 +150,8 @@ extension data_alert: data_alert_view {
         table.layer.borderWidth = 1
         
         doll.textColor = UIColor.appColor(.title2)
-        add_alert_.layer.cornerRadius = 3
-        price_field.layer.cornerRadius = 3
-        price_field.layer.borderWidth = 1
-        
+        add_alert_.layer.cornerRadius = 10
+  
         let toolBarKeyboard = UIToolbar()
         toolBarKeyboard.sizeToFit()
         let btnDoneBar = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneBtnClicked))
@@ -155,9 +159,12 @@ extension data_alert: data_alert_view {
         toolBarKeyboard.tintColor = #colorLiteral(red: 0.231372549, green: 0.4784313725, blue: 0.8235294118, alpha: 1)
         
         price_field.inputAccessoryView = toolBarKeyboard
-        price_field.backgroundColor = UIColor.appColor(.detail_table_in)
         price_field.textColor = UIColor.appColor(.title)
-        price_field.layer.borderColor = UIColor.appColor(.border)?.cgColor
+        price_field.layer.borderColor = UIColor.appColor(.detail_table_in)?.cgColor
+        price_field.backgroundColor = UIColor.appColor(.textfield_in)
+        price_field.layer.masksToBounds = true
+        price_field.layer.cornerRadius = 10
+        price_field.layer.borderWidth = 1
     }
     
 }

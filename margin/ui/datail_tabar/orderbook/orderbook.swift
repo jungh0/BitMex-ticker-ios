@@ -67,7 +67,7 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
         cell.bids_c.text = userPresenter.set_order_text(str: info[2])
         cell.price.textColor = userPresenter.set_order_color(str: info[0],str2:info[2])
         if (dark_theme){
-            cell.backgroundColor = UIColor.appColor(.table_out)
+            cell.backgroundColor = UIColor.appColor(.detail_table_in)
         }else{
             cell.backgroundColor = UIColor.white
         }
@@ -108,10 +108,10 @@ extension orderbook: OrderView2 {
         bidLabel.layer.masksToBounds = true
         bidLabel.layer.cornerRadius = 5
         
-        tableview.backgroundColor = UIColor.appColor(.table_in_order)
-        view1.backgroundColor = UIColor.appColor(.table_in_order)
+        tableview.backgroundColor = UIColor.appColor(.detail_table_in)
+        view1.backgroundColor = UIColor.appColor(.detail_table_in)
         view1.layer.borderColor = UIColor.appColor(.border)?.cgColor
-        view2.backgroundColor = UIColor.appColor(.table_in_order)
+        view2.backgroundColor = UIColor.appColor(.detail_table_in)
         view2.layer.borderColor = UIColor.appColor(.border)?.cgColor
         view.backgroundColor = UIColor.appColor(.table_out)
     }

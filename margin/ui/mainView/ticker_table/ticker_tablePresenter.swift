@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import StoreKit
 
 protocol UserView: NSObjectProtocol {
     
@@ -19,6 +20,8 @@ protocol UserView: NSObjectProtocol {
     func showUpdateStr()
     
     func recent_list()
+    
+    func info_change(cap:String,domin:String)
     
 }
 
@@ -47,7 +50,7 @@ class ticker_tablePresenter {
     
     private func request_coin(){
         let randNum = arc4random_uniform(10000).description
-        let url = "http://wiffy.io/bitmex/?" + randNum
+        var url = "http://wiffy.io/bitmex/?" + randNum
         requestHTTP(url: url,completion: { result in
             var get_table_data = result.split_("\n")
             for i in 0 ... get_table_data.count - 1 {
@@ -57,6 +60,37 @@ class ticker_tablePresenter {
             DispatchQueue.main.async {
                 sok.start()
             }
+        })
+        url = "https://api.coinmarketcap.com/v1/global/"
+        requestHTTP(url: url,completion: { result in
+            var cap = ""
+            var domin = ""
+            if let jsonData = getAnyJson(json: result,str: "total_market_cap_usd") as? Double{
+                cap = Int(jsonData).delimiter
+            }
+            if let jsonData = getAnyJson(json: result,str: "bitcoin_percentage_of_market_cap") as? Double{
+                domin = jsonData.description + "%"
+            }
+            DispatchQueue.main.async {
+                self.userView?.info_change(cap: "$" + cap, domin: domin)
+            }
+        })
+        url = "http://wiffy.io/bitmex/hello?" + randNum
+        requestHTTP(url: url,completion: { result in
+            if (result.contains("642537883523")){
+                beta = true
+            }else{
+                beta = false
+                let isnoti = UserDefaults.standard.value(forKey: "betanoti")
+                if (isnoti == nil){
+                    DispatchQueue.main.async {
+                        UserDefaults.standard.set("aa", forKey: "betanoti")
+                        showAlert(self.userView as? UIViewController, "Beta closed",
+                                  "Price notifications are now available in Pro version. Please update your app")
+                    }
+                }
+            }
+            print("beta:" + beta.description)
         })
     }
     
@@ -91,18 +125,20 @@ class ticker_tablePresenter {
     }
     
     private func ad_check(){
-        let loadedData = Int(getData("world"))
-        var letsgo = 0
-        if (loadedData == 97970505){
-            letsgo = 1 //print("thank you")
+        if (!world_pr){
+            //userView?.show_ad()
         }
-        if (letsgo == 0 || true){
-            userView?.show_ad()
-        }
+        userView?.show_ad()
     }
     
     func get_c_list() -> [[String]]{
         return sok.c_list
+    }
+    
+    func inapp(){
+        print("aa")
+        let iapObserver = StoreObserver()
+        SKPaymentQueue.default().add(iapObserver)
     }
     
 }

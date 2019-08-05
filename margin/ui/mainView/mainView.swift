@@ -13,6 +13,8 @@ import Firebase
 
 var sok = socket(wss: "wss://www.bitmex.com/realtime")
 var dark_theme = false
+var world_pr = false//pro
+var beta = false
 
 class mainView: UINavigationController {
     
@@ -23,10 +25,23 @@ class mainView: UINavigationController {
             let tmp = Int(getData("theme2"))
             if (tmp == 0){
                 dark_theme = false
-            }else{
+            }else if (tmp == 1){
                 dark_theme = true
+            }else{
+                dark_theme = false
             }
         }
+
+        /*
+        do {
+            let tmp = Int(getData("world"))
+            if (tmp == 97970505){
+                world_pr = true
+            }else{
+                world_pr = false
+            }
+        }*/
+        
         
         /*
         Messaging.messaging().subscribe(toTopic: "XBTUSD_9932.5") { error in

@@ -40,9 +40,16 @@ class ticker_table: UITableViewController{
     
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet var table_view_top: UIView!
-    @IBOutlet var table_view_dominance: UIView!
     @IBOutlet var table_view_symbol_price: UIView!
     @IBOutlet var table_view_bottom: UIView!
+    
+    @IBOutlet var marketcap_table: UIView!
+    @IBOutlet var marketcap_label: UILabel!
+    @IBOutlet var domin_table: UIView!
+    @IBOutlet var domin_label: UILabel!
+    @IBOutlet var market_data: UILabel!
+    @IBOutlet var domin_data: UILabel!
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -137,7 +144,11 @@ class ticker_table: UITableViewController{
     }
     
     func setTopBtn(){
-        
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "GO PRO", style: .plain, target: self, action: #selector(goPro))
+    }
+    
+    @objc func goPro(sender: UIBarButtonItem) {
+        userPresenter.inapp()
     }
     
 }
@@ -172,14 +183,21 @@ extension ticker_table: UserView {
         setTopset()
         setTopBtn()
         
+        navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.view.backgroundColor = UIColor.appColor(.table_out)
         navigationController?.navigationBar.barTintColor = UIColor.appColor(.navi)
         tableview.backgroundColor = UIColor.appColor(.table_out)
         table_view_top.backgroundColor = UIColor.appColor(.table_out)
-        table_view_dominance.backgroundColor = UIColor.appColor(.table_in)
         table_view_symbol_price.backgroundColor = UIColor.appColor(.table_in)
         table_view_bottom.backgroundColor = UIColor.appColor(.table_out)
+        
+        marketcap_table.backgroundColor = UIColor.appColor(.table_in)
+        domin_table.backgroundColor = UIColor.appColor(.table_in)
+        marketcap_label.textColor = UIColor.appColor(.title)
+        domin_label.textColor = UIColor.appColor(.title)
+        market_data.textColor = UIColor.appColor(.title2)
+        domin_data.textColor = UIColor.appColor(.title2)
     }
     
     func showUpdateStr(){
@@ -191,6 +209,11 @@ extension ticker_table: UserView {
                       "Price notification available in XBTUSD\n" +
                 "(It is provided as a PRO function after the beta test.)")
         }
+    }
+    
+    func info_change(cap:String,domin:String){
+        market_data.text = cap
+        domin_data.text = domin
     }
     
 }
