@@ -69,7 +69,7 @@ class data_alert: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.appColor(.table_click)
         cell.selectedBackgroundView = backgroundView
-        cell.backgroundColor = UIColor.appColor(.detail_table_in)
+        cell.backgroundColor = UIColor.appColor(.table_in)
         
         cell.add_alert_.addTarget(self, action: #selector(addAlertBtn), for: UIControl.Event.touchUpInside)
         cell.add_alert_.tag = indexPath.row
@@ -134,20 +134,20 @@ extension data_alert: data_alert_view {
     func set_theme(){
         view0.backgroundColor = UIColor.appColor(.table_out)
         
-        view1.backgroundColor = UIColor.appColor(.detail_table_in)
-        view1.layer.borderColor = UIColor.appColor(.border)?.cgColor
-        view1.layer.cornerRadius = 3
-        view1.layer.borderWidth = 1
+        view1.backgroundColor = UIColor.appColor(.table_in)
+        //view1.layer.borderColor = UIColor.appColor(.border)?.cgColor
+        view1.layer.cornerRadius = 5
+        //view1.layer.borderWidth = 1
         
-        view2.backgroundColor = UIColor.appColor(.detail_table_in)
-        view2.layer.borderColor = UIColor.appColor(.border)?.cgColor
-        view2.layer.cornerRadius = 3
-        view2.layer.borderWidth = 1
+        view2.backgroundColor = UIColor.appColor(.table_in)
+        //view2.layer.borderColor = UIColor.appColor(.border)?.cgColor
+        view2.layer.cornerRadius = 5
+        //view2.layer.borderWidth = 1
         
-        table.backgroundColor = UIColor.appColor(.detail_table_in)
-        table.layer.borderColor = UIColor.appColor(.border)?.cgColor
-        table.layer.cornerRadius = 3
-        table.layer.borderWidth = 1
+        table.backgroundColor = UIColor.appColor(.table_in)
+        //table.layer.borderColor = UIColor.appColor(.border)?.cgColor
+        table.layer.cornerRadius = 5
+        //table.layer.borderWidth = 1
         
         doll.textColor = UIColor.appColor(.title2)
         add_alert_.layer.cornerRadius = 10
@@ -160,7 +160,7 @@ extension data_alert: data_alert_view {
         
         price_field.inputAccessoryView = toolBarKeyboard
         price_field.textColor = UIColor.appColor(.title)
-        price_field.layer.borderColor = UIColor.appColor(.detail_table_in)?.cgColor
+        price_field.layer.borderColor = UIColor.appColor(.table_in)?.cgColor
         price_field.backgroundColor = UIColor.appColor(.textfield_in)
         price_field.layer.masksToBounds = true
         price_field.layer.cornerRadius = 10

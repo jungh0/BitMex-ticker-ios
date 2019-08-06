@@ -67,7 +67,7 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
         cell.bids_c.text = userPresenter.set_order_text(str: info[2])
         cell.price.textColor = userPresenter.set_order_color(str: info[0],str2:info[2])
         if (dark_theme){
-            cell.backgroundColor = UIColor.appColor(.detail_table_in)
+            cell.backgroundColor = UIColor.appColor(.table_in)
         }else{
             cell.backgroundColor = UIColor.white
         }
@@ -96,10 +96,11 @@ extension orderbook: OrderView2 {
     }
     
     func set_theme(){
-        self.view1.layer.cornerRadius = 3
-        self.view1.layer.borderWidth = 1
-        self.view2.layer.cornerRadius = 3
-        self.view2.layer.borderWidth = 1
+        view1.layer.cornerRadius = 5
+        //self.view1.layer.borderWidth = 1
+        view2.layer.cornerRadius = 5
+        tableview.layer.cornerRadius = 5
+        //self.view2.layer.borderWidth = 1
         
         askLabel.layer.masksToBounds = true
         askLabel.layer.cornerRadius = 5
@@ -108,11 +109,11 @@ extension orderbook: OrderView2 {
         bidLabel.layer.masksToBounds = true
         bidLabel.layer.cornerRadius = 5
         
-        tableview.backgroundColor = UIColor.appColor(.detail_table_in)
-        view1.backgroundColor = UIColor.appColor(.detail_table_in)
-        view1.layer.borderColor = UIColor.appColor(.border)?.cgColor
-        view2.backgroundColor = UIColor.appColor(.detail_table_in)
-        view2.layer.borderColor = UIColor.appColor(.border)?.cgColor
+        tableview.backgroundColor = UIColor.appColor(.table_in)
+        view1.backgroundColor = UIColor.appColor(.table_in)
+        //view1.layer.borderColor = UIColor.appColor(.border)?.cgColor
+        view2.backgroundColor = UIColor.appColor(.table_in)
+        //view2.layer.borderColor = UIColor.appColor(.border)?.cgColor
         view.backgroundColor = UIColor.appColor(.table_out)
     }
     

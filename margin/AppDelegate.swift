@@ -19,10 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let gcmMessageIDKey = "gcm.message_id"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        UIApplication.shared.applicationIconBadgeNumber = 0
         // Override point for customization after application launch.
         //GADMobileAds.configure(withApplicationID: "ca-app-pub-0355430122346055~1198416270")
         GADMobileAds.sharedInstance().start(completionHandler: nil)
-        
         
         FirebaseApp.configure()
         

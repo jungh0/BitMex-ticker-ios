@@ -111,7 +111,7 @@ extension data_chart: ChartView {
         web.backgroundColor = UIColor.appColor(.table_out)
         dollar.textColor = UIColor.appColor(.title2)
         
-        view1.backgroundColor = UIColor.appColor(.detail_table_in)
+        view1.backgroundColor = UIColor.appColor(.table_in)
         view1.layer.borderColor = UIColor.appColor(.border)?.cgColor
         view_background.backgroundColor = UIColor.appColor(.table_out)
         
