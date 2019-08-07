@@ -101,6 +101,8 @@ class data_alertPresenter{
                     self.userView?.dissmiss_hud()
                 }
             }
+        }else{
+            showAlert(self.userView as? UIViewController,"Fail","There is a problem with the input ")
         }
     }
     

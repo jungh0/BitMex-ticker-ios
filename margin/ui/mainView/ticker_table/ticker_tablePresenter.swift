@@ -128,7 +128,7 @@ class ticker_tablePresenter {
         if (!world_pr){
             //userView?.show_ad()
         }
-        userView?.show_ad()
+        //userView?.show_ad()
     }
     
     func get_c_list() -> [[String]]{
