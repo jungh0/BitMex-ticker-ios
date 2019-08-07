@@ -9,7 +9,7 @@ screenshot
 <img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/old/2.jpg' width='250px'/>
 <img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/old/3.jpg' width='250px'/>
 <img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/old/4.jpg' width='250px'/>
-<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/plus/_1.png' width='250px'/>
-<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/plus/_2.png' width='250px'/>
-<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/plus/_3.png' width='250px'/>
-<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/plus/_4.png' width='250px'/>
+<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/plus2/_1.png' width='250px'/>
+<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/plus2/_2.png' width='250px'/>
+<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/plus2/_3.png' width='250px'/>
+<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/plus2/_4.png' width='250px'/>
