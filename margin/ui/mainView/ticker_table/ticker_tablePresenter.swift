@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import StoreKit
+import Firebase
 
 protocol UserView: NSObjectProtocol {
     
@@ -79,6 +80,7 @@ class ticker_tablePresenter {
         requestHTTP(url: url,completion: { result in
             if (result.contains("642537883523")){
                 beta = true
+
             }else{
                 beta = false
                 let isnoti = UserDefaults.standard.value(forKey: "betanoti")
@@ -89,6 +91,13 @@ class ticker_tablePresenter {
                                   "Price notifications are now available in Pro version. Please update your app")
                     }
                 }
+                let array = UserDefaults.standard.value(forKey: "XBTUSD_AlertList") as? [String] ?? [String]()
+                for aa in array{
+                    Messaging.messaging().unsubscribe(fromTopic: "XBTUSD_" + aa) { error in
+                        print("XBTUSD_" + aa)
+                    }
+                }
+                UserDefaults.standard.set([String](), forKey: "XBTUSD_AlertList")
             }
             print("beta:" + beta.description)
         })
@@ -128,7 +137,7 @@ class ticker_tablePresenter {
         if (!world_pr){
             //userView?.show_ad()
         }
-        //userView?.show_ad()
+        userView?.show_ad()
     }
     
     func get_c_list() -> [[String]]{
