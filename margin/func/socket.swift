@@ -95,38 +95,43 @@ class socket{
     
     private func price_parse(str:String,symbol:String,index:Int){
         if let jsonData = getAnyJson(json: str,str: "data") as? [[String:AnyObject]] {
-            let symbolData = (jsonData[0]["symbol"] as? String) ?? ""
-            if(symbolData == symbol){
-                let priceData = (jsonData[0]["price"] as? Double) ?? 0
-                let sideData = (jsonData[0]["side"] as? String) ?? ""
-                let sizeData = (jsonData[0]["size"] as? Double) ?? 0
-                
-                if (symbol == chart_symbol){
-                    recent_str_order = symbol + " : " + priceData.description + " - " + sideData.description  + " - " + sizeData.description
+            if(jsonData.description != "[]"){
+                let symbolData = (jsonData[0]["symbol"] as? String) ?? ""
+                if(symbolData == symbol){
+                    let priceData = (jsonData[0]["price"] as? Double) ?? 0
+                    let sideData = (jsonData[0]["side"] as? String) ?? ""
+                    let sizeData = (jsonData[0]["size"] as? Double) ?? 0
+                    
+                    if (symbol == chart_symbol){
+                        recent_str_order = symbol + " : " + priceData.description + " - " + sideData.description  + " - " + sizeData.description
+                    }
+                    c_list[index][4] = self.compare(ori: Double(c_list[index][1]) ?? 0,
+                                                    new: priceData,
+                                                    color: c_list[index][4])
+                    c_list[index][1] = self.make_0(str: priceData.toString())
                 }
-                c_list[index][4] = self.compare(ori: Double(c_list[index][1]) ?? 0,
-                                                new: priceData,
-                                                color: c_list[index][4])
-                c_list[index][1] = self.make_0(str: priceData.toString())
             }
+           
         }
     }
     
     private func _1m_parse(str:String,symbol:String,index:Int){
         //print(str)
         if let jsonData = getAnyJson(json: str,str: "data") as? [[String:AnyObject]]{
-            let symbolData = (jsonData[0]["symbol"] as? String) ?? ""
-            if(symbolData == symbol){
-                let closeData = (jsonData[0]["close"] as? Double) ?? 0
-                let openData = (jsonData[0]["open"] as? Double) ?? 0
-                c_list[index][4] = self.compare(ori: openData,
-                                                new: closeData,
-                                                color: c_list[index][4])
-                c_list[index][1] = self.make_0(str: closeData.toString())
-                c_list[index][2] = "y"
-                
-                self.send(str1: "unsubscribe",str2: "tradeBin1m",str3: c_list[index][0])
-                self.send(str1: "subscribe",str2: "trade",str3: c_list[index][0])
+            if(jsonData.description != "[]"){
+                let symbolData = (jsonData[0]["symbol"] as? String) ?? ""
+                if(symbolData == symbol){
+                    let closeData = (jsonData[0]["close"] as? Double) ?? 0
+                    let openData = (jsonData[0]["open"] as? Double) ?? 0
+                    c_list[index][4] = self.compare(ori: openData,
+                                                    new: closeData,
+                                                    color: c_list[index][4])
+                    c_list[index][1] = self.make_0(str: closeData.toString())
+                    c_list[index][2] = "y"
+                    
+                    self.send(str1: "unsubscribe",str2: "tradeBin1m",str3: c_list[index][0])
+                    self.send(str1: "subscribe",str2: "trade",str3: c_list[index][0])
+                }
             }
         }
     }
@@ -134,20 +139,23 @@ class socket{
     private func order_parse(str:String){
         //print(str)
         if let jsonData = getAnyJson(json: str,str: "data") as? [[String:AnyObject]]{
-            var asksJson = (jsonData[0]["asks"] as? [[Double]]) ?? []
-            asksJson.reverse()
-            let bidsJson = (jsonData[0]["bids"] as? [[Double]]) ?? []
+            if(jsonData.description != "[]"){
+                var asksJson = (jsonData[0]["asks"] as? [[Double]]) ?? []
+                asksJson.reverse()
+                let bidsJson = (jsonData[0]["bids"] as? [[Double]]) ?? []
+                
+                orderbook_reset()
+                for asksJ in asksJson {
+                    var askTmp = asksJ.map { $0.toString() }
+                    askTmp.reverse()
+                    orderbook.append(askTmp + ["-"])
+                }
+                for bidsJ in bidsJson {
+                    let bidTmp = bidsJ.map { $0.toString() }
+                    orderbook.append(["-"] + bidTmp)
+                }
+            }
             
-            orderbook_reset()
-            for asksJ in asksJson {
-                var askTmp = asksJ.map { $0.toString() }
-                askTmp.reverse()
-                orderbook.append(askTmp + ["-"])
-            }
-            for bidsJ in bidsJson {
-                let bidTmp = bidsJ.map { $0.toString() }
-                orderbook.append(["-"] + bidTmp)
-            }
         }
     }
     

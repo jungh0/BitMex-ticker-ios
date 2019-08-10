@@ -85,22 +85,42 @@ class data_alertPresenter{
             else if (priceDouble == Double(priceInt)){
                 result = price.split_(".")[0]
             }else{
-                result = priceDouble.description
+                //result = priceDouble.description
+                result = Double(price)!.toString()
             }
             print(result)
             
             DispatchQueue.main.async {
                 self.userView?.show_hud()
             }
-            Messaging.messaging().subscribe(toTopic: sok.chart_symbol + "_" + result) { error in
+            
+            func someHandler(alert: UIAlertAction!) {
                 let url = "http://wiffy.io/bitmex/reg/?d=" + "alert_" + sok.chart_symbol + ":" + result
-                requestHTTP(url: url,completion: { result in
+                requestHTTP(url: url,completion: { aa in
+                    if (aa == "Result: OK"){
+                        Messaging.messaging().subscribe(toTopic: sok.chart_symbol + "_" + result) { error in
+                            DispatchQueue.main.async {
+                                self.addAlertList(alerV: (result))
+                                self.userView?.dissmiss_hud()
+                            }
+                        }
+                    }else{
+                        DispatchQueue.main.async {
+                            self.userView?.dissmiss_hud()
+                            showAlert(self.userView as? UIViewController,"Fail","There is a problem ")
+                        }
+                    }
                 })
-                DispatchQueue.main.async {
-                    self.addAlertList(alerV: (result))
-                    self.userView?.dissmiss_hud()
-                }
             }
+            
+            if  (Double(price)! < Double(get_c_list()[check][1])! * 2 )  {
+                someHandler(alert: nil)
+            }else{
+                selectAlert(self.userView as? UIViewController,
+                            "Check price","Big difference with current price\nDo you really want to subscribe to this price?",
+                            "Subscribe",someHandler)
+            }
+            
         }else{
             showAlert(self.userView as? UIViewController,"Fail","There is a problem with the input ")
         }

@@ -29,10 +29,6 @@ class datail_tabar: UITabBarController,UITabBarControllerDelegate {
             if(!beta){
                 tabBarItem.isEnabled = false
                 tabBarItem.title = "Alert(PRO)"
-            }else{
-                if (sok.chart_symbol != "XBTUSD"){
-                    tabBarItem.isEnabled = false
-                }
             }
         }
     }

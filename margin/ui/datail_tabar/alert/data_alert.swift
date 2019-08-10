@@ -63,7 +63,7 @@ class data_alert: UIViewController, UITableViewDelegate, UITableViewDataSource{
     //테이블 데이터 로드
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "alertCell", for: indexPath) as! alertCell
-        cell.cellPrice.text = sok.chart_symbol + " : " + userPresenter.getAlertList()[indexPath.row]
+        cell.cellPrice.text = sok.chart_symbol + " : " + userPresenter.getAlertList()[indexPath.row].description
         cell.cellPrice.textColor = UIColor.appColor(.title2)
         
         let backgroundView = UIView()

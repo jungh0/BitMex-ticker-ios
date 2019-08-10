@@ -206,8 +206,8 @@ extension ticker_table: UserView {
         if (isnoti == nil){
             UserDefaults.standard.set("aa", forKey: appVersion)
             showAlert(self, "Update History",
-                      "Price notification available in XBTUSD\n" +
-                "(It is provided as a PRO function after the beta test.)")
+                      "Price notification for all items (XBT, ADA, BCH,EOS, ETH, LTC, TRX, XRP)\n" +
+                    "(It is provided as a PRO function after the beta test.)")
         }
     }
     
