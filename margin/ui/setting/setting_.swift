@@ -46,9 +46,14 @@ class setting_: UITableViewController {
             userPresenter.make_clipboard()
         }
         
-        if indexPath.section == 3 && indexPath.row == 0 {
-            userPresenter.make_inapp()
+        if indexPath.section == 2 && indexPath.row == 2 {
+            userPresenter.fastFeedback()
         }
+        
+        if indexPath.section == 3 && indexPath.row == 0 {
+            //userPresenter.make_inapp()
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

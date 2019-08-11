@@ -19,7 +19,7 @@ class data_details: UITableViewController {
     @IBOutlet var tableview: UITableView!
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
+        //userPresenter.detachView()
     }
     
     override func viewWillAppear(_ animated: Bool){

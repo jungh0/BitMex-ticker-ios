@@ -43,7 +43,7 @@ class data_alertPresenter{
     func attachView(view:data_alert_view){
         userView = view
         userView?.set_theme()
-        timer1_start()
+        set_field_init()
     }
     
     func detachView() {
@@ -54,24 +54,23 @@ class data_alertPresenter{
         return sok.c_list
     }
     
-    func timer1_start(){
-        set_field_init()
+    func updateList(){
         set_price()
-        if(timer != nil){timer.invalidate()}
-        timer = Timer(timeInterval: 1, target: self, selector: #selector(set_price), userInfo: nil, repeats:true)
-        RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
+        sok.setPriceComplete(completion: { result in
+            self.set_price()
+        })
     }
     
-    func set_field_init(){
+    private func set_field_init(){
         let info = get_c_list()[check]
         userView?.set_field(str: info[1])
     }
     
     @objc func set_price(){
         let info = get_c_list()[check]
-        userView!.set_main_text(str: info[1])
-        userView!.set_main_color(color: find_main_color(str: info[4]))
-        userView!.set_dollar_text(str: make_dollar_text(str: info[1]))
+        userView?.set_main_text(str: info[1])
+        userView?.set_main_color(color: find_main_color(str: info[4]))
+        userView?.set_dollar_text(str: make_dollar_text(str: info[1]))
     }
     
     func subscribe(price:String){
@@ -88,13 +87,12 @@ class data_alertPresenter{
                 //result = priceDouble.description
                 result = Double(price)!.toString()
             }
-            print(result)
-            
-            DispatchQueue.main.async {
-                self.userView?.show_hud()
-            }
+            //print(result)
             
             func someHandler(alert: UIAlertAction!) {
+                DispatchQueue.main.async {
+                    self.userView?.show_hud()
+                }
                 let url = "http://wiffy.io/bitmex/reg/?d=" + "alert_" + sok.chart_symbol + ":" + result
                 requestHTTP(url: url,completion: { aa in
                     if (aa == "Result: OK"){

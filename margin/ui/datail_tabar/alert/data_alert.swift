@@ -48,6 +48,14 @@ class data_alert: UIViewController, UITableViewDelegate, UITableViewDataSource{
         userPresenter.subscribe(price: price)
     }
     
+    override func viewWillAppear(_ animated: Bool){
+        userPresenter.updateList()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        //userPresenter.detachView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         userPresenter.attachView(view: self)

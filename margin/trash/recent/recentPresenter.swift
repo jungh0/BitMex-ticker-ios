@@ -56,11 +56,11 @@ class recentPresenter{
     }
     
     func get_orderbook() -> [[String]]{
-        return sok.orderbook
+        return [[String]]()
     }
     
     func orderbook_reset(){
-        sok.orderbook_reset()
+        
     }
     
     func make_0(str:String) -> String{

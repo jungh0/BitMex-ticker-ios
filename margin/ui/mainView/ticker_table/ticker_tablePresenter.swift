@@ -38,11 +38,10 @@ class ticker_tablePresenter {
     
     func attachView(_ view:UserView){
         userView = view
-        userView?.showUpdateStr()
         userView?.show_hud()
         userView?.set_theme()
-        self.ad_check()
-        self.timer_start()
+        ad_check()
+        aliveTimer()
     }
     
     func detachView() {
@@ -62,6 +61,7 @@ class ticker_tablePresenter {
                 sok.start()
             }
         })
+        
         url = "https://api.coinmarketcap.com/v1/global/"
         requestHTTP(url: url,completion: { result in
             var cap = ""
@@ -76,11 +76,11 @@ class ticker_tablePresenter {
                 self.userView?.info_change(cap: "$" + cap, domin: domin)
             }
         })
+        
         url = "http://wiffy.io/bitmex/hello?" + randNum
         requestHTTP(url: url,completion: { result in
             if (result.contains("642537883523")){
                 beta = true
-
             }else{
                 beta = false
                 let isnoti = UserDefaults.standard.value(forKey: "betanoti")
@@ -103,22 +103,27 @@ class ticker_tablePresenter {
         })
     }
     
-    private func timer_start(){
+    private func aliveTimer(){
         if(timer != nil){timer.invalidate()}
-        timer = Timer(timeInterval: 0.5, target: self,selector: #selector(recent_trade),
+        timer = Timer(timeInterval: 1, target: self,selector: #selector(checkAlive),
                       userInfo:nil, repeats: true)
         RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
     }
-    
-    @objc func recent_trade(){
+    @objc func checkAlive(){
         if (sok.is_waiting){
             userView?.show_hud()
         }else{
             userView?.dissmiss_hud()
         }
-        if (is_scroll == 0){
-            userView?.recent_list()
-        }
+    }
+    
+    func updateList(){
+        self.userView?.recent_list()
+        sok.setPriceComplete(completion: { result in
+            if (self.is_scroll == 0){
+                self.userView?.recent_list()
+            }
+        })
     }
     
     func BeginDragging(){

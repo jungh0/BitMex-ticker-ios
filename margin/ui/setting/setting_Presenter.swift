@@ -8,6 +8,7 @@
 
 import Foundation
 import StoreKit
+import UIKit
 
 protocol SettingView: NSObjectProtocol {
     
@@ -55,8 +56,55 @@ class setting_Presenter /*: SKPaymentTransactionObserver, SKProductsRequestDeleg
     }
     
     func make_clipboard(){
+        let dictionary = Bundle.main.infoDictionary!
+        let version = dictionary["CFBundleShortVersionString"] as! String
         userView?.cpoy_clipboard(str: "iveinvalue@gmail.com")
-        showAlert(userView as? UIViewController,"iveinvalue@gmail.com","Copied email")
+        showAlert(userView as? UIViewController,"iveinvalue@gmail.com\n(Copied in clipboard)","Please include Device type , ios version, app version(" + version + ")")
+    }
+    
+    func fastFeedback(){
+        let alert = UIAlertController(title: "Fast Feedback", message: "Please enter any bugs or improvements", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            //textField.text = "Some default text"
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alert.addAction(cancel)
+        alert.addAction(UIAlertAction(title: "Send", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0]
+            var device = ""
+            if UIDevice().userInterfaceIdiom == .phone {
+                switch UIScreen.main.nativeBounds.height {
+                case 1136:
+                    device = "iPhone 5 or 5S or 5C"
+                case 1334:
+                    device = "iPhone 6/6S/7/8"
+                case 2208:
+                    device = "iPhone 6+/6S+/7+/8+"
+                case 2436:
+                    device = "iPhone X"
+                default:
+                    device = "unknown"
+                }
+            }
+            let systemVersion = UIDevice.current.systemVersion
+            let systemName = UIDevice.current.systemName
+            let model = UIDevice.current.model
+            let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+            if (textField!.text!.count > 0){
+                self.gobug(textField!.text! + "/" + device + "/" + systemVersion + "/" + systemName + "/" + model + "/" + appVersion)
+            }
+        }))
+        (self.userView as? UIViewController)!.present(alert, animated: true, completion: nil)
+    }
+    
+    func gobug(_ str:String){
+        let url = "http://wiffy.io/bitmex/reportios.php?content=" + str
+        let str_url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        requestHTTP(url: str_url!,completion: { result in
+            DispatchQueue.main.async {
+                showAlert(self.userView as? UIViewController,"Success","Thanks")
+            }
+        })
     }
     
     func make_inapp(){

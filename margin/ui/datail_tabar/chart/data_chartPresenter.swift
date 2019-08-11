@@ -53,23 +53,21 @@ class data_chartPresenter{
     func attachView(_ view:ChartView){
         userView = view
         userView?.set_theme()
-        self.timer1_start()
-        self.timer2_start()
-        self.make_web(str: sok.chart_symbol)
+        preTimer()
+        make_web(str: sok.chart_symbol)
     }
     
     func detachView() {
         userView = nil
     }
     
-    func timer1_start(){
+    func updateList(){
         self.setMainPrice()
-        if(timer != nil){timer.invalidate()}
-        timer = Timer(timeInterval: 1, target: self, selector: #selector(setMainPrice),
-                      userInfo: nil, repeats:true)
-        RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
+        sok.setPriceComplete(completion: { result in
+            self.setMainPrice()
+        })
     }
-    @objc func setMainPrice(){
+    private func setMainPrice(){
         let info = get_c_list()[check]
         userView?.set_main_text(str: info[1], color: find_color(str: info[4]))
         userView?.set_dollar_text(str: make_dollar_text(str: info[1]))
@@ -78,7 +76,7 @@ class data_chartPresenter{
         make_coinbase_label(info: info)
     }
     
-    func timer2_start(){
+    func preTimer(){
         self.get_premium()
         if(timer2 != nil){timer.invalidate()}
         timer2 = Timer(timeInterval: 1, target: self, selector: #selector(get_premium),

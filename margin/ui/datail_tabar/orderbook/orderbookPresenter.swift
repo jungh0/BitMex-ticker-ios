@@ -22,8 +22,9 @@ protocol OrderView2: NSObjectProtocol {
 class orderbookPresenter{
     
     private var userView : OrderView2?
-    private var timer:Timer!
     private var price_length = 0
+    private var orderbook = [[String]]()
+    private var is_scroll = 0
     
     init(){
         
@@ -33,51 +34,72 @@ class orderbookPresenter{
         userView = view
         userView?.set_theme()
         userView?.show_hud()
+        sok.setOrderComplete(completion: { result in
+            self.order_parse(str: result)
+        })
     }
     
     func detachView() {
         userView = nil
     }
     
-    func timer_start(){
-        if(timer != nil){timer.invalidate()}
-        timer = Timer(timeInterval: 1, target: self, selector: #selector(recent_trade), userInfo: nil, repeats: true)
-        RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
+    private func order_parse(str:String){
+        //print(str)
+        if let jsonData = getAnyJson(json: str,str: "data") as? [[String:AnyObject]]{
+            if(jsonData.description != "[]"){
+                var asksJson = (jsonData[0]["asks"] as? [[Double]]) ?? []
+                asksJson.reverse()
+                let bidsJson = (jsonData[0]["bids"] as? [[Double]]) ?? []
+                
+                orderbook.removeAll()
+                for asksJ in asksJson {
+                    var askTmp = asksJ.map { $0.toString() }
+                    askTmp.reverse()
+                    orderbook.append(askTmp + ["-"])
+                }
+                for bidsJ in bidsJson {
+                    let bidTmp = bidsJ.map { $0.toString() }
+                    orderbook.append(["-"] + bidTmp)
+                }
+            }
+        }
+        reload_table()
     }
     
-    @objc private func recent_trade(){
-        userView?.reload_table()
-        if(get_orderbook().count > 5){
-            userView?.dissmiss_hud()
+    private func reload_table(){
+        for list in get_orderbook(){
+            if(list[1].count > price_length){
+                price_length = list[1].count
+            }
         }
+        if(self.is_scroll == 0){
+            userView?.reload_table()
+        }
+        userView?.dissmiss_hud()
         let tmp = sok.chart_symbol
         if (sok.recent_str_order.contains(tmp)){
             let aa = sok.recent_str_order.replace(" : ", "").replace(tmp, "")
-            //let aa = sok.recent_str_order.replacingOccurrences(of: tmp + " : ", with: "")
             userView?.recent_text(str: aa)
         }
     }
     
     func get_orderbook() -> [[String]]{
-        return sok.orderbook
-    }
-    
-    func orderbook_reset(){
-        sok.orderbook_reset()
+        return orderbook
     }
     
     func make_0(str:String) -> String{
-        if(str.count > price_length){
-            price_length = str.count
-        }
+        var tmp = str
         if(str.count < price_length){
             if(str.contains(".")){
-                return str + "0"
+                tmp = tmp + "0"
             }else{
-                return str + ".0"
+                tmp = tmp + ".0"
+            }
+            while (tmp.count != price_length){
+                tmp = tmp + "0"
             }
         }
-        return str
+        return tmp
     }
     
     func set_order_text(str:String) -> String{
@@ -95,6 +117,19 @@ class orderbookPresenter{
             return UIColor(red: 200/255, green: 70/255, blue: 70/255, alpha: 1)
         }
         return nil
+    }
+    
+    func BeginDragging(){
+        is_scroll = 1
+    }
+    
+    func EndDragging(){
+        is_scroll = 1
+        let time = DispatchTime.now() + .milliseconds(100)
+        DispatchQueue.main.asyncAfter(deadline: time) {
+            self.is_scroll = 0
+            self.userView?.reload_table()
+        }
     }
     
 }

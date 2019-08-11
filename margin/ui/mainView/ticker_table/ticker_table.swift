@@ -22,8 +22,9 @@ class ticker_cell: UITableViewCell {
         super.layoutSubviews()
         let separator = UIView()
         separator.frame = CGRect(x: self.frame.origin.x, y: self.frame.size.height - 1,
-                                 width: self.frame.size.width, height: 1)
+                                 width: self.frame.size.width, height: 2)
         separator.backgroundColor = UIColor.appColor(.table_out)
+        separator.tintColor = UIColor.appColor(.table_out)
         self.addSubview(separator)
     }
 }
@@ -57,6 +58,7 @@ class ticker_table: UITableViewController{
     
     override func viewWillAppear(_ animated: Bool){
         self.title = "Ticker"
+        userPresenter.updateList()
     }
     
     @objc func go_setting(_ button:UIBarButtonItem!){
@@ -67,6 +69,9 @@ class ticker_table: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         userPresenter.attachView(self)
+        userPresenter.updateList()
+        showUpdateStr()
+        
         tableview.dataSource = self
         tableview.delegate = self
     }
@@ -106,6 +111,7 @@ class ticker_table: UITableViewController{
             let data_chart_ = self.storyboard?.instantiateViewController(withIdentifier: "datail_tabar") as! datail_tabar
             self.navigationController?.pushViewController(data_chart_, animated: true)
         }
+        //tableView.deselectRow(at: indexPath, animated: true)
     }
     
     //스크롤시 새로고침 잠금

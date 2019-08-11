@@ -38,15 +38,12 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        userPresenter.detachView()
+        //userPresenter.detachView()
         sok.send(str1: "unsubscribe",str2: "orderBook10",str3: sok.chart_symbol)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        userPresenter.orderbook_reset()
-        userPresenter.timer_start()
         
         tableview.dataSource = self
         tableview.delegate = self
@@ -72,6 +69,15 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
             cell.backgroundColor = UIColor.white
         }
         return cell
+    }
+    
+    //스크롤시 새로고침 잠금
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        userPresenter.BeginDragging()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        userPresenter.EndDragging()
     }
     
 }

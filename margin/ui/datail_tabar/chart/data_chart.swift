@@ -30,6 +30,16 @@ class data_chart: UIViewController  {
     @IBOutlet var view1: UIView!
     @IBOutlet var web: UIWebView!
     
+    override func viewWillAppear(_ animated: Bool){
+        //print("viewWillAppear")
+        userPresenter.updateList()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        //print("viewWillDisappearz")
+        //userPresenter.detachView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = sok.chart_symbol
@@ -111,7 +121,7 @@ extension data_chart: ChartView {
         web.backgroundColor = UIColor.appColor(.table_out)
         dollar.textColor = UIColor.appColor(.title2)
         
-        view1.backgroundColor = UIColor.appColor(.table_in)
+        view1.backgroundColor = UIColor.appColor(.detail_table_in)
         view1.layer.borderColor = UIColor.appColor(.border)?.cgColor
         view_background.backgroundColor = UIColor.appColor(.table_out)
         
