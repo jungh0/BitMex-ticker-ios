@@ -134,7 +134,7 @@ class socket{
     }
     
     private func _1m_parse(str:String,symbol:String,index:Int){
-        //print(str)
+        print(str)
         if let jsonData = getAnyJson(json: str,str: "data") as? [[String:AnyObject]]{
             if(jsonData.description != "[]"){
                 let symbolData = (jsonData[0]["symbol"] as? String) ?? ""

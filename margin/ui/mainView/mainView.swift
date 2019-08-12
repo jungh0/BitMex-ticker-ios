@@ -48,12 +48,12 @@ class mainView: UINavigationController {
             }
         }*/
         
-        let title = "mainViewOpen"
-        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-            AnalyticsParameterItemID: "id-\(title)",
-            AnalyticsParameterItemName: title,
-            AnalyticsParameterContentType: "cont"
-            ])
+//        let title = "mainViewOpen"
+//        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+//            AnalyticsParameterItemID: "id-\(title)",
+//            AnalyticsParameterItemName: title,
+//            AnalyticsParameterContentType: "cont"
+//            ])
     }
     
     private func coinlist(){
