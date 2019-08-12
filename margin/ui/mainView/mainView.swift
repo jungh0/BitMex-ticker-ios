@@ -18,9 +18,14 @@ var beta = false
 
 class mainView: UINavigationController {
     
+    let randNum = arc4random_uniform(10000).description
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        showUpdateStr()
+        coinlist()
+        
         do {
             let tmp = Int(getData("theme2"))
             if (tmp == 0){
@@ -32,6 +37,7 @@ class mainView: UINavigationController {
             }
         }
 
+        //inapp check
         /*
         do {
             let tmp = Int(getData("world"))
@@ -42,14 +48,72 @@ class mainView: UINavigationController {
             }
         }*/
         
-        
-        /*
-        Messaging.messaging().subscribe(toTopic: "XBTUSD_9932.5") { error in
-            let url = "http://wiffy.io/bitmex/reg/?d=9932.5"
-            requestHTTP(url: url,completion: { result in
-            })
-            print("Subscribed")
-        }*/
+        let title = "mainViewOpen"
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "id-\(title)",
+            AnalyticsParameterItemName: title,
+            AnalyticsParameterContentType: "cont"
+            ])
+    }
+    
+    private func coinlist(){
+        let url = "http://wiffy.io/bitmex/?" + randNum
+        requestHTTP(url: url,completion: { result in
+            var get_table_data = result.split_("\n")
+            for i in 0 ... get_table_data.count - 1 {
+                var dataa = get_table_data[i].split_(",")
+                sok.c_list_append(list: [dataa[0],dataa[1],dataa[2],dataa[3],dataa[4],dataa[5],dataa[6]])
+            }
+            DispatchQueue.main.async {
+                sok.start()
+            }
+            self.betacheck()
+        })
+    }
+    
+    private func betacheck(){
+        let url = "http://wiffy.io/bitmex/hello?" + randNum
+        requestHTTP(url: url,completion: { result in
+            if (result.contains("642537883523")){
+                beta = true
+            }else{
+                beta = false
+                let isnoti = UserDefaults.standard.value(forKey: "betanoti")
+                if (isnoti == nil){
+                    DispatchQueue.main.async {
+                        UserDefaults.standard.set("aa", forKey: "betanoti")
+                        DispatchQueue.main.async {
+                            showAlert(self, "Beta closed",
+                                      "Price notifications are now available in Pro version. Please update your app")
+                        }
+                    }
+                }
+                for (_,iList) in sok.c_list.enumerated() {
+                    print(iList[0])
+                    let array = UserDefaults.standard.value(forKey: iList[0] + "_AlertList") as? [String] ?? [String]()
+                    for aa in array{
+                        Messaging.messaging().unsubscribe(fromTopic: iList[0] + "_" + aa) { error in
+                            print(iList[0] + "_" + aa)
+                        }
+                    }
+                    UserDefaults.standard.set([String](), forKey: iList[0] + "_AlertList")
+                }
+            }
+            print("beta:" + beta.description)
+        })
+    }
+    
+    private func showUpdateStr(){
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        let isnoti = UserDefaults.standard.value(forKey: appVersion)
+        if (isnoti == nil){
+            UserDefaults.standard.set("aa", forKey: appVersion)
+            DispatchQueue.main.async {
+                showAlert(self, "Update History",
+                          "Price notification for all items (XBT, ADA, BCH,EOS, ETH, LTC, TRX, XRP)\n" +
+                    "(It is provided as a PRO function after the beta test.)")
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

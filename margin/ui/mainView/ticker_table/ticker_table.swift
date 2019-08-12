@@ -70,7 +70,6 @@ class ticker_table: UITableViewController{
         super.viewDidLoad()
         userPresenter.attachView(self)
         userPresenter.updateList()
-        showUpdateStr()
         
         tableview.dataSource = self
         tableview.delegate = self
@@ -204,17 +203,6 @@ extension ticker_table: UserView {
         domin_label.textColor = UIColor.appColor(.title)
         market_data.textColor = UIColor.appColor(.title2)
         domin_data.textColor = UIColor.appColor(.title2)
-    }
-    
-    func showUpdateStr(){
-        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
-        let isnoti = UserDefaults.standard.value(forKey: appVersion)
-        if (isnoti == nil){
-            UserDefaults.standard.set("aa", forKey: appVersion)
-            showAlert(self, "Update History",
-                      "Price notification for all items (XBT, ADA, BCH,EOS, ETH, LTC, TRX, XRP)\n" +
-                    "(It is provided as a PRO function after the beta test.)")
-        }
     }
     
     func info_change(cap:String,domin:String){

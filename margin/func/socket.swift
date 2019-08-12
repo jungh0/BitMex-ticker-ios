@@ -87,7 +87,6 @@ class socket{
                 if (orderComplete != nil){
                     orderComplete!(text)
                 }
-                //order_parse(str: text)
             }
             else if(tableData == "tradeBin1m"){
                 for (index,iList) in c_list.enumerated() {
@@ -97,6 +96,7 @@ class socket{
             else if(tableData == "trade"){
                 price_parse(str: text)
                 if (priceComplete != nil){
+                    //print(arc4random_uniform(10000).description)
                     priceComplete!("")
                 }
             }
@@ -119,10 +119,13 @@ class socket{
                                 recent_str_order = symbol + " : " + priceData.description + " - " + sideData.description  + " - " + sizeData.description
                             }
                             
-                            c_list[index][4] = self.compare(ori: Double(c_list[index][1]) ?? 0,
-                                                            new: priceData,
-                                                            color: c_list[index][4])
-                            c_list[index][1] = self.make_0(str: priceData.toString())
+                            if(Double(c_list[index][1]) != Double(priceData)){
+                                c_list[index][4] = self.compare(ori: Double(c_list[index][1]) ?? 0,
+                                                                new: priceData,
+                                                                color: c_list[index][4])
+                                c_list[index][1] = self.make_0(str: priceData.toString())
+                            }
+                            break
                         }
                     }
                 }

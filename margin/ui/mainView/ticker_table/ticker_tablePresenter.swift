@@ -18,10 +18,7 @@ protocol UserView: NSObjectProtocol {
     func dissmiss_hud()
 
     func set_theme()
-    func showUpdateStr()
-    
     func recent_list()
-    
     func info_change(cap:String,domin:String)
     
 }
@@ -50,19 +47,7 @@ class ticker_tablePresenter {
     
     private func request_coin(){
         let randNum = arc4random_uniform(10000).description
-        var url = "http://wiffy.io/bitmex/?" + randNum
-        requestHTTP(url: url,completion: { result in
-            var get_table_data = result.split_("\n")
-            for i in 0 ... get_table_data.count - 1 {
-                var dataa = get_table_data[i].split_(",")
-                sok.c_list_append(list: [dataa[0],dataa[1],dataa[2],dataa[3],dataa[4],dataa[5],dataa[6]])
-            }
-            DispatchQueue.main.async {
-                sok.start()
-            }
-        })
-        
-        url = "https://api.coinmarketcap.com/v1/global/"
+        let url = "https://api.coinmarketcap.com/v1/global/?" + randNum
         requestHTTP(url: url,completion: { result in
             var cap = ""
             var domin = ""
@@ -75,31 +60,6 @@ class ticker_tablePresenter {
             DispatchQueue.main.async {
                 self.userView?.info_change(cap: "$" + cap, domin: domin)
             }
-        })
-        
-        url = "http://wiffy.io/bitmex/hello?" + randNum
-        requestHTTP(url: url,completion: { result in
-            if (result.contains("642537883523")){
-                beta = true
-            }else{
-                beta = false
-                let isnoti = UserDefaults.standard.value(forKey: "betanoti")
-                if (isnoti == nil){
-                    DispatchQueue.main.async {
-                        UserDefaults.standard.set("aa", forKey: "betanoti")
-                        showAlert(self.userView as? UIViewController, "Beta closed",
-                                  "Price notifications are now available in Pro version. Please update your app")
-                    }
-                }
-                let array = UserDefaults.standard.value(forKey: "XBTUSD_AlertList") as? [String] ?? [String]()
-                for aa in array{
-                    Messaging.messaging().unsubscribe(fromTopic: "XBTUSD_" + aa) { error in
-                        print("XBTUSD_" + aa)
-                    }
-                }
-                UserDefaults.standard.set([String](), forKey: "XBTUSD_AlertList")
-            }
-            print("beta:" + beta.description)
         })
     }
     
