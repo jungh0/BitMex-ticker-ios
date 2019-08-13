@@ -118,7 +118,7 @@ class mainView: UINavigationController {
             DispatchQueue.main.async {
                 showAlert(self, "Update History",
                           "Price notification for all items (XBT, ADA, BCH,EOS, ETH, LTC, TRX, XRP)\n" +
-                    "(It is provided as a PRO function after the beta test.)")
+                    "(It is provided as a PRO function after the beta test.)\nOrderbook Visualization")
             }
         }
     }

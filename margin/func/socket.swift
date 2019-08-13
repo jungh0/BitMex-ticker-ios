@@ -66,7 +66,7 @@ class socket{
         }
         self.ws.event.message = { message in
             if let text = message as? String {
-                print(text)
+                //print(text)
                 self.is_waiting = false
                 self.socket_do(text: text)
 //                if(text.contains("\"status\":429,\"error\":\"")){
@@ -152,14 +152,21 @@ class socket{
                                 recent_str_order = symbol + " : " + priceData.description + " - " + sideData.description  + " - " + sizeData.description
                             }
                             
-                            if(Double(c_list[index][1]) != Double(priceData)){
-                                if (c_list[index][1] != "---"){
-                                    c_list[index][4] = self.compare(ori: Double(c_list[index][1]) ?? 0,
-                                                                    new: priceData,
-                                                                    color: c_list[index][4])
-                                }
-                                c_list[index][1] = self.make_0(str: priceData.toString())
+                            if(sideData == "Buy"){
+                                c_list[index][4] = "g"
                             }
+                            if(sideData == "Sell"){
+                                c_list[index][4] = "r"
+                            }
+                            c_list[index][1] = self.make_0(str: priceData.toString())
+//                            if(Double(c_list[index][1]) != Double(priceData)){
+//                                if (c_list[index][1] != "---"){
+//                                    c_list[index][4] = self.compare(ori: Double(c_list[index][1]) ?? 0,
+//                                                                    new: priceData,
+//                                                                    color: c_list[index][4])
+//                                }
+//
+//                            }
                             break
                         }
                     }

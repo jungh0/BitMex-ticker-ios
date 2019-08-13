@@ -23,11 +23,20 @@ class orderbookPresenter{
     
     private var userView : OrderView2?
     private var price_length = 0
+    private var biggestcnt = 0
     private var orderbook = [[String]]()
     private var is_scroll = 0
+    private var tablemax = 0.0
+    private var tablemaxD = 0.0
+    private var tableLoading = false
     
     init(){
         
+    }
+    
+    func setTableMax(max:Int){
+        tablemax = Double(max)/2
+        tablemaxD = Double(max)
     }
     
     func attachView(_ view:OrderView2){
@@ -35,7 +44,12 @@ class orderbookPresenter{
         userView?.set_theme()
         userView?.show_hud()
         sok.setOrderComplete(completion: { result in
-            self.order_parse(str: result)
+            if (self.tableLoading == false){
+                self.tableLoading = true
+                self.order_parse(str: result)
+            }else{
+                //print("aaausing")
+            }
         })
     }
     
@@ -67,7 +81,10 @@ class orderbookPresenter{
     }
     
     private func reload_table(){
+        biggestcnt = 0
         for list in get_orderbook(){
+            biggestcnt = biggestcnt + (Int(list[0]) ?? 0)
+            biggestcnt = biggestcnt + (Int(list[2]) ?? 0)
             if(list[1].count > price_length){
                 price_length = list[1].count
             }
@@ -102,6 +119,21 @@ class orderbookPresenter{
         return tmp
     }
     
+    func bigpercent2(str:String) -> Int{
+        var tmpPer = 0.0
+        if (Int(str) ?? 0 != 0){
+            if (biggestcnt > 0){
+                tmpPer = Double(Double(str)!/Double(biggestcnt))
+                tmpPer = tablemaxD - (tablemaxD * tmpPer)
+                return Int(tmpPer)
+            }else{
+                return 0
+            }
+        }else{
+            return 0
+        }
+    }
+    
     func set_order_text(str:String) -> String{
         if (str.contains("-")){
             return ""
@@ -130,6 +162,10 @@ class orderbookPresenter{
             self.is_scroll = 0
             self.userView?.reload_table()
         }
+    }
+    
+    func tableDone(){
+        tableLoading = false
     }
     
 }

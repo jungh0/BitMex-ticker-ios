@@ -707,37 +707,67 @@
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="isQ-82-3Bt">
+                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="35"/>
+                                                            <color key="backgroundColor" red="0.7843137255" green="0.27450980390000002" blue="0.27450980390000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wfh-Wb-5lj">
+                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="35"/>
+                                                            <color key="backgroundColor" red="0.27450980390000002" green="0.66666666669999997" blue="0.27450980390000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </view>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Wfh-Wb-5lj" secondAttribute="trailing" id="2BU-6B-fv8"/>
+                                                        <constraint firstAttribute="trailing" secondItem="isQ-82-3Bt" secondAttribute="trailing" id="8Cq-uE-Jk8"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Wfh-Wb-5lj" secondAttribute="bottom" id="9ah-tj-YeN"/>
+                                                        <constraint firstAttribute="bottom" secondItem="isQ-82-3Bt" secondAttribute="bottom" id="BIA-kD-1oP"/>
                                                         <constraint firstItem="XDu-R7-KFg" firstAttribute="centerX" secondItem="SsA-AF-Qdv" secondAttribute="centerX" id="D1N-ZZ-wEb"/>
                                                         <constraint firstItem="K7y-gT-wWV" firstAttribute="leading" secondItem="SsA-AF-Qdv" secondAttribute="leadingMargin" id="EHo-ys-pot"/>
                                                         <constraint firstItem="QGS-XG-2Fb" firstAttribute="centerY" secondItem="SsA-AF-Qdv" secondAttribute="centerY" id="HqM-Ry-1Vd"/>
                                                         <constraint firstItem="QGS-XG-2Fb" firstAttribute="trailing" secondItem="SsA-AF-Qdv" secondAttribute="trailingMargin" id="Kh4-wb-rim"/>
+                                                        <constraint firstItem="Wfh-Wb-5lj" firstAttribute="top" secondItem="SsA-AF-Qdv" secondAttribute="top" id="SFU-TG-yjN"/>
                                                         <constraint firstItem="K7y-gT-wWV" firstAttribute="centerY" secondItem="SsA-AF-Qdv" secondAttribute="centerY" id="Zhc-UM-4bm"/>
+                                                        <constraint firstItem="isQ-82-3Bt" firstAttribute="leading" secondItem="SsA-AF-Qdv" secondAttribute="leading" id="p2z-PO-Dum"/>
                                                         <constraint firstItem="XDu-R7-KFg" firstAttribute="centerY" secondItem="SsA-AF-Qdv" secondAttribute="centerY" id="qrH-b1-pCw"/>
+                                                        <constraint firstItem="isQ-82-3Bt" firstAttribute="top" secondItem="SsA-AF-Qdv" secondAttribute="top" id="u6C-m5-3Ac"/>
+                                                        <constraint firstItem="Wfh-Wb-5lj" firstAttribute="leading" secondItem="SsA-AF-Qdv" secondAttribute="leading" id="yvC-wD-OdM"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" red="0.044512070719999998" green="0.089455239470000003" blue="0.13333895800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <connections>
                                                     <outlet property="asks_c" destination="K7y-gT-wWV" id="0hw-ZQ-fiC"/>
                                                     <outlet property="bids_c" destination="QGS-XG-2Fb" id="RQy-7o-rBE"/>
+                                                    <outlet property="green" destination="Wfh-Wb-5lj" id="mWd-yc-EYQ"/>
+                                                    <outlet property="greenLen" destination="yvC-wD-OdM" id="ds9-wi-Tyk"/>
                                                     <outlet property="price" destination="XDu-R7-KFg" id="Sj2-il-P6N"/>
+                                                    <outlet property="red" destination="isQ-82-3Bt" id="Cti-fU-zZF"/>
+                                                    <outlet property="redLen" destination="8Cq-uE-Jk8" id="TaI-Nl-Mhl"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILM-JG-rAq">
+                                        <rect key="frame" x="0.0" y="422" width="355" height="0.0"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="6M6-wB-5ob"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="xAG-md-NXJ" firstAttribute="leading" secondItem="xF0-me-zuf" secondAttribute="leading" constant="15" id="2ZY-OP-DvP"/>
+                                    <constraint firstAttribute="bottom" secondItem="ILM-JG-rAq" secondAttribute="bottom" id="31r-24-39m"/>
                                     <constraint firstAttribute="trailing" secondItem="EYq-qn-8mq" secondAttribute="trailing" constant="15" id="94m-sI-yOf"/>
                                     <constraint firstItem="AE6-Lw-Re8" firstAttribute="top" secondItem="XZM-DZ-7vv" secondAttribute="bottom" constant="15" id="ATX-5V-zKs"/>
                                     <constraint firstItem="XZM-DZ-7vv" firstAttribute="centerX" secondItem="xF0-me-zuf" secondAttribute="centerX" id="FFA-QD-xWE"/>
                                     <constraint firstItem="AE6-Lw-Re8" firstAttribute="leading" secondItem="xF0-me-zuf" secondAttribute="leading" id="XeE-ek-761"/>
                                     <constraint firstItem="xAG-md-NXJ" firstAttribute="top" secondItem="xF0-me-zuf" secondAttribute="top" constant="15" id="Zez-th-OEP"/>
+                                    <constraint firstItem="ILM-JG-rAq" firstAttribute="leading" secondItem="xF0-me-zuf" secondAttribute="leading" id="auj-tX-eqd"/>
+                                    <constraint firstAttribute="bottom" secondItem="AE6-Lw-Re8" secondAttribute="bottom" id="bGn-DU-iy1"/>
                                     <constraint firstAttribute="trailing" secondItem="AE6-Lw-Re8" secondAttribute="trailing" id="jBt-97-zpq"/>
                                     <constraint firstItem="XZM-DZ-7vv" firstAttribute="top" secondItem="xF0-me-zuf" secondAttribute="top" constant="15" id="n3l-hT-8Ar"/>
-                                    <constraint firstAttribute="bottom" secondItem="AE6-Lw-Re8" secondAttribute="bottom" id="smS-ww-8Q5"/>
+                                    <constraint firstAttribute="trailing" secondItem="ILM-JG-rAq" secondAttribute="trailing" id="xj6-U0-Sr6"/>
                                     <constraint firstItem="EYq-qn-8mq" firstAttribute="top" secondItem="xF0-me-zuf" secondAttribute="top" constant="15" id="xzG-ZQ-CrB"/>
                                 </constraints>
                             </view>
@@ -758,6 +788,7 @@
                     <connections>
                         <outlet property="askLabel" destination="xAG-md-NXJ" id="hWj-XP-uIE"/>
                         <outlet property="bidLabel" destination="EYq-qn-8mq" id="WN7-cL-dkp"/>
+                        <outlet property="cellBottom" destination="ILM-JG-rAq" id="3fQ-QD-qAs"/>
                         <outlet property="priceLabel" destination="XZM-DZ-7vv" id="e2v-Yz-7ct"/>
                         <outlet property="resent_trade" destination="XKC-h5-X7j" id="PI9-nb-Erh"/>
                         <outlet property="tableview" destination="AE6-Lw-Re8" id="Xy3-1V-ani"/>
@@ -767,7 +798,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wQV-4E-S7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2159" y="1269"/>
+            <point key="canvasLocation" x="2157.5999999999999" y="1268.8155922038982"/>
         </scene>
         <!--Setting-->
         <scene sceneID="pbC-ha-2xG">

@@ -12,9 +12,13 @@ import SwiftWebSocket
 import JGProgressHUD
 
 class order_cell2: UITableViewCell {
+    @IBOutlet var red: UIView!
+    @IBOutlet var green: UIView!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var bids_c: UILabel!
     @IBOutlet weak var asks_c: UILabel!
+    @IBOutlet var redLen: NSLayoutConstraint!
+    @IBOutlet var greenLen: NSLayoutConstraint!
 }
 
 class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
@@ -22,6 +26,7 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
     let userPresenter = orderbookPresenter()
     let hud = JGProgressHUD(style: .dark)
     
+    @IBOutlet var cellBottom: UIView!
     @IBOutlet var askLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var bidLabel: UILabel!
@@ -45,6 +50,7 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        userPresenter.setTableMax(max: Int(tableview.frame.width))
         tableview.dataSource = self
         tableview.delegate = self
         
@@ -68,7 +74,27 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }else{
             cell.backgroundColor = UIColor.white
         }
+        
+        if(cell.asks_c.text == ""){
+            cell.red.isHidden = true
+            cell.green.isHidden = false
+            cell.greenLen.constant = CGFloat(userPresenter.bigpercent2(str: cell.bids_c.text!))
+        }else{
+            cell.red.isHidden = false
+            cell.green.isHidden = true
+            cell.redLen.constant = CGFloat(userPresenter.bigpercent2(str: cell.asks_c.text!))
+        }
+
         return cell
+    }
+    
+    // willDisplay function
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let visibleRows = tableView.indexPathsForVisibleRows, let lastRow = visibleRows.last?.row, let lastSection = visibleRows.map({$0.section}).last {
+            if indexPath.row == lastRow && indexPath.section == lastSection {
+                userPresenter.tableDone()
+            }
+        }
     }
     
     //스크롤시 새로고침 잠금
@@ -105,7 +131,7 @@ extension orderbook: OrderView2 {
         view1.layer.cornerRadius = 5
         //self.view1.layer.borderWidth = 1
         view2.layer.cornerRadius = 5
-        tableview.layer.cornerRadius = 5
+        //tableview.layer.cornerRadius = 5
         //self.view2.layer.borderWidth = 1
         
         askLabel.layer.masksToBounds = true
@@ -121,6 +147,9 @@ extension orderbook: OrderView2 {
         view2.backgroundColor = UIColor.appColor(.table_in)
         //view2.layer.borderColor = UIColor.appColor(.border)?.cgColor
         view.backgroundColor = UIColor.appColor(.table_out)
+        
+        cellBottom.layer.cornerRadius = 5
+        cellBottom.backgroundColor = UIColor.appColor(.table_in)
     }
     
 }
