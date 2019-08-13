@@ -14,8 +14,6 @@ import Firebase
 protocol UserView: NSObjectProtocol {
     
     func show_ad()
-    func show_hud()
-    func dissmiss_hud()
 
     func set_theme()
     func recent_list()
@@ -26,7 +24,6 @@ protocol UserView: NSObjectProtocol {
 class ticker_tablePresenter {
     
     private var userView : UserView?
-    private var timer:Timer!
     private var is_scroll = 0
     
     init(){
@@ -35,10 +32,8 @@ class ticker_tablePresenter {
     
     func attachView(_ view:UserView){
         userView = view
-        userView?.show_hud()
         userView?.set_theme()
         ad_check()
-        aliveTimer()
     }
     
     func detachView() {
@@ -63,23 +58,12 @@ class ticker_tablePresenter {
         })
     }
     
-    private func aliveTimer(){
-        if(timer != nil){timer.invalidate()}
-        timer = Timer(timeInterval: 1, target: self,selector: #selector(checkAlive),
-                      userInfo:nil, repeats: true)
-        RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
-    }
-    @objc func checkAlive(){
-        if (sok.is_waiting){
-            userView?.show_hud()
-        }else{
-            userView?.dissmiss_hud()
-        }
-    }
+    
     
     func updateList(){
         self.userView?.recent_list()
         sok.setPriceComplete(completion: { result in
+            //print("aa")
             if (self.is_scroll == 0){
                 self.userView?.recent_list()
             }

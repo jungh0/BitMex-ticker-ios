@@ -28,3 +28,10 @@ func showAlert(_ viewController: UIViewController?, _ title: String, _ msg: Stri
     alertController.addAction(cancel)
     viewController?.present(alertController, animated: true, completion: nil)
 }
+
+func showAlertNO(_ viewController: UIViewController?, _ title: String, _ msg: String){
+    let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+    //let cancel = UIAlertAction(title: "OK", style: .default, handler: nil)
+    //alertController.addAction(cancel)
+    viewController?.present(alertController, animated: true, completion: nil)
+}

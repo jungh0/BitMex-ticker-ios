@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import SwiftWebSocket
 import GoogleMobileAds
-import JGProgressHUD
+
 
 class ticker_cell: UITableViewCell {
     @IBOutlet weak var symbol: UILabel!
@@ -34,7 +34,6 @@ class ticker_table: UITableViewController{
     var beforeTheme = dark_theme
     let userPresenter = ticker_tablePresenter()
     var bannerView: GADBannerView!
-    let hud = JGProgressHUD(style: .dark)
     
     @IBOutlet var symbol: UILabel!
     @IBOutlet var price: UILabel!
@@ -106,7 +105,8 @@ class ticker_table: UITableViewController{
     //테이블 클릭
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         sok.chart_symbol = userPresenter.get_c_list()[indexPath.row][0]
-        if (!userPresenter.get_c_list()[indexPath.row][1].contains("-")){
+        let containtmp = userPresenter.get_c_list()[indexPath.row][1]
+        if (!containtmp.contains("-") && !containtmp.contains("ERROR")){
             let data_chart_ = self.storyboard?.instantiateViewController(withIdentifier: "datail_tabar") as! datail_tabar
             self.navigationController?.pushViewController(data_chart_, animated: true)
         }
@@ -159,18 +159,7 @@ class ticker_table: UITableViewController{
 }
 
 extension ticker_table: UserView {
-    
-    func show_hud(){
-        if (!hud.isVisible){
-            hud.textLabel.text = "Connecting"
-            hud.show(in: self.view)
-        }
-    }
-    
-    func dissmiss_hud(){
-        hud.dismiss(afterDelay: 0.0)
-    }
-    
+
     func recent_list(){
         DispatchQueue.main.async {
             let contentOffset = self.tableView.contentOffset
