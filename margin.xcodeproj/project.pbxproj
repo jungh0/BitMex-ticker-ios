@@ -13,7 +13,6 @@
 		CE01D3CE22EF16A500DBE1F4 /* strFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01D3CD22EF16A500DBE1F4 /* strFunc.swift */; };
 		CE01D3D022EF1F4200DBE1F4 /* dataSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01D3CF22EF1F4200DBE1F4 /* dataSave.swift */; };
 		CE01D3D322EF23FE00DBE1F4 /* getjson.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01D3D222EF23FE00DBE1F4 /* getjson.swift */; };
-		CE247A13224C90F80065D212 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE247A12224C90F80065D212 /* StoreKit.framework */; };
 		CE311188229EB1F600BA2D50 /* socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE311187229EB1F600BA2D50 /* socket.swift */; };
 		CE311190229F6DBD00BA2D50 /* ticker_tablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31118F229F6DBD00BA2D50 /* ticker_tablePresenter.swift */; };
 		CE311198229FC5F700BA2D50 /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE311197229FC5F700BA2D50 /* mainView.swift */; };
@@ -40,6 +39,8 @@
 		CEA6E96822226236004405E3 /* data_details.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6E96722226236004405E3 /* data_details.swift */; };
 		CEBC7D5E22A63E06005D3FC1 /* recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7D5C22A63E06005D3FC1 /* recent.swift */; };
 		CEBC7D5F22A63E06005D3FC1 /* recentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7D5D22A63E06005D3FC1 /* recentPresenter.swift */; };
+		CED70C05230A78060025B5CD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED70C04230A78060025B5CD /* StoreKit.framework */; };
+		CED70C07230BE6E10025B5CD /* check.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C06230BE6E10025B5CD /* check.swift */; };
 		CEF84C3D22F577A100CBEDFA /* alertFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF84C3C22F577A100CBEDFA /* alertFunc.swift */; };
 		CEF84C3F22F83AB600CBEDFA /* inapp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF84C3E22F83AB600CBEDFA /* inapp.swift */; };
 		CEFB9D7622BE307900D685DC /* findRG.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB9D7522BE307900D685DC /* findRG.swift */; };
@@ -74,7 +75,6 @@
 		CE01D3CD22EF16A500DBE1F4 /* strFunc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = strFunc.swift; sourceTree = "<group>"; };
 		CE01D3CF22EF1F4200DBE1F4 /* dataSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataSave.swift; sourceTree = "<group>"; };
 		CE01D3D222EF23FE00DBE1F4 /* getjson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getjson.swift; sourceTree = "<group>"; };
-		CE247A12224C90F80065D212 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CE311187229EB1F600BA2D50 /* socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = socket.swift; sourceTree = "<group>"; };
 		CE31118F229F6DBD00BA2D50 /* ticker_tablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticker_tablePresenter.swift; sourceTree = "<group>"; };
 		CE311197229FC5F700BA2D50 /* mainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainView.swift; sourceTree = "<group>"; };
@@ -108,6 +108,8 @@
 		CEA6E96722226236004405E3 /* data_details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_details.swift; sourceTree = "<group>"; };
 		CEBC7D5C22A63E06005D3FC1 /* recent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recent.swift; sourceTree = "<group>"; };
 		CEBC7D5D22A63E06005D3FC1 /* recentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recentPresenter.swift; sourceTree = "<group>"; };
+		CED70C04230A78060025B5CD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CED70C06230BE6E10025B5CD /* check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = check.swift; sourceTree = "<group>"; };
 		CEF84C3C22F577A100CBEDFA /* alertFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertFunc.swift; sourceTree = "<group>"; };
 		CEF84C3E22F83AB600CBEDFA /* inapp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inapp.swift; sourceTree = "<group>"; };
 		CEFB9D7522BE307900D685DC /* findRG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findRG.swift; sourceTree = "<group>"; };
@@ -123,7 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C835D770A2A12CEC1666991 /* Pods_margin.framework in Frameworks */,
-				CE247A13224C90F80065D212 /* StoreKit.framework in Frameworks */,
+				CED70C05230A78060025B5CD /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +151,7 @@
 		91176758493A190B46EB574D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE247A12224C90F80065D212 /* StoreKit.framework */,
+				CED70C04230A78060025B5CD /* StoreKit.framework */,
 				CEFC9FA52215880400D68ACB /* ZAlertView.framework */,
 				58B9EFC1CBF7C4A36019DB9F /* Pods_margin.framework */,
 				A33F0B8F8B251AA4E0DDAEBF /* Pods_marginTests.framework */,
@@ -223,6 +225,7 @@
 				CE01D3CF22EF1F4200DBE1F4 /* dataSave.swift */,
 				CE01D3D222EF23FE00DBE1F4 /* getjson.swift */,
 				CEF84C3E22F83AB600CBEDFA /* inapp.swift */,
+				CED70C06230BE6E10025B5CD /* check.swift */,
 			);
 			path = func;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				CEF84C3F22F83AB600CBEDFA /* inapp.swift in Sources */,
 				CE311198229FC5F700BA2D50 /* mainView.swift in Sources */,
 				CE4A330722A157C4006D91C6 /* orderbookPresenter.swift in Sources */,
+				CED70C07230BE6E10025B5CD /* check.swift in Sources */,
 				CE4A330522A157B8006D91C6 /* orderbook.swift in Sources */,
 				CEBC7D5E22A63E06005D3FC1 /* recent.swift in Sources */,
 				CE01D3D022EF1F4200DBE1F4 /* dataSave.swift in Sources */,

@@ -10,7 +10,8 @@ import UIKit
 import Foundation
 import SwiftWebSocket
 import GoogleMobileAds
-
+import JGProgressHUD
+import Firebase
 
 class ticker_cell: UITableViewCell {
     @IBOutlet weak var symbol: UILabel!
@@ -29,8 +30,11 @@ class ticker_cell: UITableViewCell {
     }
 }
 
-class ticker_table: UITableViewController{
+class ticker_table: UITableViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver{
     
+    let randNum = arc4random_uniform(10000).description
+    
+    let hud = JGProgressHUD(style: .dark)
     var beforeTheme = dark_theme
     let userPresenter = ticker_tablePresenter()
     var bannerView: GADBannerView!
@@ -50,7 +54,6 @@ class ticker_table: UITableViewController{
     @IBOutlet var market_data: UILabel!
     @IBOutlet var domin_data: UILabel!
     
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -67,11 +70,13 @@ class ticker_table: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        coinlist()
         userPresenter.attachView(self)
         userPresenter.updateList()
         
         tableview.dataSource = self
         tableview.delegate = self
+
     }
     
     //섹션 별 개수
@@ -130,6 +135,10 @@ class ticker_table: UITableViewController{
         bannerView.load(GADRequest())
     }
     
+    func hide_ad(){
+        bannerView.removeFromSuperview()
+    }
+    
     //광고 위치
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
@@ -148,14 +157,157 @@ class ticker_table: UITableViewController{
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: topset)
     }
     
-    func setTopBtn(){
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "GO PRO", style: .plain, target: self, action: #selector(goPro))
-    }
     
     @objc func goPro(sender: UIBarButtonItem) {
-        userPresenter.inapp()
+        show_hud(self.view)
+        fetchAvailableProducts()
     }
     
+    var productIdentifier = "gopro" //Get it from iTunes connect
+    var productID = ""
+    var productsRequest = SKProductsRequest()
+    var iapProducts = [SKProduct]()
+    
+    func fetchAvailableProducts(){
+        // Put here your IAP Products ID's
+        let productIdentifiers = NSSet(objects:"gopro")
+        productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers as! Set<String>)
+        productsRequest.delegate = self
+        productsRequest.start()
+    }
+    
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        if (response.products.count > 0) {
+            iapProducts = response.products
+            for prod in response.products
+            {
+                print("====aaaaaaaa")
+                buyProduct(prod)
+            }
+        }
+    }
+    
+    func buyProduct(_ product: SKProduct)
+    {
+        // Add the StoreKit Payment Queue for ServerSide
+        SKPaymentQueue.default().add(self)
+        if SKPaymentQueue.canMakePayments()
+        {
+            print("Sending the Payment Request to Apple")
+            let payment = SKPayment(product: product)
+            SKPaymentQueue.default().add(payment)
+            productID = product.productIdentifier
+        }
+        else
+        {
+            print("cant purchase")
+        }
+    }
+    
+//    func request(_ request: SKRequest, didFailWithError error: Error)
+//    {
+//        print(request)
+//        print(error)
+//    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction:AnyObject in transactions {
+            if let trans = transaction as? SKPaymentTransaction {
+                switch trans.transactionState {
+                case .purchased:
+                    SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
+                    print("===Success")
+                    UserDefaults.standard.setValue(productID, forKey: "currentSubscription")
+                    receiptValidation(vv: self)
+                    dissmiss_hud()
+                    break
+                case .failed:
+                    SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
+                    print("===Fail")
+                    SKPaymentQueue.default().restoreCompletedTransactions()
+                    dissmiss_hud()
+                    break
+                case .restored:
+                    print("===restored")
+                    receiptValidation(vv: self)
+                    SKPaymentQueue.default().restoreCompletedTransactions()
+                    dissmiss_hud()
+                    break
+                default:
+                    print("===unkown")
+                    dissmiss_hud()
+                    break
+                }
+            }
+        }
+    }
+    
+    
+    func show_hud(_ hudview:UIView){
+        if (!hud.isVisible){
+            hud.textLabel.text = "Loading"
+            hud.show(in: hudview)
+        }
+    }
+    func dissmiss_hud(){
+        hud.dismiss(afterDelay: 0.0)
+    }
+    
+    private func coinlist(){
+        let url = "http://wiffy.io/bitmex/?" + randNum
+        requestHTTP(url: url,completion: { result in
+            if (result.contains("-NOTICE-")){
+                DispatchQueue.main.async {
+                    showAlert(self, "-NOTICE-",
+                              result.replace("-NOTICE-", ""))
+                }
+            }else{
+                let get_table_data = result.split_("\n")
+                for i in get_table_data{
+                    var dataa = i.split_(",")
+                    sok.c_list_append(list: [dataa[0],dataa[1],dataa[2],dataa[3],dataa[4],dataa[5],dataa[6]])
+                }
+            }
+            
+            DispatchQueue.main.async {
+                sok.start()
+            }
+            receiptValidation2(vv: self)
+            self.betacheck()
+        })
+    }
+    
+    private func betacheck(){
+        let url = "http://wiffy.io/bitmex/hello?" + randNum
+        requestHTTP(url: url,completion: { result in
+            if (result.contains("642537883523")){
+                //beta = true
+            }else{
+                //beta = false
+                let isnoti = UserDefaults.standard.value(forKey: "betanoti")
+                if (isnoti == nil){
+                    DispatchQueue.main.async {
+                        UserDefaults.standard.set("aa", forKey: "betanoti")
+                        showAlert(self, "Beta closed",
+                                  "Price notifications are now available in Pro version. Please update your app")
+                    }
+                }
+                for (_,iList) in sok.c_list.enumerated() {
+                    print(iList[0])
+                    let array = UserDefaults.standard.value(forKey: iList[0] + "_AlertList") as? [String] ?? [String]()
+                    for aa in array{
+                        DispatchQueue.main.async {
+                            Messaging.messaging().unsubscribe(fromTopic: iList[0] + "_" + aa) { error in
+                                print(iList[0] + "_" + aa)
+                            }
+                        }
+                    }
+                    UserDefaults.standard.set([String](), forKey: iList[0] + "_AlertList")
+                }
+            }
+            //print("beta:" + beta.description)
+        })
+    }
 }
 
 extension ticker_table: UserView {
@@ -199,4 +351,14 @@ extension ticker_table: UserView {
         domin_data.text = domin
     }
     
+    func setTopBtn(){
+        DispatchQueue.main.async {
+            if(!beta){
+                self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "PRO UPGRADE", style: .plain, target: self, action: #selector(self.goPro))
+            }else{
+                self.navigationItem.leftBarButtonItem = nil
+                self.hide_ad()
+            }
+        }
+    }
 }

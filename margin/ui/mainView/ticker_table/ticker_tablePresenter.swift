@@ -18,10 +18,11 @@ protocol UserView: NSObjectProtocol {
     func set_theme()
     func recent_list()
     func info_change(cap:String,domin:String)
+    func setTopBtn()
     
 }
 
-class ticker_tablePresenter {
+class ticker_tablePresenter{
     
     private var userView : UserView?
     private var is_scroll = 0
@@ -95,8 +96,9 @@ class ticker_tablePresenter {
     
     func inapp(){
         print("aa")
-        let iapObserver = StoreObserver()
-        SKPaymentQueue.default().add(iapObserver)
+        //retrieveProductInformation()
     }
+ 
+
     
 }

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 func find_color(str:String) -> UIColor{
     if (str.contains("g")){
         return UIColor(red: 70/255, green: 170/255, blue: 70/255, alpha: 0.9) as UIColor
