@@ -26,10 +26,10 @@ class datail_tabar: UITabBarController,UITabBarControllerDelegate {
         if let arrayOfTabBarItems = self.tabBar.items as AnyObject as? NSArray,let
             tabBarItem = arrayOfTabBarItems[2] as? UITabBarItem {
             
-            if(!beta){
-                tabBarItem.isEnabled = false
-                tabBarItem.title = "Alert(PRO)"
-            }
+//            if(!beta){
+//                tabBarItem.isEnabled = false
+//                tabBarItem.title = "Alert(PRO)"
+//            }
         }
     }
 

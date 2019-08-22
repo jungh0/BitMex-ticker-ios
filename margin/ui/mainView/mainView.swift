@@ -16,6 +16,7 @@ var sok = socket(wss: "wss://www.bitmex.com/realtime")
 var dark_theme = false
 var world_pr = false//pro
 var beta = false
+var closeiap = false
 
 class mainView: UINavigationController {
     
@@ -29,7 +30,6 @@ class mainView: UINavigationController {
         show_hud(self.view)
         aliveTimer()
         showUpdateStr()
-
         
         do {
             let tmp = Int(getData("theme2"))
@@ -44,12 +44,6 @@ class mainView: UINavigationController {
         
     }
     
-    
-    
-    
-    
-   
-    
     private func showUpdateStr(){
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         let isnoti = UserDefaults.standard.value(forKey: appVersion)
@@ -57,8 +51,7 @@ class mainView: UINavigationController {
             UserDefaults.standard.set("aa", forKey: appVersion)
             DispatchQueue.main.async {
                 showAlert(self, "Update History",
-                          "Price notification for all items (XBT, ADA, BCH,EOS, ETH, LTC, TRX, XRP)\n" +
-                    "(It is provided as a PRO function after the beta test.)\nOrderbook Visualization")
+                          "Beta closed\nIn-app purchase available")
             }
         }
     }

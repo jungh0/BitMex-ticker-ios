@@ -23,3 +23,11 @@ target 'margin' do
   end
 
 end
+
+target 'BitmexWidget' do
+    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    use_frameworks!
+    pod 'SwiftWebSocket'
+    # Pods for margin
+
+end

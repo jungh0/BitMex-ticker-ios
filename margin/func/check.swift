@@ -13,7 +13,6 @@ let SandBox =  "https://sandbox.itunes.apple.com/verifyReceipt"
 let iTunes =  "https://buy.itunes.apple.com/verifyReceipt"
 
 func receiptValidation(vv:UserView) {
-    
     let receiptFileURL = Bundle.main.appStoreReceiptURL
     let receiptData = try? Data(contentsOf: receiptFileURL!)
     let recieptString = receiptData?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
@@ -21,24 +20,24 @@ func receiptValidation(vv:UserView) {
         setData("riap", recieptString as Any)
         let jsonDict: [String: AnyObject] = ["receipt-data" : recieptString! as AnyObject, "password" : aa as AnyObject]
         //print(jsonDict.description + "=======")
-        rcheck(jsonDict: jsonDict,vview: vv)
+        rcheck(jsonDict: jsonDict,vview: vv,pop: true)
     }
-    
 }
 
 func receiptValidation2(vv:UserView) {
-    
     let recieptString = getData("riap")
     if (recieptString != ""){
         let jsonDict: [String: AnyObject] = ["receipt-data" : recieptString as AnyObject, "password" : aa as AnyObject]
         //print(jsonDict.description + "=======")
-        rcheck(jsonDict: jsonDict,vview: vv)
+        rcheck(jsonDict: jsonDict,vview: vv,pop: false)
+    }else{
+        var userView : UserView?
+        userView = vv
+        userView!.setTopBtn()
     }
-    
 }
 
-func rcheck(jsonDict:[String: AnyObject],vview:UserView){
-    
+func rcheck(jsonDict:[String: AnyObject],vview:UserView,pop:Bool){
     do {
         let requestData = try JSONSerialization.data(withJSONObject: jsonDict, options: JSONSerialization.WritingOptions.prettyPrinted)
         let verifyReceiptURL = SandBox
@@ -52,9 +51,9 @@ func rcheck(jsonDict:[String: AnyObject],vview:UserView){
             
             do {
                 let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)
-                //                                    print("------------------------------------------")
-                //                                    print("=======>",jsonResponse)
-                //                                    print("------------------------------------------")
+//                print("------------------------------------------")
+//                print("=======>",jsonResponse)
+//                print("------------------------------------------")
                 if let date = getExpirationDateFromResponse(jsonResponse as! NSDictionary) {
                     let nowdate = Date()
                     let formatter = DateFormatter()
@@ -64,16 +63,22 @@ func rcheck(jsonDict:[String: AnyObject],vview:UserView){
                     let defaultTimeZoneStr = formatter.date(from: tmp)
                     
                     print(defaultTimeZoneStr!.description + "======")
-                    print(date.description + "=======")
+                    print(date.description + "======")
+                    
+                    var userView : UserView?
+                    userView = vview
                     
                     if (nowdate < date){
                         beta = true
+                        if(pop){
+                            DispatchQueue.main.async {
+                                showAlert(userView as? UIViewController,"Success","Pro version is activated")
+                            }
+                        }
                     }else{
                         beta = false
                         setData("riap", "")
                     }
-                    var userView : UserView?
-                    userView = vview
                     userView!.setTopBtn()
                 }
             } catch let parseError {

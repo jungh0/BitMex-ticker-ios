@@ -163,6 +163,8 @@ class ticker_table: UITableViewController, SKProductsRequestDelegate, SKPaymentT
         fetchAvailableProducts()
     }
     
+    //iappppppppppppppppp
+    
     var productIdentifier = "gopro" //Get it from iTunes connect
     var productID = ""
     var productsRequest = SKProductsRequest()
@@ -179,9 +181,8 @@ class ticker_table: UITableViewController, SKProductsRequestDelegate, SKPaymentT
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         if (response.products.count > 0) {
             iapProducts = response.products
-            for prod in response.products
-            {
-                print("====aaaaaaaa")
+            for prod in response.products{
+                //print("====aaaaaaaa")
                 buyProduct(prod)
             }
         }
@@ -191,24 +192,16 @@ class ticker_table: UITableViewController, SKProductsRequestDelegate, SKPaymentT
     {
         // Add the StoreKit Payment Queue for ServerSide
         SKPaymentQueue.default().add(self)
-        if SKPaymentQueue.canMakePayments()
-        {
+        if SKPaymentQueue.canMakePayments(){
             print("Sending the Payment Request to Apple")
             let payment = SKPayment(product: product)
             SKPaymentQueue.default().add(payment)
             productID = product.productIdentifier
         }
-        else
-        {
+        else{
             print("cant purchase")
         }
     }
-    
-//    func request(_ request: SKRequest, didFailWithError error: Error)
-//    {
-//        print(request)
-//        print(error)
-//    }
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction:AnyObject in transactions {
@@ -233,6 +226,9 @@ class ticker_table: UITableViewController, SKProductsRequestDelegate, SKPaymentT
                     SKPaymentQueue.default().restoreCompletedTransactions()
                     dissmiss_hud()
                     break
+                case .purchasing:
+                    show_hud(self.view)
+                    break
                 default:
                     print("===unkown")
                     dissmiss_hud()
@@ -242,10 +238,11 @@ class ticker_table: UITableViewController, SKProductsRequestDelegate, SKPaymentT
         }
     }
     
+    //iappppppppppppppppp
     
     func show_hud(_ hudview:UIView){
         if (!hud.isVisible){
-            hud.textLabel.text = "Loading"
+            hud.textLabel.text = "Payment\nLoading"
             hud.show(in: hudview)
         }
     }
@@ -262,6 +259,9 @@ class ticker_table: UITableViewController, SKProductsRequestDelegate, SKPaymentT
                               result.replace("-NOTICE-", ""))
                 }
             }else{
+                if let userDefaults = UserDefaults(suiteName: "group.margin.symbol") {
+                    userDefaults.set(result, forKey: "wholesymbol")
+                }
                 let get_table_data = result.split_("\n")
                 for i in get_table_data{
                     var dataa = i.split_(",")
@@ -272,7 +272,6 @@ class ticker_table: UITableViewController, SKProductsRequestDelegate, SKPaymentT
             DispatchQueue.main.async {
                 sok.start()
             }
-            receiptValidation2(vv: self)
             self.betacheck()
         })
     }
@@ -305,6 +304,10 @@ class ticker_table: UITableViewController, SKProductsRequestDelegate, SKPaymentT
                     UserDefaults.standard.set([String](), forKey: iList[0] + "_AlertList")
                 }
             }
+            if (result.contains("3648242349iapp")){
+                closeiap = true
+            }
+            receiptValidation2(vv: self)
             //print("beta:" + beta.description)
         })
     }
@@ -327,7 +330,7 @@ extension ticker_table: UserView {
     
     func set_theme(){
         setTopset()
-        setTopBtn()
+        //setTopBtn()
         
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -356,6 +359,10 @@ extension ticker_table: UserView {
             if(!beta){
                 self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "PRO UPGRADE", style: .plain, target: self, action: #selector(self.goPro))
             }else{
+                self.navigationItem.leftBarButtonItem = nil
+                self.hide_ad()
+            }
+            if(closeiap){
                 self.navigationItem.leftBarButtonItem = nil
                 self.hide_ad()
             }

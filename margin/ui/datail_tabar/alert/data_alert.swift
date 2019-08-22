@@ -15,7 +15,6 @@ class alertCell: UITableViewCell {
     @IBOutlet var cellPrice: UILabel!
     @IBOutlet var add_alert_: UIButton!
     
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         if (self.subviews.count < 3){
@@ -44,8 +43,12 @@ class data_alert: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet var price_field: UITextField!
     @IBAction func add_alert(_ sender: Any) {
         self.view.endEditing(true)
-        let price = price_field.text!
-        userPresenter.subscribe(price: price)
+        if(!beta){
+            showAlert(self,"NEED PRO","Activate Pro Features\nwith In-App Payments")
+        }else{
+            let price = price_field.text!
+            userPresenter.subscribe(price: price)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool){

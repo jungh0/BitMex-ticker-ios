@@ -10,6 +10,7 @@
 		1C835D770A2A12CEC1666991 /* Pods_margin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B9EFC1CBF7C4A36019DB9F /* Pods_margin.framework */; };
 		48DEE169BC0BEAB22B53A0AD /* Pods_marginUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B508383A689982004A335AEA /* Pods_marginUITests.framework */; };
 		495C57CCFDF574CFC7DC00D6 /* Pods_marginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33F0B8F8B251AA4E0DDAEBF /* Pods_marginTests.framework */; };
+		C1AFB3555F92B153B8D0D8F6 /* Pods_BitmexWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27DEF9A07D55DE486AAD7C0A /* Pods_BitmexWidget.framework */; };
 		CE01D3CE22EF16A500DBE1F4 /* strFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01D3CD22EF16A500DBE1F4 /* strFunc.swift */; };
 		CE01D3D022EF1F4200DBE1F4 /* dataSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01D3CF22EF1F4200DBE1F4 /* dataSave.swift */; };
 		CE01D3D322EF23FE00DBE1F4 /* getjson.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01D3D222EF23FE00DBE1F4 /* getjson.swift */; };
@@ -41,6 +42,13 @@
 		CEBC7D5F22A63E06005D3FC1 /* recentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7D5D22A63E06005D3FC1 /* recentPresenter.swift */; };
 		CED70C05230A78060025B5CD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED70C04230A78060025B5CD /* StoreKit.framework */; };
 		CED70C07230BE6E10025B5CD /* check.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C06230BE6E10025B5CD /* check.swift */; };
+		CED70C0E230D7D030025B5CD /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED70C0D230D7D030025B5CD /* NotificationCenter.framework */; };
+		CED70C11230D7D030025B5CD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C10230D7D030025B5CD /* TodayViewController.swift */; };
+		CED70C14230D7D030025B5CD /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED70C12230D7D030025B5CD /* MainInterface.storyboard */; };
+		CED70C18230D7D030025B5CD /* BitmexWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CED70C0C230D7D030025B5CD /* BitmexWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CED70C1E230D81370025B5CD /* dataSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C1D230D81370025B5CD /* dataSave.swift */; };
+		CED70C20230D82E70025B5CD /* strFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C1F230D82E70025B5CD /* strFunc.swift */; };
+		CED70C29230D8A8B0025B5CD /* requestHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C28230D8A8B0025B5CD /* requestHTTP.swift */; };
 		CEF84C3D22F577A100CBEDFA /* alertFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF84C3C22F577A100CBEDFA /* alertFunc.swift */; };
 		CEF84C3F22F83AB600CBEDFA /* inapp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF84C3E22F83AB600CBEDFA /* inapp.swift */; };
 		CEFB9D7622BE307900D685DC /* findRG.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB9D7522BE307900D685DC /* findRG.swift */; };
@@ -62,9 +70,32 @@
 			remoteGlobalIDString = CEA350B321D7529400543AE2;
 			remoteInfo = margin;
 		};
+		CED70C16230D7D030025B5CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEA350AC21D7529300543AE2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CED70C0B230D7D030025B5CD;
+			remoteInfo = BitmexWidget;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CED70C1C230D7D030025B5CD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CED70C18230D7D030025B5CD /* BitmexWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		26033788D6A360FF66AE7793 /* Pods-BitmexWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitmexWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BitmexWidget/Pods-BitmexWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		27DEF9A07D55DE486AAD7C0A /* Pods_BitmexWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitmexWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51663E25F3D6FAF7C4761B75 /* Pods-marginUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marginUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-marginUITests/Pods-marginUITests.release.xcconfig"; sourceTree = "<group>"; };
 		52DEB68B35B4CA53EAD638B8 /* Pods-margin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-margin.release.xcconfig"; path = "Pods/Target Support Files/Pods-margin/Pods-margin.release.xcconfig"; sourceTree = "<group>"; };
 		58B9EFC1CBF7C4A36019DB9F /* Pods_margin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_margin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,12 +141,23 @@
 		CEBC7D5D22A63E06005D3FC1 /* recentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recentPresenter.swift; sourceTree = "<group>"; };
 		CED70C04230A78060025B5CD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CED70C06230BE6E10025B5CD /* check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = check.swift; sourceTree = "<group>"; };
+		CED70C0C230D7D030025B5CD /* BitmexWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BitmexWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED70C0D230D7D030025B5CD /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		CED70C10230D7D030025B5CD /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		CED70C13230D7D030025B5CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		CED70C15230D7D030025B5CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED70C1D230D81370025B5CD /* dataSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataSave.swift; sourceTree = "<group>"; };
+		CED70C1F230D82E70025B5CD /* strFunc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = strFunc.swift; sourceTree = "<group>"; };
+		CED70C21230D84CF0025B5CD /* BitmexWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BitmexWidget.entitlements; sourceTree = "<group>"; };
+		CED70C24230D85CF0025B5CD /* SwiftWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED70C28230D8A8B0025B5CD /* requestHTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = requestHTTP.swift; sourceTree = "<group>"; };
 		CEF84C3C22F577A100CBEDFA /* alertFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertFunc.swift; sourceTree = "<group>"; };
 		CEF84C3E22F83AB600CBEDFA /* inapp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inapp.swift; sourceTree = "<group>"; };
 		CEFB9D7522BE307900D685DC /* findRG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findRG.swift; sourceTree = "<group>"; };
 		CEFB9D7722BE312000D685DC /* requestHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestHTTP.swift; sourceTree = "<group>"; };
 		CEFC9FA52215880400D68ACB /* ZAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B449B5B6E3080293F1E721 /* Pods-marginUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marginUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-marginUITests/Pods-marginUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DBBD473646780AD37B1D2E08 /* Pods-BitmexWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitmexWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-BitmexWidget/Pods-BitmexWidget.release.xcconfig"; sourceTree = "<group>"; };
 		F9E1A1F0412110C44B462EBB /* Pods-margin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-margin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-margin/Pods-margin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,17 +187,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CED70C09230D7D030025B5CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED70C0E230D7D030025B5CD /* NotificationCenter.framework in Frameworks */,
+				C1AFB3555F92B153B8D0D8F6 /* Pods_BitmexWidget.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		91176758493A190B46EB574D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CED70C24230D85CF0025B5CD /* SwiftWebSocket.framework */,
 				CED70C04230A78060025B5CD /* StoreKit.framework */,
 				CEFC9FA52215880400D68ACB /* ZAlertView.framework */,
 				58B9EFC1CBF7C4A36019DB9F /* Pods_margin.framework */,
 				A33F0B8F8B251AA4E0DDAEBF /* Pods_marginTests.framework */,
 				B508383A689982004A335AEA /* Pods_marginUITests.framework */,
+				CED70C0D230D7D030025B5CD /* NotificationCenter.framework */,
+				27DEF9A07D55DE486AAD7C0A /* Pods_BitmexWidget.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -169,6 +223,8 @@
 				66A244E483C4E465319EFC23 /* Pods-marginTests.release.xcconfig */,
 				D6B449B5B6E3080293F1E721 /* Pods-marginUITests.debug.xcconfig */,
 				51663E25F3D6FAF7C4761B75 /* Pods-marginUITests.release.xcconfig */,
+				26033788D6A360FF66AE7793 /* Pods-BitmexWidget.debug.xcconfig */,
+				DBBD473646780AD37B1D2E08 /* Pods-BitmexWidget.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -290,6 +346,7 @@
 				CEA350B621D7529400543AE2 /* margin */,
 				CEA350CD21D7529600543AE2 /* marginTests */,
 				CEA350D821D7529600543AE2 /* marginUITests */,
+				CED70C0F230D7D030025B5CD /* BitmexWidget */,
 				CEA350B521D7529400543AE2 /* Products */,
 				93A0AF26E19503A3C04B450E /* Pods */,
 				91176758493A190B46EB574D /* Frameworks */,
@@ -302,6 +359,7 @@
 				CEA350B421D7529400543AE2 /* margin.app */,
 				CEA350CA21D7529600543AE2 /* marginTests.xctest */,
 				CEA350D521D7529600543AE2 /* marginUITests.xctest */,
+				CED70C0C230D7D030025B5CD /* BitmexWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -350,6 +408,20 @@
 			path = recent;
 			sourceTree = "<group>";
 		};
+		CED70C0F230D7D030025B5CD /* BitmexWidget */ = {
+			isa = PBXGroup;
+			children = (
+				CED70C28230D8A8B0025B5CD /* requestHTTP.swift */,
+				CED70C21230D84CF0025B5CD /* BitmexWidget.entitlements */,
+				CED70C1F230D82E70025B5CD /* strFunc.swift */,
+				CED70C1D230D81370025B5CD /* dataSave.swift */,
+				CED70C10230D7D030025B5CD /* TodayViewController.swift */,
+				CED70C12230D7D030025B5CD /* MainInterface.storyboard */,
+				CED70C15230D7D030025B5CD /* Info.plist */,
+			);
+			path = BitmexWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -362,10 +434,12 @@
 				CEA350B121D7529400543AE2 /* Frameworks */,
 				CEA350B221D7529400543AE2 /* Resources */,
 				12817C14DAF040DD6FB08AFA /* [CP] Embed Pods Frameworks */,
+				CED70C1C230D7D030025B5CD /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CED70C17230D7D030025B5CD /* PBXTargetDependency */,
 			);
 			name = margin;
 			productName = margin;
@@ -410,13 +484,31 @@
 			productReference = CEA350D521D7529600543AE2 /* marginUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		CED70C0B230D7D030025B5CD /* BitmexWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CED70C19230D7D030025B5CD /* Build configuration list for PBXNativeTarget "BitmexWidget" */;
+			buildPhases = (
+				2637BFC135080C85CF71C968 /* [CP] Check Pods Manifest.lock */,
+				CED70C08230D7D030025B5CD /* Sources */,
+				CED70C09230D7D030025B5CD /* Frameworks */,
+				CED70C0A230D7D030025B5CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BitmexWidget;
+			productName = BitmexWidget;
+			productReference = CED70C0C230D7D030025B5CD /* BitmexWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		CEA350AC21D7529300543AE2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = jungho;
 				TargetAttributes = {
@@ -424,6 +516,9 @@
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -445,6 +540,14 @@
 						LastSwiftMigration = 1020;
 						TestTargetID = CEA350B321D7529400543AE2;
 					};
+					CED70C0B230D7D030025B5CD = {
+						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 				};
 			};
 			buildConfigurationList = CEA350AF21D7529300543AE2 /* Build configuration list for PBXProject "margin" */;
@@ -463,6 +566,7 @@
 				CEA350B321D7529400543AE2 /* margin */,
 				CEA350C921D7529600543AE2 /* marginTests */,
 				CEA350D421D7529600543AE2 /* marginUITests */,
+				CED70C0B230D7D030025B5CD /* BitmexWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -493,6 +597,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CED70C0A230D7D030025B5CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED70C14230D7D030025B5CD /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -507,8 +619,9 @@
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftWebSocket/SwiftWebSocket.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftWebSocket-iOS11.0/SwiftWebSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftWebSocket-iOS12.4/SwiftWebSocket.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -536,6 +649,28 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-margin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2637BFC135080C85CF71C968 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BitmexWidget-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -632,6 +767,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CED70C08230D7D030025B5CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED70C1E230D81370025B5CD /* dataSave.swift in Sources */,
+				CED70C20230D82E70025B5CD /* strFunc.swift in Sources */,
+				CED70C11230D7D030025B5CD /* TodayViewController.swift in Sources */,
+				CED70C29230D8A8B0025B5CD /* requestHTTP.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -644,6 +790,11 @@
 			isa = PBXTargetDependency;
 			target = CEA350B321D7529400543AE2 /* margin */;
 			targetProxy = CEA350D621D7529600543AE2 /* PBXContainerItemProxy */;
+		};
+		CED70C17230D7D030025B5CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CED70C0B230D7D030025B5CD /* BitmexWidget */;
+			targetProxy = CED70C16230D7D030025B5CD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -662,6 +813,14 @@
 				CEA350C321D7529600543AE2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CED70C12230D7D030025B5CD /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CED70C13230D7D030025B5CD /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -787,6 +946,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9E1A1F0412110C44B462EBB /* Pods-margin.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = margin/margin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -808,6 +968,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 52DEB68B35B4CA53EAD638B8 /* Pods-margin.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = margin/margin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -911,6 +1072,50 @@
 			};
 			name = Release;
 		};
+		CED70C1A230D7D030025B5CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26033788D6A360FF66AE7793 /* Pods-BitmexWidget.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BitmexWidget/BitmexWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V8NQD3S88F;
+				INFOPLIST_FILE = BitmexWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin.BitmexWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CED70C1B230D7D030025B5CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBBD473646780AD37B1D2E08 /* Pods-BitmexWidget.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BitmexWidget/BitmexWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V8NQD3S88F;
+				INFOPLIST_FILE = BitmexWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin.BitmexWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -946,6 +1151,15 @@
 			buildConfigurations = (
 				CEA350E521D7529600543AE2 /* Debug */,
 				CEA350E621D7529600543AE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CED70C19230D7D030025B5CD /* Build configuration list for PBXNativeTarget "BitmexWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED70C1A230D7D030025B5CD /* Debug */,
+				CED70C1B230D7D030025B5CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
