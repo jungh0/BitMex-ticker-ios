@@ -75,9 +75,17 @@ func rcheck(jsonDict:[String: AnyObject],vview:UserView,pop:Bool){
                                 showAlert(userView as? UIViewController,"Success","Pro version is activated")
                             }
                         }
+                        if let userDefaults = UserDefaults(suiteName: "group.margin.symbol") {
+                            userDefaults.set(date.description, forKey: "date")
+                            userDefaults.set("true", forKey: "orp")
+                        }
                     }else{
                         beta = false
                         setData("riap", "")
+                        if let userDefaults = UserDefaults(suiteName: "group.margin.symbol") {
+                            userDefaults.set(date.description, forKey: "date")
+                            userDefaults.set("false", forKey: "orp")
+                        }
                     }
                     userView!.setTopBtn()
                 }

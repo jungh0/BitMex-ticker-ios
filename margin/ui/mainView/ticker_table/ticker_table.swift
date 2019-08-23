@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import SwiftWebSocket
 import GoogleMobileAds
-import JGProgressHUD
+
 import Firebase
 
 class ticker_cell: UITableViewCell {
@@ -30,11 +30,11 @@ class ticker_cell: UITableViewCell {
     }
 }
 
-class ticker_table: UITableViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver{
+class ticker_table: UITableViewController{
     
     let randNum = arc4random_uniform(10000).description
     
-    let hud = JGProgressHUD(style: .dark)
+    
     var beforeTheme = dark_theme
     let userPresenter = ticker_tablePresenter()
     var bannerView: GADBannerView!
@@ -159,95 +159,9 @@ class ticker_table: UITableViewController, SKProductsRequestDelegate, SKPaymentT
     
     
     @objc func goPro(sender: UIBarButtonItem) {
-        show_hud(self.view)
-        fetchAvailableProducts()
-    }
-    
-    //iappppppppppppppppp
-    
-    var productIdentifier = "gopro" //Get it from iTunes connect
-    var productID = ""
-    var productsRequest = SKProductsRequest()
-    var iapProducts = [SKProduct]()
-    
-    func fetchAvailableProducts(){
-        // Put here your IAP Products ID's
-        let productIdentifiers = NSSet(objects:"gopro")
-        productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers as! Set<String>)
-        productsRequest.delegate = self
-        productsRequest.start()
-    }
-    
-    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        if (response.products.count > 0) {
-            iapProducts = response.products
-            for prod in response.products{
-                //print("====aaaaaaaa")
-                buyProduct(prod)
-            }
-        }
-    }
-    
-    func buyProduct(_ product: SKProduct)
-    {
-        // Add the StoreKit Payment Queue for ServerSide
-        SKPaymentQueue.default().add(self)
-        if SKPaymentQueue.canMakePayments(){
-            print("Sending the Payment Request to Apple")
-            let payment = SKPayment(product: product)
-            SKPaymentQueue.default().add(payment)
-            productID = product.productIdentifier
-        }
-        else{
-            print("cant purchase")
-        }
-    }
-    
-    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        for transaction:AnyObject in transactions {
-            if let trans = transaction as? SKPaymentTransaction {
-                switch trans.transactionState {
-                case .purchased:
-                    SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
-                    print("===Success")
-                    UserDefaults.standard.setValue(productID, forKey: "currentSubscription")
-                    receiptValidation(vv: self)
-                    dissmiss_hud()
-                    break
-                case .failed:
-                    SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
-                    print("===Fail")
-                    SKPaymentQueue.default().restoreCompletedTransactions()
-                    dissmiss_hud()
-                    break
-                case .restored:
-                    print("===restored")
-                    receiptValidation(vv: self)
-                    SKPaymentQueue.default().restoreCompletedTransactions()
-                    dissmiss_hud()
-                    break
-                case .purchasing:
-                    show_hud(self.view)
-                    break
-                default:
-                    print("===unkown")
-                    dissmiss_hud()
-                    break
-                }
-            }
-        }
-    }
-    
-    //iappppppppppppppppp
-    
-    func show_hud(_ hudview:UIView){
-        if (!hud.isVisible){
-            hud.textLabel.text = "Payment\nLoading"
-            hud.show(in: hudview)
-        }
-    }
-    func dissmiss_hud(){
-        hud.dismiss(afterDelay: 0.0)
+        let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "iap") as! iap
+        ViewController.userView = self
+        self.navigationController?.pushViewController(ViewController, animated: true)
     }
     
     private func coinlist(){
@@ -363,6 +277,9 @@ extension ticker_table: UserView {
                 self.hide_ad()
             }
             if(closeiap){
+                if let userDefaults = UserDefaults(suiteName: "group.margin.symbol") {
+                    userDefaults.set("true", forKey: "orp")
+                }
                 self.navigationItem.leftBarButtonItem = nil
                 self.hide_ad()
             }

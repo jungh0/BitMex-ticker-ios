@@ -51,7 +51,7 @@ class mainView: UINavigationController {
             UserDefaults.standard.set("aa", forKey: appVersion)
             DispatchQueue.main.async {
                 showAlert(self, "Update History",
-                          "Beta closed\nIn-app purchase available")
+                          "Beta closed\nIn-app purchase available\nWidget available with pro function")
             }
         }
     }

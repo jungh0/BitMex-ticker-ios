@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import StoreKit
 import Firebase
 
 protocol UserView: NSObjectProtocol {

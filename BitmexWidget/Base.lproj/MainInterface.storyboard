@@ -18,15 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ke1-py-eBB">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wcm-fO-Kja">
+                                <rect key="frame" x="0.0" y="44" width="320" height="256"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" alpha="0.20000000000000001" contentMode="scaleToFill" id="RdE-E4-LwW">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jm3-XQ-FjD">
-                                            <rect key="frame" x="95" y="12.5" width="130" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="55"/>
                                             <state key="normal" title="Tap here to refresh">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
@@ -37,12 +37,16 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="jm3-XQ-FjD" secondAttribute="bottom" id="JSv-Hq-fgc"/>
+                                        <constraint firstAttribute="trailing" secondItem="jm3-XQ-FjD" secondAttribute="trailing" id="Ryj-ud-m8F"/>
                                         <constraint firstItem="jm3-XQ-FjD" firstAttribute="centerX" secondItem="RdE-E4-LwW" secondAttribute="centerX" id="Yqa-ge-wiw"/>
+                                        <constraint firstItem="jm3-XQ-FjD" firstAttribute="top" secondItem="RdE-E4-LwW" secondAttribute="top" id="m1U-lL-xbF"/>
+                                        <constraint firstItem="jm3-XQ-FjD" firstAttribute="leading" secondItem="RdE-E4-LwW" secondAttribute="leading" id="r50-KU-BNZ"/>
                                         <constraint firstItem="jm3-XQ-FjD" firstAttribute="centerY" secondItem="RdE-E4-LwW" secondAttribute="centerY" id="yf7-GI-rfj"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ticker" rowHeight="55" id="A9V-fX-nkI" customClass="ticker" customModule="BitmexWidget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ticker" id="A9V-fX-nkI" customClass="ticker" customModule="BitmexWidget" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="83" width="320" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A9V-fX-nkI" id="CrE-Ia-Gc0">
@@ -62,20 +66,27 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdO-Lf-o0a">
-                                                    <rect key="frame" x="15" y="27.5" width="33" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <rect key="frame" x="15" y="27.5" width="28.5" height="13.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4d-VQ-Cux">
-                                                    <rect key="frame" x="200" y="13.5" width="105" height="28"/>
+                                                    <rect key="frame" x="205" y="13.5" width="100" height="28"/>
+                                                    <color key="backgroundColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="105" id="QOk-4L-iSL"/>
+                                                        <constraint firstAttribute="width" constant="100" id="QOk-4L-iSL"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                     <state key="normal" title="Button">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -96,14 +107,13 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <sections/>
                             </tableView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="ke1-py-eBB" secondAttribute="bottom" id="F1p-AW-Y1p"/>
-                            <constraint firstItem="ke1-py-eBB" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="KVF-wU-deP"/>
-                            <constraint firstItem="ke1-py-eBB" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="TEg-3A-h4u"/>
-                            <constraint firstItem="ke1-py-eBB" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="khS-Zc-puZ"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="wcm-fO-Kja" secondAttribute="trailing" id="2xC-S6-D5H"/>
+                            <constraint firstItem="wcm-fO-Kja" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="VZx-Nu-kNW"/>
+                            <constraint firstAttribute="bottom" secondItem="wcm-fO-Kja" secondAttribute="bottom" id="XDV-J6-sHu"/>
+                            <constraint firstItem="wcm-fO-Kja" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="bFx-wN-gsu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
                     </view>
@@ -111,7 +121,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="300"/>
                     <connections>
-                        <outlet property="tableview" destination="ke1-py-eBB" id="nwr-H2-Zhi"/>
+                        <outlet property="tableview" destination="wcm-fO-Kja" id="X1t-Ke-ErD"/>
+                        <outlet property="tap" destination="jm3-XQ-FjD" id="gcg-E4-Z3O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
