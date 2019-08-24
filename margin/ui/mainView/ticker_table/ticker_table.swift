@@ -165,66 +165,63 @@ class ticker_table: UITableViewController{
     }
     
     private func coinlist(){
-        let url = "http://wiffy.io/bitmex/?" + randNum
-        requestHTTP(url: url,completion: { result in
-            if (result.contains("-NOTICE-")){
-                DispatchQueue.main.async {
-                    showAlert(self, "-NOTICE-",
-                              result.replace("-NOTICE-", ""))
-                }
-            }else{
-                if let userDefaults = UserDefaults(suiteName: "group.margin.symbol") {
-                    userDefaults.set(result, forKey: "wholesymbol")
-                }
-                let get_table_data = result.split_("\n")
-                for i in get_table_data{
-                    var dataa = i.split_(",")
-                    sok.c_list_append(list: [dataa[0],dataa[1],dataa[2],dataa[3],dataa[4],dataa[5],dataa[6]])
-                }
+        let url = "http://wiffy.io/bitmex/info?" + randNum
+        
+        let tmpsymbol = getDataShare("wholesymbol")
+        if (tmpsymbol != ""){
+            let get_table_data = tmpsymbol.split_("\n")
+            for i in get_table_data{
+                var dataa = i.split_(",")
+                sok.c_list_append(list: [dataa[0],dataa[1],dataa[2],dataa[3],dataa[4],dataa[5],dataa[6]])
             }
-            
             DispatchQueue.main.async {
                 sok.start()
             }
-            self.betacheck()
-        })
-    }
-    
-    private func betacheck(){
-        let url = "http://wiffy.io/bitmex/hello?" + randNum
+        }
+        
         requestHTTP(url: url,completion: { result in
-            if (result.contains("642537883523")){
-                //beta = true
-            }else{
-                //beta = false
-                let isnoti = UserDefaults.standard.value(forKey: "betanoti")
-                if (isnoti == nil){
+            //print("==" + result)
+            
+            if(result != ""){
+                let notice = result.split_("<notice>")[1].split_("</notice>")[0]
+                let symbol = result.split_("<symbol>")[1].split_("</symbol>")[0]
+                let beta = result.split_("<beta>")[1].split_("</beta>")[0]
+                
+                if(notice != ""){
                     DispatchQueue.main.async {
-                        UserDefaults.standard.set("aa", forKey: "betanoti")
-                        showAlert(self, "Beta closed",
-                                  "Price notifications are now available in Pro version. Please update your app")
+                        showAlert(self, "-NOTICE-",notice)
                     }
                 }
-                for (_,iList) in sok.c_list.enumerated() {
-                    print(iList[0])
-                    let array = UserDefaults.standard.value(forKey: iList[0] + "_AlertList") as? [String] ?? [String]()
-                    for aa in array{
+                
+                if(symbol != ""){
+                    if let userDefaults = UserDefaults(suiteName: "group.margin.symbol") {
+                        userDefaults.set(symbol, forKey: "wholesymbol")
+                    }
+                    if(tmpsymbol == ""){
+                        let get_table_data = symbol.split_("\n")
+                        for i in get_table_data{
+                            var dataa = i.split_(",")
+                            sok.c_list_append(list: [dataa[0],dataa[1],dataa[2],dataa[3],dataa[4],dataa[5],dataa[6]])
+                        }
                         DispatchQueue.main.async {
-                            Messaging.messaging().unsubscribe(fromTopic: iList[0] + "_" + aa) { error in
-                                print(iList[0] + "_" + aa)
-                            }
+                            sok.start()
                         }
                     }
-                    UserDefaults.standard.set([String](), forKey: iList[0] + "_AlertList")
+                }
+                
+                if(beta != ""){
+                    if (beta.contains("3648242349iapp")){
+                        closeiap = true
+                    }
                 }
             }
-            if (result.contains("3648242349iapp")){
-                closeiap = true
-            }
+            
             receiptValidation2(vv: self)
-            //print("beta:" + beta.description)
+            
+            
         })
     }
+
 }
 
 extension ticker_table: UserView {
@@ -282,6 +279,10 @@ extension ticker_table: UserView {
                 }
                 self.navigationItem.leftBarButtonItem = nil
                 self.hide_ad()
+                beta = true
+                if let userDefaults = UserDefaults(suiteName: "group.margin.symbol") {
+                    userDefaults.set("true", forKey: "orp")
+                }
             }
         }
     }

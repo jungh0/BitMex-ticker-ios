@@ -81,7 +81,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
             //print(result)
             if(result == "ERROR"){
                 DispatchQueue.main.async {
-                    self.tap.setTitle("Lost Connection", for: .normal)
+                    self.tap.setTitle("Lost Connection (Tap to refresh)", for: .normal)
                 }
             }else{
                 for (i,_) in symbol.enumerated(){

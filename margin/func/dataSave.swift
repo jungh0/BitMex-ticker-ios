@@ -32,3 +32,17 @@ func getData(_ name:String ) -> String{
         }
     }
 }
+
+func getDataShare(_ name:String ) -> String{
+    if let userDefaults = UserDefaults(suiteName: "group.margin.symbol") {
+        let value1 = userDefaults.string(forKey: name)
+        if(value1 != nil){
+            return value1!
+        }else{
+            return ""
+        }
+    }else{
+        return ""
+    }
+}
+

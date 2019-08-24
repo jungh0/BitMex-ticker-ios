@@ -11,7 +11,10 @@ import Foundation
 func requestHTTP(url:String, completion: @escaping (String)->()){
     let url3 = URL(string: url)
     let taskk2 = URLSession.shared.dataTask(with: url3! as URL) { data, response, error in
-        guard let data = data, error == nil else { return }
+        guard let data = data, error == nil else {
+            completion("")
+            return
+        }
         let result = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
         completion(result)
     }

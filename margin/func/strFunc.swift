@@ -19,7 +19,7 @@ extension String {
         if (self.contains(w)){
             return self.components(separatedBy: w)
         }else{
-            return [""]
+            return ["",""]
         }
     }
     
