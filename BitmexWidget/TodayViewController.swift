@@ -44,14 +44,19 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("didload")
+    override func viewWillAppear(_ animated: Bool) {
+        print("willapear")
         self.tableview.dataSource = self
         self.tableview.delegate = self
         self.extensionContext?.widgetLargestAvailableDisplayMode = NCWidgetDisplayMode.expanded
         setdataarr()
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("didload")
+    }
+    
     
     func setdataarr(){
         checkPro()
@@ -116,7 +121,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
-        //self.tableview.reloadData()
         self.tableview.reloadData()
         completionHandler(NCUpdateResult.noData)
     }
