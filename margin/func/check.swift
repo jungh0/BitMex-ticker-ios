@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-let SandBox =  "https://sandbox.itunes.apple.com/verifyReceipt"
-let iTunes =  "https://buy.itunes.apple.com/verifyReceipt"
+//let url = "https://sandbox.itunes.apple.com/verifyReceipt"
+let url =  "https://buy.itunes.apple.com/verifyReceipt"
 
 func receiptValidation(vv:UserView) {
     let receiptFileURL = Bundle.main.appStoreReceiptURL
@@ -40,7 +40,7 @@ func receiptValidation2(vv:UserView) {
 func rcheck(jsonDict:[String: AnyObject],vview:UserView,pop:Bool){
     do {
         let requestData = try JSONSerialization.data(withJSONObject: jsonDict, options: JSONSerialization.WritingOptions.prettyPrinted)
-        let verifyReceiptURL = SandBox
+        let verifyReceiptURL = url
         let storeURL = URL(string: verifyReceiptURL)!
         var storeRequest = URLRequest(url: storeURL)
         storeRequest.httpMethod = "POST"
@@ -100,21 +100,23 @@ func rcheck(jsonDict:[String: AnyObject],vview:UserView,pop:Bool){
 }
 
 func getExpirationDateFromResponse(_ jsonResponse: NSDictionary) -> Date? {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss VV"
+    
     if let receiptInfo: NSArray = jsonResponse["latest_receipt_info"] as? NSArray {
         
         print(receiptInfo)
         print("=========================111")
         let lastReceipt = receiptInfo.lastObject as! NSDictionary
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss VV"
+        
         
         if let expiresDate = lastReceipt["expires_date"] as? String {
             return formatter.date(from: expiresDate)
         }
         
-        return nil
+        return Date()
     }
     else {
-        return nil
+        return Date()
     }
 }
