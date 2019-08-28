@@ -34,7 +34,7 @@ class iap: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObse
     }
     
     func initt(){
-        gopro.setTitle("$2.99 / Month", for: .normal)
+        gopro.setTitle("$4.99 / Month", for: .normal)
         gopro.layer.cornerRadius = 5
         gopro.layer.masksToBounds = true
         
@@ -52,14 +52,14 @@ class iap: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObse
     
     //iappppppppppppppppp
     
-    var productIdentifier = "gopro" //Get it from iTunes connect
+    var productIdentifier = "subpro" //Get it from iTunes connect
     var productID = ""
     var productsRequest = SKProductsRequest()
     var iapProducts = [SKProduct]()
     
     func fetchAvailableProducts(){
         // Put here your IAP Products ID's
-        let productIdentifiers = NSSet(objects:"gopro")
+        let productIdentifiers = NSSet(objects:"subpro")
         productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers as! Set<String>)
         productsRequest.delegate = self
         productsRequest.start()
