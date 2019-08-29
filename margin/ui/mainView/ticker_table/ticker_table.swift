@@ -65,6 +65,7 @@ class ticker_table: UITableViewController{
     
     @objc func go_setting(_ button:UIBarButtonItem!){
         let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "setting_") as! setting_
+        ViewController.iapUserview = self
         self.navigationController?.pushViewController(ViewController, animated: true)
     }
     

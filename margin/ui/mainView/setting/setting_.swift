@@ -11,7 +11,9 @@ import Foundation
 class setting_: UITableViewController {
     
     let userPresenter = setting_Presenter()
+    var iapUserview : UserView?
     
+    @IBOutlet var proUpgradeT: UILabel!
     @IBOutlet var tableview: UITableView!
     @IBOutlet var themeLabel: UILabel!
     @IBOutlet var themeSwitch_: UISwitch!
@@ -51,7 +53,9 @@ class setting_: UITableViewController {
         }
         
         if indexPath.section == 3 && indexPath.row == 0 {
-            //userPresenter.make_inapp()
+            let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "iap") as! iap
+            ViewController.userView = iapUserview
+            self.navigationController?.pushViewController(ViewController, animated: true)
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -73,6 +77,11 @@ class setting_: UITableViewController {
         
         tableview.dataSource = self
         tableview.delegate = self
+        
+        let exdate = getDataShare("exdate")
+        if (exdate != ""){
+            proUpgradeT.text = "Expire : " + exdate
+        }
     }
     
     override var shouldAutorotate: Bool {

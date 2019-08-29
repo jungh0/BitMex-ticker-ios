@@ -65,6 +65,12 @@ func rcheck(jsonDict:[String: AnyObject],vview:UserView,pop:Bool){
                     print(defaultTimeZoneStr!.description + "======")
                     print(date.description + "======")
                     
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd VV"
+                    dateFormatter.timeZone = TimeZone.current
+                    let exdate = dateFormatter.string(from: date)
+                    print(exdate.description + "======2")
+                    
                     var userView : UserView?
                     userView = vview
                     
@@ -76,14 +82,14 @@ func rcheck(jsonDict:[String: AnyObject],vview:UserView,pop:Bool){
                             }
                         }
                         if let userDefaults = UserDefaults(suiteName: "group.margin.symbol") {
-                            userDefaults.set(date.description, forKey: "date")
+                            userDefaults.set(exdate.description, forKey: "exdate")
                             userDefaults.set("true", forKey: "orp")
                         }
                     }else{
                         beta = false
                         setData("riap", "")
                         if let userDefaults = UserDefaults(suiteName: "group.margin.symbol") {
-                            userDefaults.set(date.description, forKey: "date")
+                            userDefaults.set("", forKey: "exdate")
                             userDefaults.set("false", forKey: "orp")
                         }
                     }
