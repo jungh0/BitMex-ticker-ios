@@ -128,11 +128,14 @@ class ticker_table: UITableViewController{
         userPresenter.EndDragging()
     }
     
-    func show_ad(){
+    func set_ad(){
         bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         addBannerViewToView(bannerView)
         bannerView.adUnitID = "ca-app-pub-0355430122346055/4509554445"
         bannerView.rootViewController = self
+    }
+    
+    func show_ad(){
         bannerView.load(GADRequest())
     }
     
@@ -270,6 +273,7 @@ extension ticker_table: UserView {
         DispatchQueue.main.async {
             if(!beta){
                 self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "PRO UPGRADE", style: .plain, target: self, action: #selector(self.goPro))
+                self.show_ad()
             }else{
                 self.navigationItem.leftBarButtonItem = nil
                 self.hide_ad()

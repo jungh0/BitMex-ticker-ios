@@ -12,7 +12,7 @@ import Firebase
 
 protocol UserView: NSObjectProtocol {
     
-    func show_ad()
+    func set_ad()
 
     func set_theme()
     func recent_list()
@@ -83,10 +83,7 @@ class ticker_tablePresenter{
     }
     
     private func ad_check(){
-        if (!world_pr){
-            //userView?.show_ad()
-        }
-        userView?.show_ad()
+        userView?.set_ad()
     }
     
     func get_c_list() -> [[String]]{

@@ -51,7 +51,6 @@
 		CED70C2C230FEE350025B5CD /* iap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C2B230FEE350025B5CD /* iap.swift */; };
 		CED70C2E231024D70025B5CD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C10230D7D030025B5CD /* TodayViewController.swift */; };
 		CEF84C3D22F577A100CBEDFA /* alertFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF84C3C22F577A100CBEDFA /* alertFunc.swift */; };
-		CEF84C3F22F83AB600CBEDFA /* inapp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF84C3E22F83AB600CBEDFA /* inapp.swift */; };
 		CEFB9D7622BE307900D685DC /* findRG.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB9D7522BE307900D685DC /* findRG.swift */; };
 		CEFB9D7822BE312000D685DC /* requestHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB9D7722BE312000D685DC /* requestHTTP.swift */; };
 /* End PBXBuildFile section */
@@ -153,7 +152,6 @@
 		CED70C28230D8A8B0025B5CD /* requestHTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = requestHTTP.swift; sourceTree = "<group>"; };
 		CED70C2B230FEE350025B5CD /* iap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iap.swift; sourceTree = "<group>"; };
 		CEF84C3C22F577A100CBEDFA /* alertFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertFunc.swift; sourceTree = "<group>"; };
-		CEF84C3E22F83AB600CBEDFA /* inapp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inapp.swift; sourceTree = "<group>"; };
 		CEFB9D7522BE307900D685DC /* findRG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findRG.swift; sourceTree = "<group>"; };
 		CEFB9D7722BE312000D685DC /* requestHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestHTTP.swift; sourceTree = "<group>"; };
 		CEFC9FA52215880400D68ACB /* ZAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,7 +274,6 @@
 				CEFB9D7722BE312000D685DC /* requestHTTP.swift */,
 				CE01D3CF22EF1F4200DBE1F4 /* dataSave.swift */,
 				CE01D3D222EF23FE00DBE1F4 /* getjson.swift */,
-				CEF84C3E22F83AB600CBEDFA /* inapp.swift */,
 				CED70C06230BE6E10025B5CD /* check.swift */,
 			);
 			path = func;
@@ -709,7 +706,6 @@
 				CEBC7D5F22A63E06005D3FC1 /* recentPresenter.swift in Sources */,
 				CE96128822018C2D00FC0D54 /* datail_tabar.swift in Sources */,
 				CE311188229EB1F600BA2D50 /* socket.swift in Sources */,
-				CEF84C3F22F83AB600CBEDFA /* inapp.swift in Sources */,
 				CE311198229FC5F700BA2D50 /* mainView.swift in Sources */,
 				CE4A330722A157C4006D91C6 /* orderbookPresenter.swift in Sources */,
 				CED70C07230BE6E10025B5CD /* check.swift in Sources */,
