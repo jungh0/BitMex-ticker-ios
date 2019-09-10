@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "margin/ui/mainView/ticker_table/ticker_table.swift"
-            timestampString = "588755413.931789"
+            timestampString = "588999394.992045"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "coinlist()"
             landmarkType = "7">
          </BreakpointContent>
