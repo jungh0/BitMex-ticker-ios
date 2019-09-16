@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-let url = "https://sandbox.itunes.apple.com/verifyReceipt"
-//let url =  "https://buy.itunes.apple.com/verifyReceipt"
+//let url = "https://sandbox.itunes.apple.com/verifyReceipt"
+let url =  "https://buy.itunes.apple.com/verifyReceipt"
 
 func receiptValidation(vv:UserView) {
     let receiptFileURL = Bundle.main.appStoreReceiptURL
