@@ -119,10 +119,9 @@
                                 <constraint firstItem="feB-yx-XmY" firstAttribute="top" secondItem="uVW-MA-Q9C" secondAttribute="bottom" constant="15" id="uJC-ll-Tfo"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="Tg3-dR-yhJ">
+                        <view key="tableFooterView" hidden="YES" contentMode="scaleToFill" id="Tg3-dR-yhJ">
                             <rect key="frame" x="0.0" y="248" width="375" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.044512070719999998" green="0.089455239470000003" blue="0.13333895800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ticker_cell" rowHeight="70" id="ktd-qb-Nn8" customClass="ticker_cell" customModule="margin" customModuleProvider="target">
@@ -565,7 +564,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IAy-sg-lRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1641" y="1476"/>
+            <point key="canvasLocation" x="3012" y="1581"/>
         </scene>
         <!--Details-->
         <scene sceneID="xM9-iy-dJp">
@@ -798,7 +797,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wQV-4E-S7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2157.5999999999999" y="1268.8155922038982"/>
+            <point key="canvasLocation" x="1457" y="1532"/>
         </scene>
         <!--Setting-->
         <scene sceneID="pbC-ha-2xG">
@@ -1232,7 +1231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOq-6M-OcM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2874" y="1269"/>
+            <point key="canvasLocation" x="2854" y="1492"/>
         </scene>
         <!--Alert-->
         <scene sceneID="3AL-QY-LJ5">

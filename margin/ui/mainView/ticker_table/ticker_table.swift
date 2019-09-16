@@ -21,12 +21,12 @@ class ticker_cell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let separator = UIView()
-        separator.frame = CGRect(x: self.frame.origin.x, y: self.frame.size.height - 1,
-                                 width: self.frame.size.width, height: 2)
-        separator.backgroundColor = UIColor.appColor(.table_out)
-        separator.tintColor = UIColor.appColor(.table_out)
-        self.addSubview(separator)
+//        let separator = UIView()
+//        separator.frame = CGRect(x: self.frame.origin.x, y: self.frame.size.height - 1,
+//                                 width: self.frame.size.width, height: 2)
+//        separator.backgroundColor = UIColor.appColor(.table_out)
+//        separator.tintColor = UIColor.appColor(.table_out)
+//        self.addSubview(separator)
     }
 }
 
@@ -161,7 +161,6 @@ class ticker_table: UITableViewController{
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: topset)
     }
     
-    
     @objc func goPro(sender: UIBarButtonItem) {
         let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "iap") as! iap
         ViewController.userView = self
@@ -233,8 +232,12 @@ extension ticker_table: UserView {
     func recent_list(){
         DispatchQueue.main.async {
             let contentOffset = self.tableView.contentOffset
+            self.tableView.beginUpdates()
             self.tableView.reloadData()
-            self.tableView.layoutIfNeeded()
+            self.tableView.endUpdates()
+            self.tableView.layer.removeAllAnimations()
+            //self.tableView.layoutIfNeeded()
+            //self.tableView.contentOffset = CGPointMake(0, currentOffset);
             self.tableView.setContentOffset(contentOffset, animated: false)
             if (self.beforeTheme != dark_theme){
                 self.beforeTheme = dark_theme
@@ -245,7 +248,7 @@ extension ticker_table: UserView {
     
     func set_theme(){
         setTopset()
-        //setTopBtn()
+        self.tableView.separatorColor = UIColor.appColor(.table_out)
         
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.shadowImage = UIImage()

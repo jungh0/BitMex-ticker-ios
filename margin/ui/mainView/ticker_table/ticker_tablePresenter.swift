@@ -58,8 +58,6 @@ class ticker_tablePresenter{
         })
     }
     
-    
-    
     func updateList(){
         self.userView?.recent_list()
         sok.setPriceComplete(completion: { result in
@@ -89,12 +87,6 @@ class ticker_tablePresenter{
     func get_c_list() -> [[String]]{
         return sok.c_list
     }
-    
-    func inapp(){
-        print("aa")
-        //retrieveProductInformation()
-    }
- 
 
     
 }
