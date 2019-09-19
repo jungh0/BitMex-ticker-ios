@@ -50,6 +50,7 @@
 		CED70C29230D8A8B0025B5CD /* requestHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C28230D8A8B0025B5CD /* requestHTTP.swift */; };
 		CED70C2C230FEE350025B5CD /* iap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C2B230FEE350025B5CD /* iap.swift */; };
 		CED70C2E231024D70025B5CD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C10230D7D030025B5CD /* TodayViewController.swift */; };
+		CEE7194B233308170001C271 /* margin.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = CE70975522B105E00049235C /* margin.entitlements */; };
 		CEF84C3D22F577A100CBEDFA /* alertFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF84C3C22F577A100CBEDFA /* alertFunc.swift */; };
 		CEFB9D7622BE307900D685DC /* findRG.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB9D7522BE307900D685DC /* findRG.swift */; };
 		CEFB9D7822BE312000D685DC /* requestHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB9D7722BE312000D685DC /* requestHTTP.swift */; };
@@ -578,6 +579,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE7194B233308170001C271 /* margin.entitlements in Resources */,
 				CEA350C421D7529600543AE2 /* LaunchScreen.storyboard in Resources */,
 				CE70975722B1063B0049235C /* GoogleService-Info.plist in Resources */,
 				CEA350C121D7529600543AE2 /* Assets.xcassets in Resources */,

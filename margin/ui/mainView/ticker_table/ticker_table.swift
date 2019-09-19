@@ -184,7 +184,6 @@ class ticker_table: UITableViewController{
         
         requestHTTP(url: url,completion: { result in
             //print("==" + result)
-            
             if(result != ""){
                 let notice = result.split_("<notice>")[1].split_("</notice>")[0]
                 let symbol = result.split_("<symbol>")[1].split_("</symbol>")[0]
@@ -192,22 +191,26 @@ class ticker_table: UITableViewController{
                 
                 if(notice != ""){
                     DispatchQueue.main.async {
-                        showAlert(self, "-NOTICE-",notice)
+                        //showAlert(self, "-NOTICE-",notice)
                     }
                 }
                 
                 if(symbol != ""){
                     if let userDefaults = UserDefaults(suiteName: "group.margin.symbol") {
                         userDefaults.set(symbol, forKey: "wholesymbol")
-                    }
-                    if(tmpsymbol == ""){
-                        let get_table_data = symbol.split_("\n")
-                        for i in get_table_data{
-                            var dataa = i.split_(",")
-                            sok.c_list_append(list: [dataa[0],dataa[1],dataa[2],dataa[3],dataa[4],dataa[5],dataa[6]])
-                        }
-                        DispatchQueue.main.async {
-                            sok.start()
+                        if(tmpsymbol == ""){
+                            let tmpsymbol2 = getDataShare("wholesymbol")
+                            print(tmpsymbol2)
+                            if (tmpsymbol2 != ""){
+                                let get_table_data = tmpsymbol2.split_("\n")
+                                for i in get_table_data{
+                                    var dataa = i.split_(",")
+                                    sok.c_list_append(list: [dataa[0],dataa[1],dataa[2],dataa[3],dataa[4],dataa[5],dataa[6]])
+                                }
+                                DispatchQueue.main.async {
+                                    sok.start()
+                                }
+                            }
                         }
                     }
                 }
@@ -232,9 +235,9 @@ extension ticker_table: UserView {
     func recent_list(){
         DispatchQueue.main.async {
             let contentOffset = self.tableView.contentOffset
-            self.tableView.beginUpdates()
+            //self.tableView.beginUpdates()
             self.tableView.reloadData()
-            self.tableView.endUpdates()
+            //self.tableView.endUpdates()
             self.tableView.layer.removeAllAnimations()
             //self.tableView.layoutIfNeeded()
             //self.tableView.contentOffset = CGPointMake(0, currentOffset);

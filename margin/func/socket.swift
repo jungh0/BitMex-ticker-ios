@@ -31,7 +31,7 @@ class socket{
         priceComplete = completion
     }
     
-    func c_list_append(list:[String]){
+    func c_list_append(list:[String]) {
         c_list.append(list)
     }
     
