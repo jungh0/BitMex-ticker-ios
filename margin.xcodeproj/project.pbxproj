@@ -932,6 +932,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = margin/margin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
 				INFOPLIST_FILE = margin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -939,6 +940,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.6.14;
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -954,6 +956,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = margin/margin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
 				INFOPLIST_FILE = margin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -961,6 +964,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.6.14;
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1059,6 +1063,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BitmexWidget/BitmexWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
 				INFOPLIST_FILE = BitmexWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1067,6 +1072,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.6.14;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin.BitmexWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1081,6 +1087,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BitmexWidget/BitmexWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
 				INFOPLIST_FILE = BitmexWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1089,6 +1096,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.6.14;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin.BitmexWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";

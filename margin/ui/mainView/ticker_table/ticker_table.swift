@@ -59,6 +59,7 @@ class ticker_table: UITableViewController{
     }
     
     override func viewWillAppear(_ animated: Bool){
+        navigationController?.navigationBar.tintColor = .white
         self.title = "Ticker"
         userPresenter.updateList()
     }
@@ -88,7 +89,7 @@ class ticker_table: UITableViewController{
     //테이블 데이터 로드
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "ticker_cell", for: indexPath) as! ticker_cell
-        var info = userPresenter.get_c_list()[indexPath.row]
+        let info = userPresenter.get_c_list()[indexPath.row]
         cell.symbol.text = info[0]
         cell.symbol.textColor = UIColor.appColor(.title)
         
@@ -174,7 +175,7 @@ class ticker_table: UITableViewController{
         if (tmpsymbol != ""){
             let get_table_data = tmpsymbol.split_("\n")
             for i in get_table_data{
-                var dataa = i.split_(",")
+                let dataa = i.split_(",")
                 sok.c_list_append(list: [dataa[0],dataa[1],dataa[2],dataa[3],dataa[4],dataa[5],dataa[6]])
             }
             DispatchQueue.main.async {
@@ -204,7 +205,7 @@ class ticker_table: UITableViewController{
                             if (tmpsymbol2 != ""){
                                 let get_table_data = tmpsymbol2.split_("\n")
                                 for i in get_table_data{
-                                    var dataa = i.split_(",")
+                                    let dataa = i.split_(",")
                                     sok.c_list_append(list: [dataa[0],dataa[1],dataa[2],dataa[3],dataa[4],dataa[5],dataa[6]])
                                 }
                                 DispatchQueue.main.async {

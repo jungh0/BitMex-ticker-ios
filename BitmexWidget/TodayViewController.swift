@@ -69,7 +69,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
                 symbol.removeAll()
             }
             for i in get_table_data{
-                var dataa = i.split_(",")
+                let dataa = i.split_(",")
                 symbol.append([dataa[0],dataa[1],dataa[2],dataa[3],"---",dataa[5],dataa[6]])
             }
             //print(symbol)
@@ -131,7 +131,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "ticker", for: indexPath) as! ticker
-        var info = symbol[indexPath.row]
+        let info = symbol[indexPath.row]
         
         cell.symbol.text = info[0]
         cell.detail.text = info[3]

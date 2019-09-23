@@ -26,7 +26,7 @@ class mainView: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         show_hud(self.view)
         aliveTimer()
         showUpdateStr()
@@ -51,7 +51,7 @@ class mainView: UINavigationController {
             UserDefaults.standard.set("aa", forKey: appVersion)
             DispatchQueue.main.async {
                 showAlert(self, "Update History",
-                          "Bugs fixed")
+                          "ios 13 optimization update")
             }
         }
     }

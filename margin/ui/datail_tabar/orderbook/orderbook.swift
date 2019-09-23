@@ -64,7 +64,7 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
     //테이블 데이터 로드
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "order_cell2", for: indexPath) as! order_cell2
-        var info = userPresenter.get_orderbook()[indexPath.row]
+        let info = userPresenter.get_orderbook()[indexPath.row]
         cell.asks_c.text = userPresenter.set_order_text(str: info[0])
         cell.price.text = userPresenter.make_0(str: info[1])
         cell.bids_c.text = userPresenter.set_order_text(str: info[2])
