@@ -9,12 +9,10 @@
 import Foundation
 import UIKit
 import Foundation
-import JGProgressHUD
 
 class data_details: UITableViewController {
     
     let userPresenter = data_detailsPresenter()
-    let hud = JGProgressHUD(style: .dark)
     
     @IBOutlet var tableview: UITableView!
     
@@ -85,12 +83,11 @@ extension data_details: DetailView {
     }
     
     func show_hud(){
-        hud.textLabel.text = "Loading"
-        hud.show(in: self.view)
+        margin.show_hud(self.view,"Loading")
     }
     
     func hide_hud(){
-        hud.dismiss(afterDelay: 0.0)
+        margin.dissmiss_hud()
     }
     
     func reload_table(){

@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import GoogleMobileAds
 import Firebase
-import JGProgressHUD
 
 var sok = socket(wss: "wss://www.bitmex.com/realtime")
 var dark_theme = false
@@ -20,14 +19,12 @@ var closeiap = false
 
 class mainView: UINavigationController {
     
-    let hud = JGProgressHUD(style: .dark)
-    
     private var timer:Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        show_hud(self.view)
+        
+        show_hud(self.view,"Connecting\nServer")
         aliveTimer()
         showUpdateStr()
         
@@ -38,7 +35,15 @@ class mainView: UINavigationController {
             }else if (tmp == 1){
                 dark_theme = true
             }else{
-                dark_theme = false
+                if #available(iOS 13.0, *) {
+                    if self.traitCollection.userInterfaceStyle == .dark {
+                        dark_theme = true
+                    } else {
+                        dark_theme = false
+                    }
+                } else {
+                    dark_theme = false
+                }
             }
         }
         
@@ -54,16 +59,6 @@ class mainView: UINavigationController {
                           "ios 13 optimization update")
             }
         }
-    }
-    
-    func show_hud(_ hudview:UIView){
-        if (!hud.isVisible){
-            hud.textLabel.text = "Connecting"
-            hud.show(in: hudview)
-        }
-    }
-    func dissmiss_hud(){
-        hud.dismiss(afterDelay: 0.0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,15 +77,17 @@ class mainView: UINavigationController {
     }
     @objc func checkAlive(){
         if (sok.is_waiting){
-            show_hud(self.view)
+            show_hud(self.view,"Connecting\nServer")
         }else{
-            dissmiss_hud()
+            if(hudText == "Connecting\nServer"){
+                dissmiss_hud()
+            }
         }
         if(sok.errormsg != ""){
             sok.errormsg = ""
             DispatchQueue.main.async {
                 showAlertNO(self, "ERROR",
-                          "Too Many Requests\nPlease close the app and try again later")
+                            "Too Many Requests\nPlease close the app and try again later")
             }
         }
     }

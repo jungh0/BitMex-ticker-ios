@@ -8,23 +8,25 @@
 import UIKit
 import Foundation
 import StoreKit
-import JGProgressHUD
 
 class iap: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
-    let hud = JGProgressHUD(style: .dark)
     var userView : UserView?
+    var purchase = true
     
     @IBAction func term(_ sender: Any) {
         UIApplication.shared.open(NSURL(string: "http://wiffy.io/bitmex/PRIVACY-POLICY.txt")! as URL)
     }
     @IBAction func restore(_ sender: Any) {
-        show_hud(self.view)
+        show_hud(self.view,"Payment\nLoading")
+        purchase = false
         fetchAvailableProducts()
+        
     }
     @IBOutlet var gopro: UIButton!
     @IBAction func gopro_(_ sender: Any) {
-        show_hud(self.view)
+        show_hud(self.view,"Payment\nLoading")
+        purchase = true
         fetchAvailableProducts()
     }
     
@@ -40,15 +42,6 @@ class iap: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObse
         
     }
     
-    func show_hud(_ hudview:UIView){
-        if (!hud.isVisible){
-            hud.textLabel.text = "Payment\nLoading"
-            hud.show(in: hudview)
-        }
-    }
-    func dissmiss_hud(){
-        hud.dismiss(afterDelay: 0.0)
-    }
     
     //iappppppppppppppppp
     
@@ -79,15 +72,30 @@ class iap: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObse
     {
         // Add the StoreKit Payment Queue for ServerSide
         SKPaymentQueue.default().add(self)
-        if SKPaymentQueue.canMakePayments(){
-            print("Sending the Payment Request to Apple")
-            let payment = SKPayment(product: product)
-            SKPaymentQueue.default().add(payment)
-            productID = product.productIdentifier
+        
+        if(purchase){
+            if SKPaymentQueue.canMakePayments(){
+                print("Sending the Payment Request to Apple")
+                let payment = SKPayment(product: product)
+                SKPaymentQueue.default().add(payment)
+                productID = product.productIdentifier
+            }
+            else{
+                print("cant purchase")
+            }
+        }else{
+            SKPaymentQueue.default().restoreCompletedTransactions()
         }
-        else{
-            print("cant purchase")
-        }
+        
+    }
+    
+    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        print("===restored")
+        //dissmiss_hud()
+        //show_hud(self.view,"Restoring\nPurchase")
+        receiptValidation(vv: userView!)
+        //SKPaymentQueue.default().restoreCompletedTransactions()
+        //dissmiss_hud()
     }
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
@@ -98,8 +106,10 @@ class iap: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObse
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
                     print("===Success")
                     UserDefaults.standard.setValue(productID, forKey: "currentSubscription")
+                    //dissmiss_hud()
+                    
+                    //show_hud(self.view,"Restoring\nPurchase")
                     receiptValidation(vv: userView!)
-                    dissmiss_hud()
                     break
                 case .failed:
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
@@ -109,12 +119,14 @@ class iap: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObse
                     break
                 case .restored:
                     print("===restored")
+                    //dissmiss_hud()
+                    
+                    //show_hud(self.view,"Restoring\nPurchase")
                     receiptValidation(vv: userView!)
                     SKPaymentQueue.default().restoreCompletedTransactions()
-                    dissmiss_hud()
                     break
                 case .purchasing:
-                    show_hud(self.view)
+                    show_hud(self.view,"Payment\nLoading")
                     break
                 default:
                     print("===unkown")
@@ -125,7 +137,7 @@ class iap: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObse
         }
     }
     
-
+    
     
     //iappppppppppppppppp
 }

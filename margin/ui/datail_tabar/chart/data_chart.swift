@@ -60,7 +60,7 @@ extension data_chart: ChartView {
         main_price.text = str
         main_price.textColor = color
     }
-
+    
     func set_dollar_text(str:String){
         dollar.text = "≈ " + str + " $"
     }

@@ -31,7 +31,7 @@ class setting_: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         if indexPath.section == 1 && indexPath.row == 0 {
             userPresenter.make_open_dialog()
         }

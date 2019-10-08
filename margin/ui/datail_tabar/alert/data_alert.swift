@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import Firebase
-import JGProgressHUD
 
 class alertCell: UITableViewCell {
     @IBOutlet var cellPrice: UILabel!
@@ -30,7 +29,6 @@ class alertCell: UITableViewCell {
 class data_alert: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     let userPresenter = data_alertPresenter()
-    let hud = JGProgressHUD(style: .dark)
     
     @IBOutlet var view0: UIView!
     @IBOutlet var view1: UIView!
@@ -132,14 +130,11 @@ extension data_alert: data_alert_view {
     }
     
     func show_hud(){
-        if (!hud.isVisible){
-            hud.textLabel.text = "Loading"
-            hud.show(in: self.view)
-        }
+        margin.show_hud(self.view,"Loading")
     }
     
     func dissmiss_hud(){
-        hud.dismiss(afterDelay: 0.0)
+        margin.dissmiss_hud()
     }
     
     func set_theme(){
@@ -162,7 +157,7 @@ extension data_alert: data_alert_view {
         
         doll.textColor = UIColor.appColor(.title2)
         add_alert_.layer.cornerRadius = 10
-  
+        
         let toolBarKeyboard = UIToolbar()
         toolBarKeyboard.sizeToFit()
         let btnDoneBar = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneBtnClicked))

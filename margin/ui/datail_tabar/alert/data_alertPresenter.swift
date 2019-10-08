@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 
 protocol data_alert_view: NSObjectProtocol {
-
+    
     func set_main_text(str:String)
     func set_main_color(color:UIColor)
     func set_dollar_text(str:String)
@@ -190,7 +190,7 @@ class data_alertPresenter{
             showAlert(self.userView as? UIViewController,"Fail","Subscription already exists")
         }
     }
-   
+    
     func getAlertList() -> [String]{
         return UserDefaults.standard.value(forKey: sok.chart_symbol + "_AlertList") as? [String] ?? [String]()
     }

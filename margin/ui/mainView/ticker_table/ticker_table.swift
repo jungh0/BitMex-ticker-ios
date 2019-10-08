@@ -21,12 +21,12 @@ class ticker_cell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-//        let separator = UIView()
-//        separator.frame = CGRect(x: self.frame.origin.x, y: self.frame.size.height - 1,
-//                                 width: self.frame.size.width, height: 2)
-//        separator.backgroundColor = UIColor.appColor(.table_out)
-//        separator.tintColor = UIColor.appColor(.table_out)
-//        self.addSubview(separator)
+        //        let separator = UIView()
+        //        separator.frame = CGRect(x: self.frame.origin.x, y: self.frame.size.height - 1,
+        //                                 width: self.frame.size.width, height: 2)
+        //        separator.backgroundColor = UIColor.appColor(.table_out)
+        //        separator.tintColor = UIColor.appColor(.table_out)
+        //        self.addSubview(separator)
     }
 }
 
@@ -78,7 +78,7 @@ class ticker_table: UITableViewController{
         
         tableview.dataSource = self
         tableview.delegate = self
-
+        
     }
     
     //섹션 별 개수
@@ -151,7 +151,7 @@ class ticker_table: UITableViewController{
         view.addConstraints(
             [NSLayoutConstraint(item: bannerView,attribute: .bottom,relatedBy: .equal,toItem: bottomLayoutGuide,attribute: .top,multiplier: 1,constant: 0),
              NSLayoutConstraint(item: bannerView,attribute: .centerX,relatedBy: .equal,toItem: view,attribute: .centerX,multiplier: 1,constant: 0)
-            ])
+        ])
     }
     
     func setTopset(){
@@ -228,11 +228,11 @@ class ticker_table: UITableViewController{
             
         })
     }
-
+    
 }
 
 extension ticker_table: UserView {
-
+    
     func recent_list(){
         DispatchQueue.main.async {
             let contentOffset = self.tableView.contentOffset

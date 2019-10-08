@@ -114,7 +114,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
             orp = true
         }
     }
-        
+    
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
         
@@ -136,9 +136,9 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         cell.symbol.text = info[0]
         cell.detail.text = info[3]
         cell.price.setTitle(info[4], for: .normal)
-       
-//        cell.price.layer.cornerRadius = 2
-//        cell.price.layer.masksToBounds = true
+        
+        //        cell.price.layer.cornerRadius = 2
+        //        cell.price.layer.masksToBounds = true
         
         return cell
     }

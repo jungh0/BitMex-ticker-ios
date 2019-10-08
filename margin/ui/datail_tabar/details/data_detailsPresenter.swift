@@ -24,7 +24,7 @@ class data_detailsPresenter{
     private var details = [[String]]()
     
     init(){
-
+        
     }
     
     func attachView(_ view: DetailView){

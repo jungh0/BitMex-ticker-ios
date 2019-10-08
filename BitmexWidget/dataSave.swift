@@ -23,7 +23,7 @@ func getData(_ name:String ) -> String{
         if(value1 != nil){
             return value1!
         }else{
-           return ""
+            return ""
         }
     }else{
         return ""

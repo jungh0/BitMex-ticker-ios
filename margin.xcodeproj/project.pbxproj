@@ -25,6 +25,7 @@
 		CE70975722B1063B0049235C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE70975622B1063B0049235C /* GoogleService-Info.plist */; };
 		CE70975A22B1E9E20049235C /* data_alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70975922B1E9E20049235C /* data_alert.swift */; };
 		CE76469E2215772D0014EB77 /* setting_.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76469D2215772D0014EB77 /* setting_.swift */; };
+		CE8F82A1234D00D500EBB172 /* hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F82A0234D00D500EBB172 /* hud.swift */; };
 		CE96128822018C2D00FC0D54 /* datail_tabar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96128722018C2D00FC0D54 /* datail_tabar.swift */; };
 		CE96128A22018D3100FC0D54 /* ws_func.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96128922018D3100FC0D54 /* ws_func.swift */; };
 		CE9FA94222BA5DE500289395 /* data_alertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9FA94122BA5DE500289395 /* data_alertPresenter.swift */; };
@@ -119,6 +120,7 @@
 		CE70975622B1063B0049235C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE70975922B1E9E20049235C /* data_alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_alert.swift; sourceTree = "<group>"; };
 		CE76469D2215772D0014EB77 /* setting_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting_.swift; sourceTree = "<group>"; };
+		CE8F82A0234D00D500EBB172 /* hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hud.swift; sourceTree = "<group>"; };
 		CE96128722018C2D00FC0D54 /* datail_tabar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datail_tabar.swift; sourceTree = "<group>"; };
 		CE96128922018D3100FC0D54 /* ws_func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ws_func.swift; sourceTree = "<group>"; };
 		CE9FA94122BA5DE500289395 /* data_alertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_alertPresenter.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				CE01D3CF22EF1F4200DBE1F4 /* dataSave.swift */,
 				CE01D3D222EF23FE00DBE1F4 /* getjson.swift */,
 				CED70C06230BE6E10025B5CD /* check.swift */,
+				CE8F82A0234D00D500EBB172 /* hud.swift */,
 			);
 			path = func;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				CE4A330522A157B8006D91C6 /* orderbook.swift in Sources */,
 				CEBC7D5E22A63E06005D3FC1 /* recent.swift in Sources */,
 				CE01D3D022EF1F4200DBE1F4 /* dataSave.swift in Sources */,
+				CE8F82A1234D00D500EBB172 /* hud.swift in Sources */,
 				CEA350B821D7529400543AE2 /* AppDelegate.swift in Sources */,
 				CEA350EA21D7A0A900543AE2 /* data_chart.swift in Sources */,
 				CE70975A22B1E9E20049235C /* data_alert.swift in Sources */,
@@ -859,7 +863,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -908,13 +912,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -931,6 +936,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = margin/margin.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
@@ -941,8 +947,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.6.14;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -955,6 +963,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = margin/margin.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
@@ -965,8 +974,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.6.14;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -13,7 +13,7 @@ import Firebase
 protocol UserView: NSObjectProtocol {
     
     func set_ad()
-
+    
     func set_theme()
     func recent_list()
     func info_change(cap:String,domin:String)
@@ -87,6 +87,6 @@ class ticker_tablePresenter{
     func get_c_list() -> [[String]]{
         return sok.c_list
     }
-
+    
     
 }

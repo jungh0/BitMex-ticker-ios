@@ -9,8 +9,11 @@
 import Foundation
 import UIKit
 
+
 //let url = "https://sandbox.itunes.apple.com/verifyReceipt"
 let url =  "https://buy.itunes.apple.com/verifyReceipt"
+
+
 
 func receiptValidation(vv:UserView) {
     let receiptFileURL = Bundle.main.appStoreReceiptURL
@@ -45,15 +48,15 @@ func rcheck(jsonDict:[String: AnyObject],vview:UserView,pop:Bool){
         var storeRequest = URLRequest(url: storeURL)
         storeRequest.httpMethod = "POST"
         storeRequest.httpBody = requestData
-
+        
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let task = session.dataTask(with: storeRequest, completionHandler: { data, response, error in
             
             do {
                 let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)
-//                print("------------------------------------------")
-//                print("=======>",jsonResponse)
-//                print("------------------------------------------")
+                //                print("------------------------------------------")
+                //                print("=======>",jsonResponse)
+                //                print("------------------------------------------")
                 if let date = getExpirationDateFromResponse(jsonResponse as! NSDictionary) {
                     let nowdate = Date()
                     let formatter = DateFormatter()
@@ -79,6 +82,7 @@ func rcheck(jsonDict:[String: AnyObject],vview:UserView,pop:Bool){
                         if(pop){
                             DispatchQueue.main.async {
                                 showAlert(userView as? UIViewController,"Success","Pro version is activated")
+                                dissmiss_hud()
                             }
                         }
                         if let userDefaults = UserDefaults(suiteName: "group.margin.symbol") {
@@ -87,6 +91,12 @@ func rcheck(jsonDict:[String: AnyObject],vview:UserView,pop:Bool){
                         }
                     }else{
                         beta = false
+                        if(pop){
+                            DispatchQueue.main.async {
+                                showAlert(userView as? UIViewController,"Fail","Purchase history not confirmed")
+                                dissmiss_hud()
+                            }
+                        }
                         setData("riap", "")
                         if let userDefaults = UserDefaults(suiteName: "group.margin.symbol") {
                             userDefaults.set("", forKey: "exdate")

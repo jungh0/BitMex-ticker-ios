@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import SwiftWebSocket
-import JGProgressHUD
 
 class order_cell2: UITableViewCell {
     @IBOutlet var red: UIView!
@@ -24,7 +23,6 @@ class order_cell2: UITableViewCell {
 class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     let userPresenter = orderbookPresenter()
-    let hud = JGProgressHUD(style: .dark)
     
     @IBOutlet var cellBottom: UIView!
     @IBOutlet var askLabel: UILabel!
@@ -57,12 +55,12 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     //섹션 별 개수
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userPresenter.get_orderbook().count
     }
     
     //테이블 데이터 로드
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "order_cell2", for: indexPath) as! order_cell2
         let info = userPresenter.get_orderbook()[indexPath.row]
         cell.asks_c.text = userPresenter.set_order_text(str: info[0])
@@ -84,7 +82,7 @@ class orderbook: UIViewController, UITableViewDelegate, UITableViewDataSource{
             cell.green.isHidden = true
             cell.redLen.constant = CGFloat(userPresenter.bigpercent2(str: cell.asks_c.text!))
         }
-
+        
         return cell
     }
     
@@ -115,12 +113,12 @@ extension orderbook: OrderView2 {
     }
     
     func show_hud(){
-        hud.textLabel.text = "Loading"
-        hud.show(in: self.view)
+        margin.show_hud(self.view,"Loading")
+        
     }
     
     func dissmiss_hud(){
-        hud.dismiss(afterDelay: 0.0)
+        margin.dissmiss_hud()
     }
     
     func reload_table(){
