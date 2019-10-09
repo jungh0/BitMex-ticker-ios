@@ -11,7 +11,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "margin/ui/mainView/ticker_table/ticker_table.swift"
+            filePath = "margin/UI/mainView/ticker_table/ticker_table.swift"
             timestampString = "590565937.234494"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

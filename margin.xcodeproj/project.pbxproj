@@ -27,7 +27,6 @@
 		CE76469E2215772D0014EB77 /* setting_.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76469D2215772D0014EB77 /* setting_.swift */; };
 		CE8F82A1234D00D500EBB172 /* hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F82A0234D00D500EBB172 /* hud.swift */; };
 		CE96128822018C2D00FC0D54 /* datail_tabar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96128722018C2D00FC0D54 /* datail_tabar.swift */; };
-		CE96128A22018D3100FC0D54 /* ws_func.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96128922018D3100FC0D54 /* ws_func.swift */; };
 		CE9FA94222BA5DE500289395 /* data_alertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9FA94122BA5DE500289395 /* data_alertPresenter.swift */; };
 		CEA350B821D7529400543AE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA350B721D7529400543AE2 /* AppDelegate.swift */; };
 		CEA350BF21D7529400543AE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA350BD21D7529400543AE2 /* Main.storyboard */; };
@@ -38,8 +37,6 @@
 		CEA350E821D75B9400543AE2 /* ticker_table.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA350E721D75B9400543AE2 /* ticker_table.swift */; };
 		CEA350EA21D7A0A900543AE2 /* data_chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA350E921D7A0A900543AE2 /* data_chart.swift */; };
 		CEA6E96822226236004405E3 /* data_details.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6E96722226236004405E3 /* data_details.swift */; };
-		CEBC7D5E22A63E06005D3FC1 /* recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7D5C22A63E06005D3FC1 /* recent.swift */; };
-		CEBC7D5F22A63E06005D3FC1 /* recentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7D5D22A63E06005D3FC1 /* recentPresenter.swift */; };
 		CED70C05230A78060025B5CD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED70C04230A78060025B5CD /* StoreKit.framework */; };
 		CED70C07230BE6E10025B5CD /* check.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C06230BE6E10025B5CD /* check.swift */; };
 		CED70C0E230D7D030025B5CD /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED70C0D230D7D030025B5CD /* NotificationCenter.framework */; };
@@ -122,7 +119,6 @@
 		CE76469D2215772D0014EB77 /* setting_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting_.swift; sourceTree = "<group>"; };
 		CE8F82A0234D00D500EBB172 /* hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hud.swift; sourceTree = "<group>"; };
 		CE96128722018C2D00FC0D54 /* datail_tabar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datail_tabar.swift; sourceTree = "<group>"; };
-		CE96128922018D3100FC0D54 /* ws_func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ws_func.swift; sourceTree = "<group>"; };
 		CE9FA94122BA5DE500289395 /* data_alertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_alertPresenter.swift; sourceTree = "<group>"; };
 		CEA350B421D7529400543AE2 /* margin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = margin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA350B721D7529400543AE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,8 +135,6 @@
 		CEA350E721D75B9400543AE2 /* ticker_table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticker_table.swift; sourceTree = "<group>"; };
 		CEA350E921D7A0A900543AE2 /* data_chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_chart.swift; sourceTree = "<group>"; };
 		CEA6E96722226236004405E3 /* data_details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_details.swift; sourceTree = "<group>"; };
-		CEBC7D5C22A63E06005D3FC1 /* recent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recent.swift; sourceTree = "<group>"; };
-		CEBC7D5D22A63E06005D3FC1 /* recentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recentPresenter.swift; sourceTree = "<group>"; };
 		CED70C04230A78060025B5CD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CED70C06230BE6E10025B5CD /* check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = check.swift; sourceTree = "<group>"; };
 		CED70C0C230D7D030025B5CD /* BitmexWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BitmexWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,13 +233,13 @@
 			path = datail_tabar;
 			sourceTree = "<group>";
 		};
-		CE31118D229F6D7700BA2D50 /* ui */ = {
+		CE31118D229F6D7700BA2D50 /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				CE311199229FC5FB00BA2D50 /* mainView */,
 				CE01D3D122EF213C00DBE1F4 /* datail_tabar */,
 			);
-			path = ui;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		CE31118E229F6D7E00BA2D50 /* ticker_table */ = {
@@ -266,30 +260,17 @@
 			path = orderbook;
 			sourceTree = "<group>";
 		};
-		CE311195229FC52200BA2D50 /* func */ = {
+		CE311195229FC52200BA2D50 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				CE311187229EB1F600BA2D50 /* socket.swift */,
 				CE01D3CD22EF16A500DBE1F4 /* strFunc.swift */,
 				CEF84C3C22F577A100CBEDFA /* alertFunc.swift */,
 				CE50F24A22A12AE700F6865A /* theme.swift */,
 				CEFB9D7522BE307900D685DC /* findRG.swift */,
-				CEFB9D7722BE312000D685DC /* requestHTTP.swift */,
-				CE01D3CF22EF1F4200DBE1F4 /* dataSave.swift */,
 				CE01D3D222EF23FE00DBE1F4 /* getjson.swift */,
-				CED70C06230BE6E10025B5CD /* check.swift */,
 				CE8F82A0234D00D500EBB172 /* hud.swift */,
 			);
-			path = func;
-			sourceTree = "<group>";
-		};
-		CE311196229FC54800BA2D50 /* trash */ = {
-			isa = PBXGroup;
-			children = (
-				CEBC7D5B22A63DC1005D3FC1 /* recent */,
-				CE96128922018D3100FC0D54 /* ws_func.swift */,
-			);
-			path = trash;
+			path = Util;
 			sourceTree = "<group>";
 		};
 		CE311199229FC5FB00BA2D50 /* mainView */ = {
@@ -339,6 +320,17 @@
 			path = alert;
 			sourceTree = "<group>";
 		};
+		CE8F82A2234DBCDC00EBB172 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE311187229EB1F600BA2D50 /* socket.swift */,
+				CEFB9D7722BE312000D685DC /* requestHTTP.swift */,
+				CE01D3CF22EF1F4200DBE1F4 /* dataSave.swift */,
+				CED70C06230BE6E10025B5CD /* check.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CEA350AB21D7529300543AE2 = {
 			isa = PBXGroup;
 			children = (
@@ -366,9 +358,9 @@
 		CEA350B621D7529400543AE2 /* margin */ = {
 			isa = PBXGroup;
 			children = (
-				CE311195229FC52200BA2D50 /* func */,
-				CE31118D229F6D7700BA2D50 /* ui */,
-				CE311196229FC54800BA2D50 /* trash */,
+				CE8F82A2234DBCDC00EBB172 /* Model */,
+				CE311195229FC52200BA2D50 /* Util */,
+				CE31118D229F6D7700BA2D50 /* UI */,
 				CE70975522B105E00049235C /* margin.entitlements */,
 				CEA350B721D7529400543AE2 /* AppDelegate.swift */,
 				CEA350BD21D7529400543AE2 /* Main.storyboard */,
@@ -396,15 +388,6 @@
 				CEA350DB21D7529600543AE2 /* Info.plist */,
 			);
 			path = marginUITests;
-			sourceTree = "<group>";
-		};
-		CEBC7D5B22A63DC1005D3FC1 /* recent */ = {
-			isa = PBXGroup;
-			children = (
-				CEBC7D5C22A63E06005D3FC1 /* recent.swift */,
-				CEBC7D5D22A63E06005D3FC1 /* recentPresenter.swift */,
-			);
-			path = recent;
 			sourceTree = "<group>";
 		};
 		CED70C0F230D7D030025B5CD /* BitmexWidget */ = {
@@ -624,7 +607,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-margin/Pods-margin-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftWebSocket/SwiftWebSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -633,7 +616,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftWebSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -708,21 +691,18 @@
 				CEFB9D7622BE307900D685DC /* findRG.swift in Sources */,
 				CED70C2E231024D70025B5CD /* TodayViewController.swift in Sources */,
 				CE9FA94222BA5DE500289395 /* data_alertPresenter.swift in Sources */,
-				CEBC7D5F22A63E06005D3FC1 /* recentPresenter.swift in Sources */,
 				CE96128822018C2D00FC0D54 /* datail_tabar.swift in Sources */,
 				CE311188229EB1F600BA2D50 /* socket.swift in Sources */,
 				CE311198229FC5F700BA2D50 /* mainView.swift in Sources */,
 				CE4A330722A157C4006D91C6 /* orderbookPresenter.swift in Sources */,
 				CED70C07230BE6E10025B5CD /* check.swift in Sources */,
 				CE4A330522A157B8006D91C6 /* orderbook.swift in Sources */,
-				CEBC7D5E22A63E06005D3FC1 /* recent.swift in Sources */,
 				CE01D3D022EF1F4200DBE1F4 /* dataSave.swift in Sources */,
 				CE8F82A1234D00D500EBB172 /* hud.swift in Sources */,
 				CEA350B821D7529400543AE2 /* AppDelegate.swift in Sources */,
 				CEA350EA21D7A0A900543AE2 /* data_chart.swift in Sources */,
 				CE70975A22B1E9E20049235C /* data_alert.swift in Sources */,
 				CEA6E96822226236004405E3 /* data_details.swift in Sources */,
-				CE96128A22018D3100FC0D54 /* ws_func.swift in Sources */,
 				CE01D3CE22EF16A500DBE1F4 /* strFunc.swift in Sources */,
 				CE50F24B22A12AE700F6865A /* theme.swift in Sources */,
 				CE31119F229FEA0000BA2D50 /* data_detailsPresenter.swift in Sources */,
