@@ -1,4 +1,6 @@
 # BitMex-ticker-ios
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+</br>
 
 <pre><a href="https://itunes.apple.com/us/app/bitmex-ticker/id1450104461?l=ko&ls=1&mt=8">https://itunes.apple.com/us/app/bitmex-ticker/id1450104461?l=ko&ls=1&mt=8</a></pre>
 
