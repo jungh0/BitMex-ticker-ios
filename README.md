@@ -2,17 +2,35 @@
 
 <pre><a href="https://itunes.apple.com/us/app/bitmex-ticker/id1450104461?l=ko&ls=1&mt=8">https://itunes.apple.com/us/app/bitmex-ticker/id1450104461?l=ko&ls=1&mt=8</a></pre>
 
-screenshot
-<br>
-<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/old/0.jpg' width='250px'/>
-<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/old/1.jpg' width='250px'/>
-<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/old/2.jpg' width='250px'/>
-<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/old/3.jpg' width='250px'/>
-<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/old/4.jpg' width='250px'/>
-<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/plus2/_1.png' width='250px'/>
-<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/plus2/_2.png' width='250px'/>
-<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/plus2/_3.png' width='250px'/>
-<img src='https://github.com/jungh0/BitMex-ticker-ios/blob/master/resource/screenshot/plus2/_4.png' width='250px'/>
+<img alt="icon" src="https://user-images.githubusercontent.com/8678595/66545822-86198b00-eb76-11e9-842e-91e29ebf0861.png" align="right" width="25%">
+
+## Key Features
+- [x] Tradingview chart
+- [x] Live orderbook
+- [x] Light/dark theme
+- [x] Price notification for all items (XBT, ADA, BCH,EOS, ETH, LTC, TRX, XRP)
+- [x] Orderbook Visualization
+
+## Introduction
+**This is bitmex ticker using web-socket**</br>
+<img src="https://user-images.githubusercontent.com/8678595/66545913-b82aed00-eb76-11e9-859d-f7a702dfe9db.png" width="200px">
+<img src="https://user-images.githubusercontent.com/8678595/66545914-b82aed00-eb76-11e9-953b-de686e479e32.png" width="200px">
+<img src="https://user-images.githubusercontent.com/8678595/66545917-b82aed00-eb76-11e9-8dc9-23293577e613.png" width="200px">
+<img src="https://user-images.githubusercontent.com/8678595/66545918-b8c38380-eb76-11e9-9bec-39cf5238bc04.png" width="200px">
+
+## Architecture
+<img width="600px" src="https://user-images.githubusercontent.com/8678595/66544658-b7dd2280-eb73-11e9-9872-089b1f452f4f.png">
+
+## Specs & Open-source libraries
+- Support iOS13
+- Swift5
+- Architecture
+   - MVP (Model-View-Presenter)
+- [SwiftWebSocket](https://github.com/tidwall/SwiftWebSocket)
+- [Google-Mobile-Ads-SDK](https://developers.google.com/admob/ios/download)
+- [JGProgressHUD](https://github.com/JonasGessner/JGProgressHUD)
+- [Firebase](https://github.com/firebase/)
+- [SwiftSoup](https://github.com/scinfu/SwiftSoup)
 
 # License
 
