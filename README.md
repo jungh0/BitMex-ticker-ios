@@ -12,6 +12,7 @@
 - [x] Light/dark theme
 - [x] Price notification for all items (XBT, ADA, BCH,EOS, ETH, LTC, TRX, XRP)
 - [x] Orderbook Visualization
+- [x] Widget Support
 
 ## Introduction
 **This is bitmex ticker using web-socket**</br>
