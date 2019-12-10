@@ -21,7 +21,6 @@ enum AssetsColor {
     case detail_table_in
     case textfield_in
     
-    
 }
 
 extension UIColor{

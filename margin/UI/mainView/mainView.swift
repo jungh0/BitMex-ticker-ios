@@ -56,7 +56,7 @@ class mainView: UINavigationController {
             UserDefaults.standard.set("aa", forKey: appVersion)
             DispatchQueue.main.async {
                 showAlert(self, "Update History",
-                          "iOS 13 optimization update")
+                          "Bug fixed")
             }
         }
     }
