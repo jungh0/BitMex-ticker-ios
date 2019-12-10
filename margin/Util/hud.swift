@@ -20,6 +20,7 @@ func show_hud(_ hudview:UIView, _ str:String){
         hud.show(in: hudview)
     }
 }
+
 func dissmiss_hud(){
     UIApplication.shared.endIgnoringInteractionEvents()
     hud.dismiss(afterDelay: 0.0)

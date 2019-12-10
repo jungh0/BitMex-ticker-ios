@@ -69,20 +69,10 @@ class socket{
                 //print(text)
                 self.is_waiting = false
                 self.socket_do(text: text)
-                //                if(text.contains("\"status\":429,\"error\":\"")){
-                //                    func errormsg(str:String)
-                //                }
             }
         }
     }
     
-    //    func errormsg(str:String){
-    //        for (index,iList) in c_list.enumerated() {
-    //            if (str.contains("\"trade:" + iList[0] + "\"")){
-    //                c_list[index][1] = "ERROR"
-    //            }
-    //        }
-    //    }
     
     func restart(){
         print("restart")
@@ -98,10 +88,6 @@ class socket{
             }
             subarg = subarg + "\"" + "trade" + ":" + iList[0] + "\""
         }
-        //        for iList in c_list {
-        //            subarg = subarg + ","
-        //            subarg = subarg + "\"" + "tradeBin1m" + ":" + iList[0] + "\""
-        //        }
         let msg = "{\"op\": \"" + "subscribe" + "\", \"args\": [" + subarg + "]}"
         //print("aaaasend: \(msg)")
         self.ws.send(msg)
@@ -120,11 +106,6 @@ class socket{
                     orderComplete!(text)
                 }
             }
-                //            else if(tableData == "tradeBin1m"){
-                //                for (index,iList) in c_list.enumerated() {
-                //                    _1m_parse(str: text,symbol: iList[0],index: index)
-                //                }
-                //            }
             else if(tableData == "trade"){
                 price_parse(str: text)
                 if (priceComplete != nil){
@@ -159,14 +140,6 @@ class socket{
                                 c_list[index][4] = "r"
                             }
                             c_list[index][1] = self.make_0(str: priceData.toString())
-                            //                            if(Double(c_list[index][1]) != Double(priceData)){
-                            //                                if (c_list[index][1] != "---"){
-                            //                                    c_list[index][4] = self.compare(ori: Double(c_list[index][1]) ?? 0,
-                            //                                                                    new: priceData,
-                            //                                                                    color: c_list[index][4])
-                            //                                }
-                            //
-                            //                            }
                             break
                         }
                     }
@@ -174,32 +147,7 @@ class socket{
             }
         }
     }
-    
-    //    private func _1m_parse(str:String,symbol:String,index:Int){
-    //        //print(str)
-    //        if let jsonData = getAnyJson(json: str,str: "data") as? [[String:AnyObject]]{
-    //            if(jsonData.description != "[]"){
-    //                if (jsonData.count > 0){
-    //                    let symbolData = (jsonData[0]["symbol"] as? String) ?? ""
-    //                    if(symbolData == symbol){
-    //                        let closeData = (jsonData[0]["close"] as? Double) ?? 0
-    //                        let openData = (jsonData[0]["open"] as? Double) ?? 0
-    //
-    //                        if (c_list[index][1] == "---"){
-    //                            c_list[index][4] = self.compare(ori: openData,
-    //                                                            new: closeData,
-    //                                                            color: c_list[index][4])
-    //                            c_list[index][1] = self.make_0(str: closeData.toString())
-    //                        }
-    //
-    //                        self.send(str1: "unsubscribe",str2: "tradeBin1m",str3: c_list[index][0])
-    //                        //self.send(str1: "subscribe",str2: "trade",str3: c_list[index][0])
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-    
+
     private func compare(ori:Double,new:Double,color:String) -> String{
         if (new > ori){
             return "g"
