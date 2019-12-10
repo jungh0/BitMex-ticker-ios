@@ -217,5 +217,4 @@ class socket{
             return str
         }
     }
-    
 }
