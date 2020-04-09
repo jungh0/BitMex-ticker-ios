@@ -60,7 +60,7 @@ class ticker_table: UITableViewController{
     
     override func viewWillAppear(_ animated: Bool){
         navigationController?.navigationBar.tintColor = .white
-        self.title = "Ticker"
+        self.title = "Ticker For BitMEX"
         userPresenter.updateList()
     }
     
@@ -278,7 +278,7 @@ extension ticker_table: UserView {
     func setTopBtn(){
         DispatchQueue.main.async {
             if(!beta){
-                self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "PRO UPGRADE", style: .plain, target: self, action: #selector(self.goPro))
+                self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "NEED PRO", style: .plain, target: self, action: #selector(self.goPro))
                 self.show_ad()
             }else{
                 self.navigationItem.leftBarButtonItem = nil

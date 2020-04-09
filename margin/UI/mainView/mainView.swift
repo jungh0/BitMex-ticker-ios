@@ -24,6 +24,10 @@ class mainView: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 13.0, *) {
+             self.overrideUserInterfaceStyle = .dark
+        }
+        
         show_hud(self.view,"Connecting\nServer")
         aliveTimer()
         showUpdateStr()

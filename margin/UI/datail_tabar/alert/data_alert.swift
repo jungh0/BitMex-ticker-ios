@@ -130,11 +130,11 @@ extension data_alert: data_alert_view {
     }
     
     func show_hud(){
-        margin.show_hud(self.view,"Loading")
+        Margin_Ticker.show_hud(self.view,"Loading")
     }
     
     func dissmiss_hud(){
-        margin.dissmiss_hud()
+        Margin_Ticker.dissmiss_hud()
     }
     
     func set_theme(){

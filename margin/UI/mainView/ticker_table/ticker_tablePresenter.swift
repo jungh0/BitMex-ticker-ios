@@ -42,18 +42,27 @@ class ticker_tablePresenter{
     
     private func request_coin(){
         let randNum = arc4random_uniform(10000).description
-        let url = "https://api.coinmarketcap.com/v1/global/?" + randNum
+        let url = "https://api.coingecko.com/api/v3/global?" + randNum
         requestHTTP(url: url,completion: { result in
             var cap = ""
             var domin = ""
-            if let jsonData = getAnyJson(json: result,str: "total_market_cap_usd") as? Double{
-                cap = Int(jsonData).delimiter
+
+            if let jsonData = getAnyJson(json: result,str: "data")  as? [String:AnyObject] {
+                if(jsonData.description != "[]"){
+                    let total = jsonData["market_cap_change_percentage_24h_usd"]
+                    let tmpT = total?.description?.replace(" ", "").replace("\n", "")
+                    cap =  (tmpT ?? "---" )
+                    cap = cap.prefix(5) + "%"
+                    
+                    let per = jsonData["market_cap_percentage"]
+                    let tmpP = per?.description?.replace(" ", "").replace("\n", "").split_("btc=\"")[1].split_("\"")[0]
+                    domin =  (tmpP ?? "---" )
+                    domin = domin.prefix(5) + "%"
+                }
             }
-            if let jsonData = getAnyJson(json: result,str: "bitcoin_percentage_of_market_cap") as? Double{
-                domin = jsonData.description + "%"
-            }
+   
             DispatchQueue.main.async {
-                self.userView?.info_change(cap: "$" + cap, domin: domin)
+                self.userView?.info_change(cap: cap, domin: domin)
             }
         })
     }

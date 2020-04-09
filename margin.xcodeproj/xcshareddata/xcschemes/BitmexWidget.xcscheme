@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CED70C0B230D7D030025B5CD"
-               BuildableName = "BitmexWidget.appex"
+               BuildableName = "Margin Ticker Widget.appex"
                BlueprintName = "BitmexWidget"
                ReferencedContainer = "container:margin.xcodeproj">
             </BuildableReference>
@@ -30,7 +30,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CEA350B321D7529400543AE2"
-               BuildableName = "margin.app"
+               BuildableName = "Margin Ticker.app"
                BlueprintName = "margin"
                ReferencedContainer = "container:margin.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CED70C0B230D7D030025B5CD"
-            BuildableName = "BitmexWidget.appex"
+            BuildableName = "Margin Ticker Widget.appex"
             BlueprintName = "BitmexWidget"
             ReferencedContainer = "container:margin.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CED70C0B230D7D030025B5CD"
-            BuildableName = "BitmexWidget.appex"
+            BuildableName = "Margin Ticker Widget.appex"
             BlueprintName = "BitmexWidget"
             ReferencedContainer = "container:margin.xcodeproj">
          </BuildableReference>
@@ -88,7 +88,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CEA350B321D7529400543AE2"
-            BuildableName = "margin.app"
+            BuildableName = "Margin Ticker.app"
             BlueprintName = "margin"
             ReferencedContainer = "container:margin.xcodeproj">
          </BuildableReference>

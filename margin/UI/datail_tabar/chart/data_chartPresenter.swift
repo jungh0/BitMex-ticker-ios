@@ -183,7 +183,7 @@ class data_chartPresenter{
     
     private func make_dollar_text(str:String) -> String{
         let to_num = NSString(string: str)
-        if (to_num.doubleValue > 1){
+        if (to_num.doubleValue > 0.1){
             return str
         }else{
             let dollar_ = NSString(string: get_c_list()[0][1])

@@ -42,7 +42,7 @@
 		CED70C0E230D7D030025B5CD /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED70C0D230D7D030025B5CD /* NotificationCenter.framework */; };
 		CED70C11230D7D030025B5CD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C10230D7D030025B5CD /* TodayViewController.swift */; };
 		CED70C14230D7D030025B5CD /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED70C12230D7D030025B5CD /* MainInterface.storyboard */; };
-		CED70C18230D7D030025B5CD /* BitmexWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CED70C0C230D7D030025B5CD /* BitmexWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CED70C18230D7D030025B5CD /* Margin Ticker Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CED70C0C230D7D030025B5CD /* Margin Ticker Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CED70C1E230D81370025B5CD /* dataSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C1D230D81370025B5CD /* dataSave.swift */; };
 		CED70C20230D82E70025B5CD /* strFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C1F230D82E70025B5CD /* strFunc.swift */; };
 		CED70C29230D8A8B0025B5CD /* requestHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70C28230D8A8B0025B5CD /* requestHTTP.swift */; };
@@ -85,7 +85,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				CED70C18230D7D030025B5CD /* BitmexWidget.appex in Embed App Extensions */,
+				CED70C18230D7D030025B5CD /* Margin Ticker Widget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,7 +120,7 @@
 		CE8F82A0234D00D500EBB172 /* hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hud.swift; sourceTree = "<group>"; };
 		CE96128722018C2D00FC0D54 /* datail_tabar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datail_tabar.swift; sourceTree = "<group>"; };
 		CE9FA94122BA5DE500289395 /* data_alertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_alertPresenter.swift; sourceTree = "<group>"; };
-		CEA350B421D7529400543AE2 /* margin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = margin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEA350B421D7529400543AE2 /* Margin Ticker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Margin Ticker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA350B721D7529400543AE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEA350BE21D7529400543AE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEA350C021D7529600543AE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 		CEA6E96722226236004405E3 /* data_details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_details.swift; sourceTree = "<group>"; };
 		CED70C04230A78060025B5CD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CED70C06230BE6E10025B5CD /* check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = check.swift; sourceTree = "<group>"; };
-		CED70C0C230D7D030025B5CD /* BitmexWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BitmexWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED70C0C230D7D030025B5CD /* Margin Ticker Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Margin Ticker Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED70C0D230D7D030025B5CD /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		CED70C10230D7D030025B5CD /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		CED70C13230D7D030025B5CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -347,10 +347,10 @@
 		CEA350B521D7529400543AE2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CEA350B421D7529400543AE2 /* margin.app */,
+				CEA350B421D7529400543AE2 /* Margin Ticker.app */,
 				CEA350CA21D7529600543AE2 /* marginTests.xctest */,
 				CEA350D521D7529600543AE2 /* marginUITests.xctest */,
-				CED70C0C230D7D030025B5CD /* BitmexWidget.appex */,
+				CED70C0C230D7D030025B5CD /* Margin Ticker Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -433,7 +433,7 @@
 			);
 			name = margin;
 			productName = margin;
-			productReference = CEA350B421D7529400543AE2 /* margin.app */;
+			productReference = CEA350B421D7529400543AE2 /* Margin Ticker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CEA350C921D7529600543AE2 /* marginTests */ = {
@@ -488,7 +488,7 @@
 			);
 			name = BitmexWidget;
 			productName = BitmexWidget;
-			productReference = CED70C0C230D7D030025B5CD /* BitmexWidget.appex */;
+			productReference = CED70C0C230D7D030025B5CD /* Margin Ticker Widget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -918,7 +918,7 @@
 				CODE_SIGN_ENTITLEMENTS = margin/margin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
 				INFOPLIST_FILE = margin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -926,10 +926,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.14;
+				MARKETING_VERSION = 1.6.15;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Margin Ticker";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -945,7 +945,7 @@
 				CODE_SIGN_ENTITLEMENTS = margin/margin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
 				INFOPLIST_FILE = margin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -953,10 +953,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.14;
+				MARKETING_VERSION = 1.6.15;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Margin Ticker";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1054,7 +1054,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BitmexWidget/BitmexWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
 				INFOPLIST_FILE = BitmexWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1063,10 +1063,10 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.6.14;
+				MARKETING_VERSION = 1.6.15;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin.BitmexWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Margin Ticker Widget";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1078,7 +1078,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BitmexWidget/BitmexWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
 				INFOPLIST_FILE = BitmexWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1087,10 +1087,10 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.6.14;
+				MARKETING_VERSION = 1.6.15;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin.BitmexWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Margin Ticker Widget";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

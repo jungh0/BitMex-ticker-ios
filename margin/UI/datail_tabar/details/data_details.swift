@@ -83,11 +83,11 @@ extension data_details: DetailView {
     }
     
     func show_hud(){
-        margin.show_hud(self.view,"Loading")
+        Margin_Ticker.show_hud(self.view,"Loading")
     }
     
     func hide_hud(){
-        margin.dissmiss_hud()
+        Margin_Ticker.dissmiss_hud()
     }
     
     func reload_table(){
