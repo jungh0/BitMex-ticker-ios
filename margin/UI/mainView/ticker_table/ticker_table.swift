@@ -217,7 +217,7 @@ class ticker_table: UITableViewController{
                 }
                 
                 if(beta != ""){
-                    if (beta.contains("3648242349iapp")){
+                    if (beta.contains("3648242349iapp1")){
                         closeiap = true
                     }
                 }

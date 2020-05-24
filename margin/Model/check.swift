@@ -20,7 +20,7 @@ func receiptValidation(vv:UserView) {
     if (recieptString != nil){
         setData("riap", recieptString as Any)
         let jsonDict: [String: AnyObject] = ["receipt-data" : recieptString! as AnyObject, "password" : aa as AnyObject]
-        //print(jsonDict.description + "=======")
+        //print(jsonDict.description + "=iap")
         rcheck(jsonDict: jsonDict,vview: vv,pop: true)
     }
 }
@@ -29,7 +29,7 @@ func receiptValidation2(vv:UserView) {
     let recieptString = getData("riap")
     if (recieptString != ""){
         let jsonDict: [String: AnyObject] = ["receipt-data" : recieptString as AnyObject, "password" : aa as AnyObject]
-        //print(jsonDict.description + "=======")
+        //print(jsonDict.description + "=iap")
         rcheck(jsonDict: jsonDict,vview: vv,pop: false)
     }else{
         var userView : UserView?
@@ -51,26 +51,33 @@ func rcheck(jsonDict:[String: AnyObject],vview:UserView,pop:Bool){
         let task = session.dataTask(with: storeRequest, completionHandler: { data, response, error in
             
             do {
+//                let result = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)! as String
+//                print("------------------------------------------")
+//                print("=======>",result)
+//                print("------------------------------------------")
                 let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)
-                //                print("------------------------------------------")
-                //                print("=======>",jsonResponse)
-                //                print("------------------------------------------")
+
                 if let date = getExpirationDateFromResponse(jsonResponse as! NSDictionary) {
-                    let nowdate = Date()
-                    let formatter = DateFormatter()
-                    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss VV"
-                    formatter.timeZone = TimeZone(secondsFromGMT:0)
-                    let tmp = formatter.string(from: nowdate)
-                    let defaultTimeZoneStr = formatter.date(from: tmp)
-                    
-                    print(defaultTimeZoneStr!.description + "======")
-                    print(date.description + "======")
-                    
+//                    print("now here")
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd VV"
                     dateFormatter.timeZone = TimeZone.current
-                    let exdate = dateFormatter.string(from: date)
-                    print(exdate.description + "======2")
+                    
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss VV"
+                    formatter.timeZone = TimeZone(secondsFromGMT:0)
+                    
+                    let nowdate = Date()
+                    
+                    let tmp = formatter.string(from: nowdate)
+                    let now = formatter.date(from: tmp)
+                    print(now!.description + "=iap date now")
+                    
+                    print(date.description + "=iap date pay")
+                    
+                    let tmp1 = dateFormatter.string(from: date)
+                    let exdate = dateFormatter.date(from: tmp1)
+                    print(exdate!.description + "=iap date expire")
                     
                     if (nowdate < date){
                         beta = true
@@ -81,7 +88,7 @@ func rcheck(jsonDict:[String: AnyObject],vview:UserView,pop:Bool){
                             }
                         }
                         if let userDefaults = UserDefaults(suiteName: "group.margin.symbol") {
-                            userDefaults.set(exdate.description, forKey: "exdate")
+                            userDefaults.set(exdate!.description, forKey: "exdate")
                             userDefaults.set("true", forKey: "orp")
                         }
                     }else{
@@ -124,13 +131,12 @@ func fail(_ vview: UserView){
 func getExpirationDateFromResponse(_ jsonResponse: NSDictionary) -> Date? {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd HH:mm:ss VV"
-    
+//    print(jsonResponse)
     if let receiptInfo: NSArray = jsonResponse["latest_receipt_info"] as? NSArray {
-        
-        print(receiptInfo)
-        print("=========================111")
+//        print("------------------------------------------")
+//        print("=======>",receiptInfo)
+//        print("------------------------------------------")
         let lastReceipt = receiptInfo.lastObject as! NSDictionary
-        
         
         if let expiresDate = lastReceipt["expires_date"] as? String {
             return formatter.date(from: expiresDate)

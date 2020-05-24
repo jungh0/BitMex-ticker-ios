@@ -6,7 +6,9 @@
 	<string>development</string>
 	<key>com.apple.security.application-groups</key>
 	<array>
+		<string>group.jungcode.coin</string>
 		<string>group.margin.symbol</string>
+		<string>group.jungcode.coin_wallet</string>
 	</array>
 </dict>
 </plist>
