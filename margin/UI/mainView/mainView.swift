@@ -58,10 +58,10 @@ class mainView: UINavigationController {
         let isnoti = UserDefaults.standard.value(forKey: appVersion)
         if (isnoti == nil){
             UserDefaults.standard.set("aa", forKey: appVersion)
-            DispatchQueue.main.async {
-                showAlert(self, "Update History",
-                          "Bugs fixed")
-            }
+//            DispatchQueue.main.async {
+//                showAlert(self, "Update History",
+//                          "Bugs fixed")
+//            }
         }
     }
     
