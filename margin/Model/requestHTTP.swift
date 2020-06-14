@@ -20,3 +20,4 @@ func requestHTTP(url:String, completion: @escaping (String)->()){
     }
     taskk2.resume()
 }
+

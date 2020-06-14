@@ -10,6 +10,31 @@ import Foundation
 
 extension String {
     
+    func base64Encoded() -> String? {
+            if let data = self.data(using: .utf8) {
+                return data.base64EncodedString()
+            }
+            return nil
+        }
+
+    //: ### Base64 decoding a string
+        func base64Decoded() -> String? {
+            if let data = Data(base64Encoded: self) {
+                return String(data: data, encoding: .utf8)
+            }
+            return nil
+        }
+    
+    func fromBase64() -> String? {
+            guard let data = Data(base64Encoded: self) else {
+                    return nil
+            }
+            return String(data: data, encoding: .utf8)
+    }
+    func toBase64() -> String {
+            return Data(self.utf8).base64EncodedString()
+    }
+    
     func replace(_ target: String, _ withString: String) -> String {
         return self.replacingOccurrences(of: target, with: withString,
                                          options: NSString.CompareOptions.literal, range: nil)
