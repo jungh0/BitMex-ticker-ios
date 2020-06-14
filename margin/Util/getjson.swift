@@ -20,7 +20,7 @@ func getjson(json:String,str:String) -> String{
     } catch {}
     return ""
 }
-let aa = "2dab09aaa81a4bef82c0389d0885d920"
+
 func getAnyJson(json:String,str:String) -> Any?{
     let data_j = json.data(using: String.Encoding.utf8)
     do {

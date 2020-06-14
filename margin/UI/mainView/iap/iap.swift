@@ -90,7 +90,7 @@ class iap: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObse
     }
     
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-        print("===restored")
+        print("===TransactionsFinished", "mydebugog")
         //dissmiss_hud()
         //show_hud(self.view,"Restoring\nPurchase")
         receiptValidation(vv: userView!)
@@ -104,32 +104,26 @@ class iap: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObse
                 switch trans.transactionState {
                 case .purchased:
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
-                    print("===Success")
+                    print("===Success", "mydebugog")
                     UserDefaults.standard.setValue(productID, forKey: "currentSubscription")
-                    //dissmiss_hud()
-                    
-                    //show_hud(self.view,"Restoring\nPurchase")
-                    receiptValidation(vv: userView!)
+                    //receiptValidation(vv: userView!)
                     break
                 case .failed:
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
-                    print("===Fail")
+                    print("===Fail", "mydebugog")
                     SKPaymentQueue.default().restoreCompletedTransactions()
                     dissmiss_hud()
                     break
                 case .restored:
-                    print("===restored")
-                    //dissmiss_hud()
-                    
-                    //show_hud(self.view,"Restoring\nPurchase")
-                    receiptValidation(vv: userView!)
+                    print("===restored", "mydebugog")
+                    //receiptValidation(vv: userView!)
                     SKPaymentQueue.default().restoreCompletedTransactions()
                     break
                 case .purchasing:
                     show_hud(self.view,"Payment\nLoading")
                     break
                 default:
-                    print("===unkown")
+                    print("===unkown", "mydebugog")
                     dissmiss_hud()
                     break
                 }
@@ -137,8 +131,5 @@ class iap: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObse
         }
     }
     
-    
-    
-    //iappppppppppppppppp
 }
 
