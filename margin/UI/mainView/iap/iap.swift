@@ -106,7 +106,7 @@ class iap: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObse
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
                     print("===Success", "mydebugog")
                     UserDefaults.standard.setValue(productID, forKey: "currentSubscription")
-                    //receiptValidation(vv: userView!)
+                    receiptValidation(vv: userView!)
                     break
                 case .failed:
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
@@ -116,7 +116,7 @@ class iap: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObse
                     break
                 case .restored:
                     print("===restored", "mydebugog")
-                    //receiptValidation(vv: userView!)
+                    receiptValidation(vv: userView!)
                     SKPaymentQueue.default().restoreCompletedTransactions()
                     break
                 case .purchasing:

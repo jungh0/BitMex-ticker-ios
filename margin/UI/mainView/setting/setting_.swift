@@ -80,7 +80,8 @@ class setting_: UITableViewController {
         
         let exdate = getDataShare("exdate")
         if (exdate != ""){
-            proUpgradeT.text = "Expire : " + exdate
+            proUpgradeT.text = "PRO Actived"
+//            proUpgradeT.text = "Expire : " + exdate
         }
     }
     

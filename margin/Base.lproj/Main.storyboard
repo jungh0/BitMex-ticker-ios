@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3EG-si-dbS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3EG-si-dbS">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Ticker-->
         <scene sceneID="fWS-Oj-gs5">
             <objects>
-                <tableViewController id="oKq-Zr-INM" customClass="ticker_table" customModule="margin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="oKq-Zr-INM" customClass="ticker_table" customModule="Margin_Ticker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bouncesZoom="NO" dataMode="prototypes" style="plain" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jer-ub-Wj8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,18 +23,18 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHg-Xu-yFB">
                                     <rect key="frame" x="0.0" y="15" width="375" height="40"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Percent : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnH-Hi-ey9">
-                                            <rect key="frame" x="15" y="9.5" width="140" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Percent" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnH-Hi-ey9">
+                                            <rect key="frame" x="15" y="9.5" width="135" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="140" id="3f7-Ff-F9Y"/>
+                                                <constraint firstAttribute="width" constant="135" id="3f7-Ff-F9Y"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCK-no-t6J">
-                                            <rect key="frame" x="165" y="10.5" width="195" height="19.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <rect key="frame" x="160" y="10" width="200" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -52,18 +52,18 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVW-MA-Q9C">
                                     <rect key="frame" x="0.0" y="55" width="375" height="40"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC Dominance :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ka1-sV-0X0">
-                                            <rect key="frame" x="15" y="9.5" width="140" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC Dominance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ka1-sV-0X0">
+                                            <rect key="frame" x="15" y="9.5" width="135" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="140" id="DBq-sY-Qkr"/>
+                                                <constraint firstAttribute="width" constant="135" id="DBq-sY-Qkr"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRE-Ry-WD4">
-                                            <rect key="frame" x="165" y="10.5" width="195" height="19.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <rect key="frame" x="160" y="10" width="200" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -122,7 +122,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ticker_cell" rowHeight="70" id="ktd-qb-Nn8" customClass="ticker_cell" customModule="margin" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ticker_cell" rowHeight="70" id="ktd-qb-Nn8" customClass="ticker_cell" customModule="Margin_Ticker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="178" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ktd-qb-Nn8" id="M2U-zG-CYw">
@@ -230,7 +230,7 @@
         <!--Item-->
         <scene sceneID="bfq-qp-jRU">
             <objects>
-                <viewController storyboardIdentifier="data_chart" wantsFullScreenLayout="YES" hidesBottomBarWhenPushed="YES" id="0ZG-zq-kLK" customClass="data_chart" customModule="margin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="data_chart" wantsFullScreenLayout="YES" hidesBottomBarWhenPushed="YES" id="0ZG-zq-kLK" customClass="data_chart" customModule="Margin_Ticker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bxB-7W-EtC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -377,7 +377,7 @@
         <!--Home-->
         <scene sceneID="bLv-JS-72k">
             <objects>
-                <navigationController id="3EG-si-dbS" customClass="mainView" customModule="margin" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="3EG-si-dbS" customClass="mainView" customModule="Margin_Ticker" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="04t-ZL-Dvw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="SdR-g4-dB0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -395,7 +395,7 @@
         <!--Datail tabar-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="datail_tabar" id="49e-Tb-3d3" customClass="datail_tabar" customModule="margin" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="datail_tabar" id="49e-Tb-3d3" customClass="datail_tabar" customModule="Margin_Ticker" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="mfI-c2-nUv"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -416,7 +416,7 @@
         <!--Details-->
         <scene sceneID="xM9-iy-dJp">
             <objects>
-                <tableViewController id="Y4t-ma-Xv5" customClass="data_details" customModule="margin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Y4t-ma-Xv5" customClass="data_details" customModule="Margin_Ticker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="dum-FE-ezK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -466,7 +466,7 @@
         <!--Orderbook-->
         <scene sceneID="gYU-SQ-n0n">
             <objects>
-                <viewController id="G0u-Kl-3qC" customClass="orderbook" customModule="margin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="G0u-Kl-3qC" customClass="orderbook" customModule="Margin_Ticker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VLS-c5-cUs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -528,7 +528,7 @@
                                         <rect key="frame" x="0.0" y="55" width="355" height="439"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="order_cell2" id="EWt-ca-QVx" customClass="order_cell2" customModule="margin" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="order_cell2" id="EWt-ca-QVx" customClass="order_cell2" customModule="Margin_Ticker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="355" height="35"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EWt-ca-QVx" id="SsA-AF-Qdv">
@@ -649,7 +649,7 @@
         <!--Setting-->
         <scene sceneID="pbC-ha-2xG">
             <objects>
-                <tableViewController storyboardIdentifier="setting_" id="EPW-x5-zA0" customClass="setting_" customModule="margin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="setting_" id="EPW-x5-zA0" customClass="setting_" customModule="Margin_Ticker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="oIk-Ny-QCd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -828,7 +828,7 @@
         <!--Subscribe Now-->
         <scene sceneID="HNb-A4-dZU">
             <objects>
-                <viewController storyboardIdentifier="iap" title="Subscribe Now" id="DRX-p1-6Uh" customClass="iap" customModule="margin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="iap" title="Subscribe Now" id="DRX-p1-6Uh" customClass="iap" customModule="Margin_Ticker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ofg-h1-OMa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -983,7 +983,7 @@
         <!--Alert-->
         <scene sceneID="3AL-QY-LJ5">
             <objects>
-                <viewController id="YfR-g4-wje" customClass="data_alert" customModule="margin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YfR-g4-wje" customClass="data_alert" customModule="Margin_Ticker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rAy-1T-V6x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1052,7 +1052,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="alertCell" id="wGw-3t-3tb" customClass="alertCell" customModule="margin" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="alertCell" id="wGw-3t-3tb" customClass="alertCell" customModule="Margin_Ticker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="355" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wGw-3t-3tb" id="Kfu-1f-bPW">
