@@ -918,7 +918,7 @@
 				CODE_SIGN_ENTITLEMENTS = margin/margin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
 				INFOPLIST_FILE = margin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -926,7 +926,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.18;
+				MARKETING_VERSION = 1.6.20;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin;
 				PRODUCT_NAME = "Margin Ticker";
@@ -945,7 +945,7 @@
 				CODE_SIGN_ENTITLEMENTS = margin/margin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
 				INFOPLIST_FILE = margin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -953,7 +953,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.18;
+				MARKETING_VERSION = 1.6.20;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin;
 				PRODUCT_NAME = "Margin Ticker";
@@ -1054,7 +1054,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BitmexWidget/BitmexWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
 				INFOPLIST_FILE = BitmexWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1063,7 +1063,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.6.18;
+				MARKETING_VERSION = 1.6.20;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin.BitmexWidget;
 				PRODUCT_NAME = "Margin Ticker Widget";
@@ -1078,7 +1078,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BitmexWidget/BitmexWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = V8NQD3S88F;
 				INFOPLIST_FILE = BitmexWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1087,7 +1087,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.6.18;
+				MARKETING_VERSION = 1.6.20;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = jungcode.margin.BitmexWidget;
 				PRODUCT_NAME = "Margin Ticker Widget";

@@ -60,7 +60,7 @@ class ticker_table: UITableViewController{
     
     override func viewWillAppear(_ animated: Bool){
         navigationController?.navigationBar.tintColor = .white
-        self.title = "Ticker For BitMEX"
+        self.title = "Margin Ticker"
         userPresenter.updateList()
     }
     
